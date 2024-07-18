@@ -1,0 +1,22 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #ffef6d;
+  color: black;
+  cursor: pointer;
+}
+
+.main:hover {
+  background-color: black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  transition: box-shadow ease-in-out 0.2s;
+}
+
+.main:active {
+  box-shadow: none;
+  transition: box-shadow ease-in-out 0.2s;
+}
