@@ -9,7 +9,7 @@ interface PriceTagProps {
 }
 
 const poppins = Poppins({
-  weight: "500",
+  weight: "600",
   subsets: ["latin"],
   display: "swap",
 });
