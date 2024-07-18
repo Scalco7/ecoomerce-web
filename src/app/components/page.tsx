@@ -1,6 +1,6 @@
 "use client";
 
-import CartCount from "@/components/atoms/cartCount";
+import CartCount from "@/components/atoms/cartCount/cartCount";
 
 export default function Components() {
   return (
