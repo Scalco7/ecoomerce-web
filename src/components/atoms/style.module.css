@@ -1,0 +1,24 @@
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+
+.redBox {
+  position: absolute;
+  background-color: #eb001b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 20px;
+  top: -7px;
+  right: -7px;
+}
+
+.text {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
