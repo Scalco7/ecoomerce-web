@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Zilla_Slab } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  weight: "500",
+const zillaSlab = Zilla_Slab({
+  weight: "600",
   subsets: ["latin"],
   display: "swap",
 });
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={zillaSlab.className}>{children}</body>
     </html>
   );
 }

@@ -2,6 +2,7 @@
 
 import CartCount from "@/components/atoms/cartCount/cartCount";
 import PriceTag from "@/components/atoms/priceTag/priceTag";
+import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 
 export default function Components() {
   return (
@@ -68,6 +69,23 @@ export default function Components() {
             price={109.9}
             onClick={() => {
               console.log("quero comprar");
+            }}
+          />
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+          }}
+        >
+          <SecondaryButton
+            width="300px"
+            height="40px"
+            fontSize={20}
+            text="Finalizar compra"
+            onClick={() => {
+              console.log("clicou no botão");
             }}
           />
         </div>
