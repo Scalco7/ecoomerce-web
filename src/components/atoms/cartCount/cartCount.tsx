@@ -1,6 +1,7 @@
 import { Anton } from "next/font/google";
 import Image from "next/image";
 import styles from "./style.module.css";
+import CartIcon from "../cartIcon/cartIcon";
 
 interface CartCountProps {
   quantity: number;
@@ -21,13 +22,7 @@ export default function CartCount({ quantity, onClick }: CartCountProps) {
           <p className={`${styles.text} ${anton.className}`}>{quantity}</p>
         </section>
       )}
-      <Image
-        src={"/cart.svg"}
-        alt={"Carrinho"}
-        width={40}
-        height={40}
-        priority
-      />
+      <CartIcon size={40} color={"white"} />
     </main>
   );
 }

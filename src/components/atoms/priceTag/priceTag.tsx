@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./styles.module.css";
+import CartIcon from "../cartIcon/cartIcon";
 
 interface PriceTagProps {
   price: number;
@@ -33,13 +34,7 @@ export default function PriceTag({ price, onClick }: PriceTagProps) {
       onMouseLeave={handleOnMouseLeave}
     >
       {isHover ? (
-        <Image
-          src={"/cart.svg"}
-          alt={"Carrinho"}
-          width={24}
-          height={24}
-          priority
-        />
+        <CartIcon size={24} color={"white"} />
       ) : (
         <p>R$ {price.toFixed(2)}</p>
       )}
