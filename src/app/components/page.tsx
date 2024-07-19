@@ -2,6 +2,7 @@
 
 import CartCount from "@/components/atoms/cartCount/cartCount";
 import PriceTag from "@/components/atoms/priceTag/priceTag";
+import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 
 export default function Components() {
@@ -86,6 +87,43 @@ export default function Components() {
             text="Finalizar compra"
             onClick={() => {
               console.log("clicou no botão");
+            }}
+          />
+
+          <PrimaryButton
+            text={"Comprar agora"}
+            rounded={true}
+            isDark={true}
+            width={"390px"}
+            height={"100px"}
+            fontSize={40}
+            iconSize={50}
+            onClick={() => {
+              console.log("clicou no outro botão");
+            }}
+          />
+
+          <PrimaryButton
+            rounded={false}
+            isDark={false}
+            width={"360px"}
+            height={"70px"}
+            fontSize={40}
+            iconSize={40}
+            onClick={() => {
+              console.log("clicou no outro botão");
+            }}
+          />
+
+          <PrimaryButton
+            rounded={false}
+            isDark={true}
+            width={"360px"}
+            height={"70px"}
+            fontSize={40}
+            iconSize={40}
+            onClick={() => {
+              console.log("clicou no outro botão");
             }}
           />
         </div>
