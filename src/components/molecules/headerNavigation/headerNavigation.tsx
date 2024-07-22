@@ -1,9 +1,9 @@
 import Image from "next/image";
-import styles from "./styles.module.css";
+import styles from "./style.module.css";
 import CartCount from "@/components/atoms/cartCount/cartCount";
 import { Poppins } from "next/font/google";
 import { usePathname, useRouter } from "next/navigation";
-import CartIcon from "@/components/icons/cartIcon/cartIcon";
+
 import HamburguerMenuIcon from "@/components/icons/hamburguerMenuIcon/hamburguerMenuIcon";
 import { useState } from "react";
 import CloseIcon from "@/components/icons/closeIcon/closeIcon";
