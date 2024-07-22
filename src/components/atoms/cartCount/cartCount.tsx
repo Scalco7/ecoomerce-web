@@ -4,6 +4,7 @@ import CartIcon from "../cartIcon/cartIcon";
 
 interface CartCountProps {
   quantity: number;
+  fontSize: number;
   onClick: () => void;
 }
 
@@ -13,15 +14,24 @@ const anton = Anton({
   display: "swap",
 });
 
-export default function CartCount({ quantity, onClick }: CartCountProps) {
+export default function CartCount({
+  quantity,
+  fontSize,
+  onClick,
+}: CartCountProps) {
   return (
     <main className={styles.cart} onClick={onClick}>
       {quantity > 0 && (
         <section className={styles.redBox}>
-          <p className={`${styles.text} ${anton.className}`}>{quantity}</p>
+          <p
+            className={`${styles.text} ${anton.className}`}
+            style={{ fontSize: fontSize }}
+          >
+            {quantity}
+          </p>
         </section>
       )}
-      <CartIcon size={40} color={"white"} />
+      <CartIcon size={"100%"} color={"white"} />
     </main>
   );
 }

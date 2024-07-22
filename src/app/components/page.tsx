@@ -5,6 +5,7 @@ import PriceTag from "@/components/atoms/priceTag/priceTag";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import ProductQuantityInput from "@/components/atoms/productQuantityInput/productQuantityInput";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
+import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import { useState } from "react";
 
 export default function Components() {
@@ -12,6 +13,9 @@ export default function Components() {
 
   return (
     <main>
+      <div style={{ width: "100%" }}>
+        <HeaderNavigation />
+      </div>
       <h2>Aqui vão ter vários components</h2>
       <div
         style={{
@@ -33,24 +37,34 @@ export default function Components() {
             gap: "20px",
           }}
         >
-          <CartCount
-            quantity={0}
-            onClick={() => {
-              console.log("clicou");
-            }}
-          />
-          <CartCount
-            quantity={5}
-            onClick={() => {
-              console.log("clicou");
-            }}
-          />
-          <CartCount
-            quantity={10}
-            onClick={() => {
-              console.log("clicou");
-            }}
-          />
+          <div style={{ width: "30px" }}>
+            <CartCount
+              fontSize={14}
+              quantity={0}
+              onClick={() => {
+                console.log("clicou");
+              }}
+            />
+          </div>
+
+          <div style={{ width: "30px" }}>
+            <CartCount
+              fontSize={14}
+              quantity={5}
+              onClick={() => {
+                console.log("clicou");
+              }}
+            />
+          </div>
+          <div style={{ width: "30px" }}>
+            <CartCount
+              fontSize={14}
+              quantity={10}
+              onClick={() => {
+                console.log("clicou");
+              }}
+            />
+          </div>
         </div>
         <div
           style={{

@@ -1,5 +1,5 @@
 interface CartIconProps {
-  size: number;
+  size: number | string;
   color: string;
 }
 
