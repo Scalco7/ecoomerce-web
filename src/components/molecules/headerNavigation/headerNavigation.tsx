@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import CartCount from "@/components/atoms/cartCount/cartCount";
 import { Poppins } from "next/font/google";
+import { usePathname, useRouter } from "next/navigation";
 
 const poppins = Poppins({
   weight: ["400", "600"],
@@ -9,7 +10,16 @@ const poppins = Poppins({
   display: "swap",
 });
 
-export default function HeaderNavigation() {
+interface INavigationRoute {
+  name: string;
+  selected: boolean;
+  onClick: () => void;
+}
+
+function getRoutes(): INavigationRoute[] {
+  const pathName = usePathname();
+  const router = useRouter();
+
   const routes = [
     {
       name: "home",
@@ -18,10 +28,23 @@ export default function HeaderNavigation() {
     },
     {
       name: "shop",
-      selected: true,
+      selected: false,
       onClick: () => {},
     },
   ];
+
+  routes.forEach((route) => {
+    route.selected = pathName == `/${route.name}`;
+    route.onClick = () => {
+      if (!route.selected) router.push(route.name);
+    };
+  });
+
+  return routes;
+}
+
+export default function HeaderNavigation() {
+  const routes = getRoutes();
 
   return (
     <main className={styles.main}>
