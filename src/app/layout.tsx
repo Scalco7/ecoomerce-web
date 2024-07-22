@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Zilla_Slab } from "next/font/google";
 import "./globals.css";
+import "./reset.css";
 
 const zillaSlab = Zilla_Slab({
   weight: "600",
