@@ -20,36 +20,36 @@ interface INavigationRoute {
   onClick: () => void;
 }
 
-function getRoutes(): INavigationRoute[] {
+export default function HeaderNavigation() {
+  const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const pathName = usePathname();
   const router = useRouter();
 
-  const routes = [
-    {
-      name: "home",
-      selected: false,
-      onClick: () => {},
-    },
-    {
-      name: "shop",
-      selected: false,
-      onClick: () => {},
-    },
-  ];
-
-  routes.forEach((route) => {
-    route.selected = pathName == `/${route.name}`;
-    route.onClick = () => {
-      if (!route.selected) router.push(route.name);
-    };
-  });
-
-  return routes;
-}
-
-export default function HeaderNavigation() {
-  const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const routes = getRoutes();
+
+  function getRoutes(): INavigationRoute[] {
+    const routes = [
+      {
+        name: "home",
+        selected: false,
+        onClick: () => {},
+      },
+      {
+        name: "shop",
+        selected: false,
+        onClick: () => {},
+      },
+    ];
+
+    routes.forEach((route) => {
+      route.selected = pathName == `/${route.name}`;
+      route.onClick = () => {
+        if (!route.selected) router.push(route.name);
+      };
+    });
+
+    return routes;
+  }
 
   const routesComponent = routes.map((route, index) => (
     <p
