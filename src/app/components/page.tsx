@@ -6,6 +6,7 @@ import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import ProductQuantityInput from "@/components/atoms/productQuantityInput/productQuantityInput";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
+import ProductBox from "@/components/molecules/productBox/productBox";
 import { useState } from "react";
 
 export default function Components() {
@@ -159,6 +160,26 @@ export default function Components() {
             onChange={(value: number) => {
               setProductQuantity(value);
               console.log("mudou quantidade - ", value);
+            }}
+          />
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            width: "100%",
+          }}
+        >
+          <ProductBox
+            width="200px"
+            colorScheme={"yellow"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné",
+              price: 89,
+              promotionPrice: 79,
             }}
           />
         </div>

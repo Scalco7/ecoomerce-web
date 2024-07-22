@@ -8,7 +8,7 @@ interface PrimaryButtonProps {
   isDark: boolean;
   width: string;
   height: string;
-  fontSize: number;
+  fontSize?: number;
   iconSize: number;
   onClick: () => void;
 }
