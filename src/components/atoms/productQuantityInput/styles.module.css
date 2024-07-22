@@ -1,0 +1,21 @@
+.main {
+  position: relative;
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  border: 2px solid black;
+  color: black;
+}
+
+.changeSection {
+  display: flex;
+  border: none;
+  position: relative;
+  width: fit-content;
+  height: 100%;
+  cursor: pointer;
+}
+
+.text {
+  text-align: center;
+}

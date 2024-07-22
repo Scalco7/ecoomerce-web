@@ -3,9 +3,13 @@
 import CartCount from "@/components/atoms/cartCount/cartCount";
 import PriceTag from "@/components/atoms/priceTag/priceTag";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
+import ProductQuantityInput from "@/components/atoms/productQuantityInput/productQuantityInput";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
+import { useState } from "react";
 
 export default function Components() {
+  const [productQuantity, setProductQuantity] = useState(0);
+
   return (
     <main>
       <h2>Aqui vão ter vários components</h2>
@@ -124,6 +128,23 @@ export default function Components() {
             iconSize={40}
             onClick={() => {
               console.log("clicou no outro botão");
+            }}
+          />
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            width: "100%",
+          }}
+        >
+          <ProductQuantityInput
+            fontSize={16}
+            quantity={productQuantity}
+            onChange={(value: number) => {
+              setProductQuantity(value);
+              console.log("mudou quantidade - ", value);
             }}
           />
         </div>

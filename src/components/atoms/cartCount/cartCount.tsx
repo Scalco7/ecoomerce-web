@@ -1,5 +1,4 @@
 import { Anton } from "next/font/google";
-import Image from "next/image";
 import styles from "./style.module.css";
 import CartIcon from "../cartIcon/cartIcon";
 
