@@ -1,19 +1,22 @@
 interface MinusIconProps {
-  width?: string | number;
-  height?: string | number;
+  size?: string | number;
+  color?: string;
 }
 
-export default function MinusIcon({ width, height }: MinusIconProps) {
+export default function MinusIcon({
+  size = 39,
+  color = "#000",
+}: MinusIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
+      width={size}
+      height={size}
       fill="none"
       viewBox="0 0 39 39"
     >
       <path
-        fill="#000"
+        fill={color}
         d="M26.813 21.938H12.188a2.438 2.438 0 110-4.875h14.624a2.438 2.438 0 110 4.875z"
       ></path>
     </svg>

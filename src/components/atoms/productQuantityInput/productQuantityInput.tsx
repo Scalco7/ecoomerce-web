@@ -33,7 +33,7 @@ export default function ProductQuantityInput({
   return (
     <main className={styles.main}>
       <section className={styles.changeSection} onClick={handleDecrease}>
-        <MinusIcon height={iconsHeight} />
+        <MinusIcon size={iconsHeight} color="black" />
       </section>
       <section
         className={`${poppins.className} ${styles.text}`}
@@ -42,7 +42,7 @@ export default function ProductQuantityInput({
         {quantity}
       </section>
       <section className={styles.changeSection} onClick={handleIncrease}>
-        <PlusIcon height={iconsHeight} />
+        <PlusIcon size={iconsHeight} color="black" />
       </section>
     </main>
   );
