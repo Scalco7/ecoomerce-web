@@ -3,6 +3,10 @@ import styles from "./styles.module.css";
 import CartCount from "@/components/atoms/cartCount/cartCount";
 import { Poppins } from "next/font/google";
 import { usePathname, useRouter } from "next/navigation";
+import CartIcon from "@/components/icons/cartIcon/cartIcon";
+import HamburguerMenuIcon from "@/components/icons/hamburguerMenuIcon/hamburguerMenuIcon";
+import { useState } from "react";
+import CloseIcon from "@/components/icons/closeIcon/closeIcon";
 
 const poppins = Poppins({
   weight: ["400", "600"],
@@ -44,32 +48,50 @@ function getRoutes(): INavigationRoute[] {
 }
 
 export default function HeaderNavigation() {
+  const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const routes = getRoutes();
+
+  const routesComponent = routes.map((route, index) => (
+    <p
+      key={`route-${index}`}
+      onClick={route.onClick}
+      className={`${styles.routeText} ${
+        route.selected ? styles.textSelected : null
+      } ${poppins.className}`}
+    >
+      {route.name}
+    </p>
+  ));
+
+  function handleMobileNavBarOpening() {
+    setMobileNavigationOpen(!mobileNavigationOpen);
+  }
 
   return (
     <main className={styles.main}>
       <section className={styles.logoBox}>
-        <Image
-          objectFit="contain"
-          width={80}
-          height={80}
-          src={"/logo-header.png"}
-          alt={"Logo"}
-        />
+        <div className={styles.logoImg}>
+          <Image
+            objectFit="contain"
+            fill={true}
+            src={"/logo-header.png"}
+            alt={"Logo"}
+          />
+        </div>
       </section>
-      <section className={`${poppins.className} ${styles.navigation}`}>
-        {routes &&
-          routes.map((route, index) => (
-            <p
-              key={`route-${index}`}
-              onClick={route.onClick}
-              className={`${styles.routeText} ${
-                route.selected ? styles.textSelected : null
-              }`}
-            >
-              {route.name}
-            </p>
-          ))}
+      {mobileNavigationOpen && (
+        <section className={styles.mobileNavBar}>{routesComponent}</section>
+      )}
+      <section className={styles.navigationDesktop}>{routesComponent}</section>
+      <section
+        className={`${poppins.className} ${styles.navigationMobile}`}
+        onClick={handleMobileNavBarOpening}
+      >
+        {mobileNavigationOpen ? (
+          <CloseIcon size={30} color="white" />
+        ) : (
+          <HamburguerMenuIcon size={30} strokeWidth={3} color="white" />
+        )}
       </section>
       <div style={{ width: "28px" }}>
         <CartCount
