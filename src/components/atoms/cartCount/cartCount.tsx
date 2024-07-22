@@ -1,6 +1,6 @@
 import { Anton } from "next/font/google";
 import styles from "./style.module.css";
-import CartIcon from "../cartIcon/cartIcon";
+import CartIcon from "../../icons/cartIcon/cartIcon";
 
 interface CartCountProps {
   quantity: number;

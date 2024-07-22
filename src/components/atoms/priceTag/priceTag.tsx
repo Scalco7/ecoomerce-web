@@ -2,7 +2,7 @@ import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./styles.module.css";
-import CartIcon from "../cartIcon/cartIcon";
+import CartIcon from "../../icons/cartIcon/cartIcon";
 
 interface PriceTagProps {
   price: number;

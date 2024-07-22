@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import { Poppins } from "next/font/google";
-import PlusIcon from "../plusIcon/plusIcon";
-import MinusIcon from "../minusIcon/minusIcon";
+import PlusIcon from "../../icons/plusIcon/plusIcon";
+import MinusIcon from "../../icons/minusIcon/minusIcon";
 
 interface ProductQuantityInputProps {
   fontSize: number;
