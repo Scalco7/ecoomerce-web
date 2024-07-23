@@ -1,12 +1,6 @@
-interface CloseIconProps {
-  size?: string | number;
-  color?: string;
-}
+import { IconsProps } from "../icons.props";
 
-export default function CloseIcon({
-  size = 30,
-  color = "#fff",
-}: CloseIconProps) {
+export default function CloseIcon({ size = 30, color = "#fff" }: IconsProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

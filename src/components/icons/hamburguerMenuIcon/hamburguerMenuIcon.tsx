@@ -1,7 +1,7 @@
-interface HamburguerMenuIconProps {
-  size?: string | number;
+import { IconsProps } from "../icons.props";
+
+interface HamburguerMenuIconProps extends IconsProps {
   strokeWidth?: number;
-  color?: string;
 }
 
 export default function HamburguerMenuIcon({

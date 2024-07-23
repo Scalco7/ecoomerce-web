@@ -1,12 +1,6 @@
-interface MinusIconProps {
-  size?: string | number;
-  color?: string;
-}
+import { IconsProps } from "../icons.props";
 
-export default function MinusIcon({
-  size = 39,
-  color = "#000",
-}: MinusIconProps) {
+export default function MinusIcon({ size = 39, color = "#000" }: IconsProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

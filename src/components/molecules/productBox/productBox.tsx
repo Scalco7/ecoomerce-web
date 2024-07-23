@@ -66,7 +66,6 @@ export default function ProductBox({
           alt={product.name}
           width={500}
           height={500}
-          layout="raw"
         />
       </section>
       <section className={styles.boxInfos}>

@@ -1,9 +1,6 @@
-interface PlusIconProps {
-  size?: string | number;
-  color?: string;
-}
+import { IconsProps } from "../icons.props";
 
-export default function PlusIcon({ size = 39, color = "#000" }: PlusIconProps) {
+export default function PlusIcon({ size = 39, color = "#000" }: IconsProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

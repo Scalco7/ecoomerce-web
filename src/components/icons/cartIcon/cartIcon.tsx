@@ -1,9 +1,6 @@
-interface CartIconProps {
-  size: number | string;
-  color: string;
-}
+import { IconsProps } from "../icons.props";
 
-export default function CartIcon({ size, color }: CartIconProps) {
+export default function CartIcon({ size = 40, color = "#fff" }: IconsProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
