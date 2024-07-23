@@ -77,30 +77,82 @@ export default function Footer() {
         <section className={styles.subMainSection}>
           <section className={styles.section}>
             <p>Meios de pagamento</p>
-            <section className={styles.paymentTypesList}></section>
+            <section className={styles.paymentTypesList}>
+              <Image
+                src={"/payment-methods/Visa.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"Visa"}
+              />
+              <Image
+                src={"/payment-methods/Amex.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"American Express"}
+              />
+              <Image
+                src={"/payment-methods/Hipercard.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"Hipercard"}
+              />
+              <Image
+                src={"/payment-methods/PayPal.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"PayPal"}
+              />
+              <Image
+                src={"/payment-methods/Mastercard.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"Mastercard"}
+              />
+              <Image
+                src={"/payment-methods/Elo.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"Elo"}
+              />
+              <Image
+                src={"/payment-methods/Diners.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"Diners"}
+              />
+              <Image
+                src={"/payment-methods/Pix.svg"}
+                width={0}
+                height={0}
+                style={{ width: "50px", height: "auto" }}
+                alt={"Pix"}
+              />
+            </section>
           </section>
           <section className={styles.section}>
-            <p>Políticas</p>
-            <section
-              className={`${styles.policiesList} ${zillaSlab.className}`}
-            >
-              <Link href="#" target="_blank">
-                Política de entrega
-              </Link>
-              <Link href="#" target="_blank">
-                Política de trocas e devoluções
-              </Link>
-              <Link href="#" target="_blank">
-                Política de privacidade
-              </Link>
-              <Link href="#" target="_blank">
-                Política de prazo e formas de entrega
-              </Link>
-            </section>
+            <Image
+              src={"/security-certificate.png"}
+              alt={"Certificado de segurança"}
+              width={250}
+              height={152}
+            />
           </section>
         </section>
       </main>
-      <footer></footer>
+      <footer className={`${zillaSlab.className} ${styles.footerSection}`}>
+        <p>
+          CNPJ xxxxxxxxxxxx | © Todos os direitos reservados © | Banana Monkey's
+          Company
+        </p>
+        <p>Developed By Felipe Scalco</p>
+      </footer>
     </footer>
   );
 }
