@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "./style.module.css";
 import { Zilla_Slab } from "next/font/google";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 interface FooterProps {}
@@ -16,7 +15,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <main className={styles.main}>
-        <section className={styles.subMainSection}>
+        <section className={styles.linksSection}>
           <section className={styles.section}>
             <p>Redes Sociais</p>
             <section className={styles.instaListBox}>
@@ -74,7 +73,15 @@ export default function Footer() {
             </section>
           </section>
         </section>
-        <section className={styles.subMainSection}>
+        <section className={styles.securitySection}>
+          <section className={styles.section}>
+            <Image
+              src={"/security-certificate.png"}
+              alt={"Certificado de segurança"}
+              width={250}
+              height={152}
+            />
+          </section>
           <section className={styles.section}>
             <p>Meios de pagamento</p>
             <section className={styles.paymentTypesList}>
@@ -136,21 +143,15 @@ export default function Footer() {
               />
             </section>
           </section>
-          <section className={styles.section}>
-            <Image
-              src={"/security-certificate.png"}
-              alt={"Certificado de segurança"}
-              width={250}
-              height={152}
-            />
-          </section>
         </section>
       </main>
       <footer className={`${zillaSlab.className} ${styles.footerSection}`}>
-        <p>
-          CNPJ xxxxxxxxxxxx | © Todos os direitos reservados © | Banana Monkey's
-          Company
-        </p>
+        <section className={styles.footerTexts}>
+          <p>CNPJ xxxxxxxxxxxx</p>
+          <p>| © Todos os direitos reservados © |</p>
+          <p>Banana Monkey's Company</p>
+        </section>
+
         <p>Developed By Felipe Scalco</p>
       </footer>
     </footer>
