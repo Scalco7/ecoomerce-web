@@ -1,0 +1,53 @@
+.footer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 250px;
+  flex-direction: column;
+  background: #323232;
+  color: white;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.subMainSection {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 20px;
+}
+
+.instaListBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.instaNameBox {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.policiesList {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  gap: 2px;
+}
