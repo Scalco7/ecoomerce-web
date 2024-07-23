@@ -22,6 +22,7 @@
 }
 
 .logoImg {
+  position: relative;
   width: 70px;
   height: 70px;
 }
@@ -60,8 +61,8 @@
   background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 10px 15px;
   border-bottom: 1px solid white;
   gap: 20px;

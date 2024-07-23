@@ -72,8 +72,8 @@ export default function HeaderNavigation() {
       <section className={styles.logoBox}>
         <div className={styles.logoImg}>
           <Image
-            objectFit="contain"
             fill={true}
+            sizes="70px"
             src={"/logo-header.png"}
             alt={"Logo"}
           />
