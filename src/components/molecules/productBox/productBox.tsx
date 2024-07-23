@@ -2,6 +2,8 @@ import Image from "next/image";
 import styles from "./style.module.css";
 import { useRouter } from "next/navigation";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
+import { Poppins, Zilla_Slab } from "next/font/google";
+import { formatNumberToValue } from "@/utils/number.utils";
 
 interface ProductBoxProps {
   colorScheme: "white" | "yellow";
@@ -9,6 +11,7 @@ interface ProductBoxProps {
   product: ProductData;
 }
 
+//tirar daqui
 interface ProductData {
   id: string;
   imgUrl: string;
@@ -17,12 +20,17 @@ interface ProductData {
   promotionPrice: number;
 }
 
-//colocr função no utils
+const zillaSlab = Zilla_Slab({
+  weight: "700",
+  subsets: ["latin"],
+  display: "swap",
+});
 
-function formatNumberToValue(number: number): string {
-  const value: string = `R$ ${number.toFixed(2)}`;
-  return value;
-}
+const poppins = Poppins({
+  weight: "600",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function ProductBox({
   colorScheme,
@@ -31,35 +39,55 @@ export default function ProductBox({
 }: ProductBoxProps) {
   const router = useRouter();
   const isWhite = colorScheme == "white";
-  const backgroundColor = isWhite ? "white" : "#FFEF6D";
 
   function handleProductClick() {
-    //ir para a página do produto
-    //router.push(`product/${product.id}`);
+    router.push(`product/${product.id}`);
   }
 
   return (
     <main
-      className={styles.main}
-      style={{ width: width }}
+      className={`${styles.main} ${
+        isWhite ? styles.whiteBox : styles.yellowBox
+      }`}
+      style={{ minWidth: width, maxWidth: width }}
       onClick={handleProductClick}
     >
-      <section className={styles.boxImg}>
-        <Image src={product.imgUrl} alt={product.name} fill={true} />
+      <section
+        className={`${styles.boxImg} ${isWhite ? styles.borderBottom : null}`}
+      >
+        <Image
+          style={{
+            objectFit: "contain",
+            position: "relative",
+            height: "fit-content",
+            width: "100%",
+          }}
+          src={product.imgUrl}
+          alt={product.name}
+          width={500}
+          height={500}
+          layout="raw"
+        />
       </section>
-      <section>
+      <section className={styles.boxInfos}>
         <section>
-          <p>+ {product.name}</p>
-          <section>
-            <p>{formatNumberToValue(product.price)}</p>
-            <p>{formatNumberToValue(product.promotionPrice)}</p>
+          <p className={`${zillaSlab.className} ${styles.titleText}`}>
+            + {product.name}
+          </p>
+          <section className={`${poppins.className}`}>
+            <p className={styles.textPrice}>
+              {formatNumberToValue(product.price)}
+            </p>
+            <p className={styles.textPromotionPrice}>
+              {formatNumberToValue(product.promotionPrice)}
+            </p>
           </section>
         </section>
         <PrimaryButton
           rounded={false}
           isDark={!isWhite}
           width={"100%"}
-          height={"fit-content"}
+          height={"40px"}
           iconSize={20}
           onClick={() => console.log("comprando bonéF")}
         />

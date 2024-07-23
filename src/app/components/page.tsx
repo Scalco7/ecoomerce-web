@@ -172,6 +172,39 @@ export default function Components() {
           }}
         >
           <ProductBox
+            width="300px"
+            colorScheme={"yellow"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+          <ProductBox
+            width="200px"
+            colorScheme={"white"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+          <ProductBox
+            width="200px"
+            colorScheme={"white"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+          <ProductBox
             width="200px"
             colorScheme={"yellow"}
             product={{
