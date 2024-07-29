@@ -5,6 +5,7 @@ import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavi
 import Image from "next/image";
 import styles from "./style.module.css";
 import { Anton } from "next/font/google";
+import ProductBox from "@/components/molecules/productBox/productBox";
 
 const anton = Anton({
   weight: "400",
@@ -27,11 +28,69 @@ export default function Home() {
           <p className={`${styles.fistSecondaryText}`}>Descubra a força</p>
         </section>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
 
+      <section className={styles.shopSection}>
+        <header className={styles.titleShopSection}>
+          <p className={styles.titleShopText}>Nosso Estilo</p>
+        </header>
+        <main className={styles.mainShopSection}>
+          <ProductBox
+            width="250px"
+            colorScheme={"yellow"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+          <ProductBox
+            width="250px"
+            colorScheme={"yellow"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+          <ProductBox
+            width="250px"
+            colorScheme={"yellow"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+          <ProductBox
+            width="250px"
+            colorScheme={"yellow"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+          <ProductBox
+            width="250px"
+            colorScheme={"yellow"}
+            product={{
+              id: "",
+              imgUrl: "/teste.png",
+              name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
+              price: 89,
+              promotionPrice: 79,
+            }}
+          />
+        </main>
+      </section>
       <Footer />
     </main>
   );
