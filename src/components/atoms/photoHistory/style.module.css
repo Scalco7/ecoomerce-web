@@ -1,0 +1,29 @@
+.main {
+  background: black;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  padding: 10px 100px;
+}
+
+.infoSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 50%;
+  font-size: 19px;
+  line-height: 25px;
+  padding: 20px 50px;
+}
+
+.title {
+  font-size: 62px;
+}
+
+.imageSection {
+  position: relative;
+  width: 50%;
+}
