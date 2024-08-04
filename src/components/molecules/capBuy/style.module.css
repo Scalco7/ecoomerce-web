@@ -1,0 +1,19 @@
+.main {
+  position: relative;
+  width: 600px;
+  height: 600px;
+}
+
+.priceBoxBlackCap {
+  position: absolute;
+  right: 162px;
+  top: 196px;
+  z-index: 1;
+}
+
+.priceBoxWhiteCap {
+  position: absolute;
+  left: 0px;
+  bottom: 195px;
+  z-index: 1;
+}

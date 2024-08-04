@@ -19,7 +19,7 @@ export default function HistorySection() {
   };
 
   const luidaoHistory = {
-    title: "Luidao",
+    title: "Luidão",
     titleColor: "#FF5F00",
     imageSrc: "/luidao-teste.jpg",
     history:
@@ -46,6 +46,7 @@ export default function HistorySection() {
           <Image
             src={"/monkey-logo-purple.png"}
             alt="logo purple"
+            sizes="300px"
             fill={true}
           />
         </section>

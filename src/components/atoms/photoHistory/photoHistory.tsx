@@ -41,7 +41,13 @@ export default function PhotoHistory({
         <p className={zillaSlab.className}>{history}</p>
       </section>
       <section className={styles.imageSection}>
-        <Image objectFit="contain" src={imageSrc} alt={"Foto"} fill={true} />
+        <Image
+          objectFit="contain"
+          src={imageSrc}
+          alt={"Foto"}
+          sizes="800px"
+          fill={true}
+        />
       </section>
     </main>
   );

@@ -21,6 +21,7 @@ export default function TShirtBuy() {
       <Image
         src="/t-shirt-buy.png"
         alt="Camiseta"
+        sizes="600px"
         fill={true}
         objectFit="contain"
       />

@@ -8,6 +8,7 @@ import ShopSection from "@/components/organisms/homePageSections/shopSection/sho
 import HistorySection from "@/components/organisms/homePageSections/historySection/historySection";
 import TShirtSellSection from "@/components/organisms/homePageSections/tShirtSellSection/tShirtSellSection";
 import YellowTextBanner from "@/components/atoms/yellowTextBanner/yellowTextBanner";
+import CapSellSection from "@/components/organisms/homePageSections/capSellSection/capSellSection";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
         <div style={{ height: 40 }}></div>
         <TShirtSellSection />
         <YellowTextBanner text="Tecidos pensados para seu extremo conforto e versatilidade" />
+        <div style={{ height: 20 }}></div>
+        <CapSellSection />
         <ShopSection />
         <HistorySection />
         <Footer />
