@@ -5,8 +5,8 @@ import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavi
 import styles from "./style.module.css";
 import PresentationSection from "@/components/organisms/homePageSections/presentationSection/presentationSection";
 import ShopSection from "@/components/organisms/homePageSections/shopSection/shopSection";
-import TransitionArrowLines from "@/components/atoms/transitionArrowLines/transitionArrowLines";
 import HistorySection from "@/components/organisms/homePageSections/historySection/historySection";
+import TShirtSellSection from "@/components/organisms/homePageSections/tShirtSellSection/tShirtSellSection";
 
 export default function Home() {
   return (
@@ -15,6 +15,8 @@ export default function Home() {
         <HeaderNavigation />
       </header>
       <PresentationSection />
+      <div style={{ height: 40 }}></div>
+      <TShirtSellSection />
       <ShopSection />
       <HistorySection />
       <Footer />

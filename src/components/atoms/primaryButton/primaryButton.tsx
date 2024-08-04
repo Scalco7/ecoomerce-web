@@ -1,6 +1,5 @@
 import CartIcon from "../../icons/cartIcon/cartIcon";
 import styles from "./styles.module.css";
-import Image from "next/image";
 
 interface PrimaryButtonProps {
   text?: string;
@@ -36,7 +35,7 @@ export default function PrimaryButton({
         fontSize: fontSize,
         background: background,
         color: color,
-        borderRadius: rounded ? "20px" : "0px",
+        borderRadius: rounded ? "15px" : "0px",
         justifyContent: text ? "space-between" : "center",
       }}
     >
