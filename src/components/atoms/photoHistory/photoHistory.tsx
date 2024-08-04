@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./style.module.css";
-import { Sedgwick_Ave_Display } from "next/font/google";
+import { Sedgwick_Ave_Display, Zilla_Slab } from "next/font/google";
 
 export interface PhotoHistoryProps {
   title?: string;
@@ -8,6 +8,12 @@ export interface PhotoHistoryProps {
   history: string;
   imageSrc: string;
 }
+
+const zillaSlab = Zilla_Slab({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const sedgwickAveDisplay = Sedgwick_Ave_Display({
   weight: "400",
@@ -32,7 +38,7 @@ export default function PhotoHistory({
             {title}
           </p>
         )}
-        <p>{history}</p>
+        <p className={zillaSlab.className}>{history}</p>
       </section>
       <section className={styles.imageSection}>
         <Image objectFit="contain" src={imageSrc} alt={"Foto"} fill={true} />

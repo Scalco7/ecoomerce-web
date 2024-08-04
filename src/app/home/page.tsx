@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 import PresentationSection from "@/components/organisms/homePageSections/presentationSection/presentationSection";
 import ShopSection from "@/components/organisms/homePageSections/shopSection/shopSection";
 import TransitionArrowLines from "@/components/atoms/transitionArrowLines/transitionArrowLines";
+import HistorySection from "@/components/organisms/homePageSections/historySection/historySection";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       </header>
       <PresentationSection />
       <ShopSection />
-      <TransitionArrowLines initColor={"#fff"} endColor={"#000"} />
+      <HistorySection />
       <Footer />
     </main>
   );
