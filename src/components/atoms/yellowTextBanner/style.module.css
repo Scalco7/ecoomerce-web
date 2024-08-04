@@ -1,0 +1,23 @@
+.main {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  color: black;
+  background-color: #fff59b;
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  z-index: 1;
+}
+
+.svg {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  min-width: 1000px;
+  height: 100%;
+}
