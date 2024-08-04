@@ -44,7 +44,7 @@ export default function HistorySection() {
         </section>
         <section className={styles.imgSection}>
           <Image
-            src={"/monkey-logo-purple.png"}
+            src={"./monkey-logo-purple.png"}
             alt="logo purple"
             fill={true}
           />
