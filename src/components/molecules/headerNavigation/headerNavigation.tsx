@@ -74,7 +74,7 @@ export default function HeaderNavigation() {
           <Image
             fill={true}
             sizes="70px"
-            src={"/logo-header.png"}
+            src={"./logo-header.png"}
             alt={"Logo"}
           />
         </div>
