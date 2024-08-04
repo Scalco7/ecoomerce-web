@@ -8,7 +8,9 @@ import ProductQuantityInput from "@/components/atoms/productQuantityInput/produc
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import TransitionArrowLines from "@/components/atoms/transitionArrowLines/transitionArrowLines";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
+import PhotoHistoryCarousel from "@/components/molecules/photoHistoryCarousel/photoHistoryCarousel";
 import ProductBox from "@/components/molecules/productBox/productBox";
+import { title } from "process";
 import { useState } from "react";
 
 export default function Components() {
@@ -22,6 +24,7 @@ export default function Components() {
 
   const luidaoHistory = {
     title: "Luidao",
+    titleColor: "#FF5F00",
     imageSrc: "/luidao-teste.jpg",
     history:
       "Para mostrar cada um dos Banana Monkey's, nada melhor do que começar pelo membro que define a essência do grupo: Luidão. Ele é o mais autêntico e imprevisível, alguém de quem você nunca sabe o que esperar. Conhecido como o último romântico, ele está sempre apaixonado, e se a garota for ruiva, é paixão à primeira vista. Ele é um verdadeiro Banana Monkey. Além de ser um eterno apaixonado, Luigi adora jogar um fute e dar altos rolês aleatórios. Ele tem a habilidade de transformar qualquer situação em uma aventura divertida, sempre fazendo as coisas do seu jeito com muita espontâniedade. Mais do que isso, ele é cara leal, alguém em quem você pode confiar em qualquer momento. Ele é, sem dúvida, a essência, um companheiro de todas as horas, que torna tudo mais da hora e ajuda com o que precisar.",
@@ -244,12 +247,7 @@ export default function Components() {
           style={{ width: "100%", display: "flex", flexDirection: "column" }}
         >
           <TransitionArrowLines initColor={"#fff"} endColor={"#000"} />
-          <PhotoHistory
-            title={luidaoHistory.title}
-            titleColor={"#FF5F00"}
-            history={luidaoHistory.history}
-            imageSrc={luidaoHistory.imageSrc}
-          />
+          <PhotoHistoryCarousel historys={[monkeysHistory, luidaoHistory]} />
         </div>
       </div>
     </main>

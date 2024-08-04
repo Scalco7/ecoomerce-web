@@ -1,0 +1,32 @@
+.main {
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+
+.historyBox {
+  /* display: none; */
+  transition: opacity 1s ease-in-out;
+  display: none;
+  opacity: 0;
+}
+
+.visible {
+  /* display: flex; */
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  opacity: 1;
+}

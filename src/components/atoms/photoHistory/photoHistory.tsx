@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./style.module.css";
 import { Sedgwick_Ave_Display } from "next/font/google";
 
-interface PhotoHistoryProps {
+export interface PhotoHistoryProps {
   title?: string;
   titleColor?: string;
   history: string;
