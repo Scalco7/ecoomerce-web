@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./styles.module.css";
 import CartIcon from "../../icons/cartIcon/cartIcon";
+import { formatNumberToValue } from "@/utils/number.utils";
 
 interface PriceTagProps {
   price: number;
@@ -34,9 +35,9 @@ export default function PriceTag({ price, onClick }: PriceTagProps) {
       onMouseLeave={handleOnMouseLeave}
     >
       {isHover ? (
-        <CartIcon size={24} color={"white"} />
+        <CartIcon size={20} color={"white"} />
       ) : (
-        <p>R$ {price.toFixed(2)}</p>
+        <p className={styles.text}>{formatNumberToValue(price)}</p>
       )}
     </main>
   );

@@ -6,14 +6,14 @@
 
 .priceBox {
   position: absolute;
-  right: 0px;
-  top: 20px;
+  right: 18px;
+  top: 22px;
   z-index: 1;
 }
 
 .svgLine {
   position: absolute;
-  right: 120px;
-  top: 38px;
+  right: 122px;
+  top: 37px;
   z-index: -1;
 }
