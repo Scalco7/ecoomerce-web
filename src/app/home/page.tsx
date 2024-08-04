@@ -11,17 +11,19 @@ import YellowTextBanner from "@/components/atoms/yellowTextBanner/yellowTextBann
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.main}>
       <header className={styles.header}>
         <HeaderNavigation />
       </header>
-      <PresentationSection />
-      <div style={{ height: 40 }}></div>
-      <TShirtSellSection />
-      <YellowTextBanner text="Tecidos pensados para seu extremo conforto e versatilidade" />
-      <ShopSection />
-      <HistorySection />
-      <Footer />
+      <section className={`${styles.body}`}>
+        <PresentationSection />
+        <div style={{ height: 40 }}></div>
+        <TShirtSellSection />
+        <YellowTextBanner text="Tecidos pensados para seu extremo conforto e versatilidade" />
+        <ShopSection />
+        <HistorySection />
+        <Footer />
+      </section>
     </main>
   );
 }
