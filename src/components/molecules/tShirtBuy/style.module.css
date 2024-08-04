@@ -1,0 +1,19 @@
+.main {
+  position: relative;
+  width: 600px;
+  height: 600px;
+}
+
+.priceBox {
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  z-index: 1;
+}
+
+.svgLine {
+  position: absolute;
+  right: 120px;
+  top: 38px;
+  z-index: -1;
+}

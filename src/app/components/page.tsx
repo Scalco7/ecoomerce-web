@@ -10,7 +10,7 @@ import TransitionArrowLines from "@/components/atoms/transitionArrowLines/transi
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import PhotoHistoryCarousel from "@/components/molecules/photoHistoryCarousel/photoHistoryCarousel";
 import ProductBox from "@/components/molecules/productBox/productBox";
-import { title } from "process";
+import TShirtBuy from "@/components/molecules/tShirtBuy/tShirtBuy";
 import { useState } from "react";
 
 export default function Components() {
@@ -248,6 +248,10 @@ export default function Components() {
         >
           <TransitionArrowLines initColor={"#fff"} endColor={"#000"} />
           <PhotoHistoryCarousel historys={[monkeysHistory, luidaoHistory]} />
+        </div>
+
+        <div>
+          <TShirtBuy />
         </div>
       </div>
     </main>
