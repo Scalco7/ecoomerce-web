@@ -149,7 +149,7 @@ export default function Footer() {
         <section className={styles.footerTexts}>
           <p>CNPJ xxxxxxxxxxxx</p>
           <p>| © Todos os direitos reservados © |</p>
-          <p>Banana Monkey's Company</p>
+          <p>Banana {"Monkey's"} Company</p>
         </section>
 
         <p>Developed By Felipe Scalco</p>

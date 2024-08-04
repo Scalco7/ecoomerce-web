@@ -38,7 +38,7 @@ export default function HistorySection() {
             {" "}
             +{" "}
             <span className={zillaSlabHighlight.className}>
-              Banana Monkey's é um estilo de vida
+              Banana {"Monkey's"} é um estilo de vida
             </span>
           </p>
         </section>

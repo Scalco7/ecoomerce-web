@@ -14,7 +14,7 @@ export default function PresentationSection() {
       <Image src={"/basquete-back-home.png"} alt="background" fill={true} />
       <section className={styles.textBox}>
         <p className={`${styles.firstText} ${anton.className}`}>
-          Banana Monkey's
+          Banana {"Monkey's"}
         </p>
         <p className={`${styles.secondaryText}`}>Descubra a força</p>
       </section>
