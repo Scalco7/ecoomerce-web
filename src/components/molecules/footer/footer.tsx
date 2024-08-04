@@ -27,7 +27,7 @@ export default function Footer() {
                   target="_blank"
                 >
                   <Image
-                    src={"./insta-logo.svg"}
+                    src={"/insta-logo.svg"}
                     width={20}
                     height={20}
                     alt="Logo do instagram"
@@ -43,7 +43,7 @@ export default function Footer() {
                   target="_blank"
                 >
                   <Image
-                    src={"./insta-logo.svg"}
+                    src={"/insta-logo.svg"}
                     width={20}
                     height={20}
                     alt="Logo do instagram"
@@ -76,7 +76,7 @@ export default function Footer() {
         <section className={styles.securitySection}>
           <section className={styles.section}>
             <Image
-              src={"./security-certificate.png"}
+              src={"/security-certificate.png"}
               alt={"Certificado de segurança"}
               width={250}
               height={152}
@@ -86,56 +86,56 @@ export default function Footer() {
             <p>Meios de pagamento</p>
             <section className={styles.paymentTypesList}>
               <Image
-                src={"./payment-methods/Visa.svg"}
+                src={"/payment-methods/Visa.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}
                 alt={"Visa"}
               />
               <Image
-                src={"./payment-methods/Amex.svg"}
+                src={"/payment-methods/Amex.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}
                 alt={"American Express"}
               />
               <Image
-                src={"./payment-methods/Hipercard.svg"}
+                src={"/payment-methods/Hipercard.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}
                 alt={"Hipercard"}
               />
               <Image
-                src={"./payment-methods/PayPal.svg"}
+                src={"/payment-methods/PayPal.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}
                 alt={"PayPal"}
               />
               <Image
-                src={"./payment-methods/Mastercard.svg"}
+                src={"/payment-methods/Mastercard.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}
                 alt={"Mastercard"}
               />
               <Image
-                src={"./payment-methods/Elo.svg"}
+                src={"/payment-methods/Elo.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}
                 alt={"Elo"}
               />
               <Image
-                src={"./payment-methods/Diners.svg"}
+                src={"/payment-methods/Diners.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}
                 alt={"Diners"}
               />
               <Image
-                src={"./payment-methods/Pix.svg"}
+                src={"/payment-methods/Pix.svg"}
                 width={0}
                 height={0}
                 style={{ width: "50px", height: "auto" }}

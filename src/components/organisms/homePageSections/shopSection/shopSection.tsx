@@ -13,7 +13,7 @@ export default function ShopSection() {
           colorScheme={"yellow"}
           product={{
             id: "",
-            imgUrl: "./teste.png",
+            imgUrl: "/teste.png",
             name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
             price: 89,
             promotionPrice: 79,
@@ -24,7 +24,7 @@ export default function ShopSection() {
           colorScheme={"yellow"}
           product={{
             id: "",
-            imgUrl: "./teste.png",
+            imgUrl: "/teste.png",
             name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
             price: 89,
             promotionPrice: 79,
@@ -35,7 +35,7 @@ export default function ShopSection() {
           colorScheme={"yellow"}
           product={{
             id: "",
-            imgUrl: "./teste.png",
+            imgUrl: "/teste.png",
             name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
             price: 89,
             promotionPrice: 79,
@@ -46,7 +46,7 @@ export default function ShopSection() {
           colorScheme={"yellow"}
           product={{
             id: "",
-            imgUrl: "./teste.png",
+            imgUrl: "/teste.png",
             name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
             price: 89,
             promotionPrice: 79,
@@ -57,7 +57,7 @@ export default function ShopSection() {
           colorScheme={"yellow"}
           product={{
             id: "",
-            imgUrl: "./teste.png",
+            imgUrl: "/teste.png",
             name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
             price: 89,
             promotionPrice: 79,

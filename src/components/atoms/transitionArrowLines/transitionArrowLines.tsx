@@ -18,7 +18,7 @@ export default function TransitionArrowLines({
       }}
     >
       <Image
-        src={"./arrow-transiction.svg"}
+        src={"/arrow-transiction.svg"}
         alt={"Linha"}
         width={1920}
         height={183}

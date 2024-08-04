@@ -11,7 +11,7 @@ const anton = Anton({
 export default function PresentationSection() {
   return (
     <main className={styles.main}>
-      <Image src={"./basquete-back-home.png"} alt="background" fill={true} />
+      <Image src={"/basquete-back-home.png"} alt="background" fill={true} />
       <section className={styles.textBox}>
         <p className={`${styles.firstText} ${anton.className}`}>
           Banana {"Monkey's"}
