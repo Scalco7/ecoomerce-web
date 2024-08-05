@@ -5,6 +5,7 @@ import styles from "./style.module.css";
 import { useSearchParams } from "next/navigation";
 import { Zilla_Slab } from "next/font/google";
 import { useState } from "react";
+import PrivacySection from "@/components/organisms/policiesSection/privacySection/privacySection";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -21,7 +22,7 @@ export default function Policies() {
   const sectionMap: { [key: string]: any } = {
     delivery: <main>delivery</main>,
     exchanges: <main>exchanges</main>,
-    privacy: <main>privacy</main>,
+    privacy: <PrivacySection />,
     term: <main>term</main>,
   };
 
