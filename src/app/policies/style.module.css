@@ -44,10 +44,10 @@
 
 .navBar {
   width: 100%;
-  height: 60px;
+  height: min-content;
   border-bottom: 2px solid black;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .navTextBox {
@@ -57,16 +57,45 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0px 20px;
-  font-size: 22px;
+  padding: 10px 20px;
+  font-size: 18px;
   cursor: pointer;
 }
 
-.borderRight {
-  border-right: 2px solid black;
+.divisionBorder {
+  border-bottom: 2px solid black;
 }
 
 .selected {
   background-color: black;
   color: white;
+}
+
+@media (min-width: 576px) {
+  .navTextBox {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 992px) {
+  .divisionBorder {
+    border-right: 2px solid black;
+    border-bottom: none;
+  }
+
+  .navBar {
+    height: 60px;
+    flex-direction: row;
+  }
+
+  .navTextBox {
+    font-size: 18px;
+    padding: 0px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navTextBox {
+    font-size: 22px;
+  }
 }

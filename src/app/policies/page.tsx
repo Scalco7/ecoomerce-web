@@ -43,7 +43,7 @@ export default function Policies() {
         <section className={styles.dataSection}>
           <nav className={styles.navBar}>
             <section
-              className={`${styles.navTextBox} ${styles.borderRight} ${
+              className={`${styles.navTextBox} ${styles.divisionBorder} ${
                 section == "delivery" ? styles.selected : null
               }`}
               onClick={() => handleChangeSection("delivery")}
@@ -51,7 +51,7 @@ export default function Policies() {
               Política de Entrega
             </section>
             <section
-              className={`${styles.navTextBox} ${styles.borderRight} ${
+              className={`${styles.navTextBox} ${styles.divisionBorder} ${
                 section == "exchanges" ? styles.selected : null
               }`}
               onClick={() => handleChangeSection("exchanges")}
@@ -59,7 +59,7 @@ export default function Policies() {
               Política de Trocas e Devoluções
             </section>
             <section
-              className={`${styles.navTextBox} ${styles.borderRight} ${
+              className={`${styles.navTextBox} ${styles.divisionBorder} ${
                 section == "term" ? styles.selected : null
               }`}
               onClick={() => handleChangeSection("term")}
