@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 5px;
+}
+
+.boxText {
+  padding: 0px 10px;
+}
+
+.title {
+  font-size: 22px;
+}
