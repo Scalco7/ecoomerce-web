@@ -58,16 +58,16 @@ export default function Footer() {
             <section
               className={`${styles.policiesList} ${zillaSlab.className}`}
             >
-              <Link href="#" target="_blank">
+              <Link href="/policies?section=delivery" target="_blank">
                 Política de entrega
               </Link>
-              <Link href="#" target="_blank">
+              <Link href="/policies?section=exchanges" target="_blank">
                 Política de trocas e devoluções
               </Link>
-              <Link href="#" target="_blank">
+              <Link href="/policies?section=privacy" target="_blank">
                 Política de privacidade
               </Link>
-              <Link href="#" target="_blank">
+              <Link href="/policies?section=term" target="_blank">
                 Política de prazo e formas de entrega
               </Link>
             </section>
