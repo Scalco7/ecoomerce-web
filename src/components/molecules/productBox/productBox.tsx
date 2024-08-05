@@ -12,7 +12,7 @@ interface ProductBoxProps {
 }
 
 //tirar daqui
-interface ProductData {
+export interface ProductData {
   id: string;
   imgUrl: string;
   name: string;
