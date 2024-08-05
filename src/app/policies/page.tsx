@@ -8,6 +8,7 @@ import { useState } from "react";
 import PrivacySection from "@/components/organisms/policiesSection/privacySection/privacySection";
 import ExchangesSection from "@/components/organisms/policiesSection/exchangesSection/exchangesSection";
 import DeliverySection from "@/components/organisms/policiesSection/deliverySection/deliverySection";
+import TermSection from "@/components/organisms/policiesSection/termSection/termSection";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -25,7 +26,7 @@ export default function Policies() {
     delivery: <DeliverySection />,
     exchanges: <ExchangesSection />,
     privacy: <PrivacySection />,
-    term: <main>term</main>,
+    term: <TermSection />,
   };
 
   function handleChangeSection(sectionSelected: string) {
