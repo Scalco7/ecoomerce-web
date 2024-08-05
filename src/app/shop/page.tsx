@@ -20,14 +20,25 @@ export default function Shop() {
         <HeaderNavigation />
       </header>
       <section className={`${styles.body}`}>
+        <div style={{ height: 300 }}></div>
         <CategorySection
           title="Regatas"
           colorScheme="yellow"
+          hasTransiction={true}
           products={[productTeste, productTeste, productTeste]}
         />
+        <div style={{ height: 20 }}></div>
         <CategorySection
           title="Bonés"
           colorScheme="white"
+          hasTransiction={false}
+          products={[productTeste, productTeste, productTeste]}
+        />
+        <div style={{ height: 20 }}></div>
+        <CategorySection
+          title="Regatas"
+          colorScheme="yellow"
+          hasTransiction={false}
           products={[productTeste, productTeste, productTeste]}
         />
         <Footer />

@@ -1,11 +1,11 @@
 .main {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 10px 0px;
-  gap: 10px;
 }
 
 .title {
@@ -21,4 +21,9 @@
   flex-direction: row;
   gap: 50px;
   padding: 20px 50px;
+}
+
+.svg {
+  position: absolute;
+  top: 0px;
 }
