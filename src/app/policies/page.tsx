@@ -4,7 +4,7 @@ import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavi
 import styles from "./style.module.css";
 import { useSearchParams } from "next/navigation";
 import { Zilla_Slab } from "next/font/google";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import PrivacySection from "@/components/organisms/policiesSection/privacySection/privacySection";
 import ExchangesSection from "@/components/organisms/policiesSection/exchangesSection/exchangesSection";
 import DeliverySection from "@/components/organisms/policiesSection/deliverySection/deliverySection";
@@ -17,6 +17,14 @@ const zillaSlab = Zilla_Slab({
 });
 
 export default function Policies() {
+  return (
+    <Suspense>
+      <PoliciesPage />
+    </Suspense>
+  );
+}
+
+function PoliciesPage() {
   const searchParams = useSearchParams();
   const [section, setSection] = useState(
     searchParams.get("section") ?? "privacy"
