@@ -8,16 +8,15 @@ import { formatNumberToValue } from "@/utils/number.utils";
 interface ProductBoxProps {
   colorScheme: "white" | "yellow";
   width: string;
-  product: ProdcutInfoData;
+  product: ProductInfoData;
 }
 
-export interface ProdcutInfoData {
+export interface ProductInfoData {
   id: string;
   imgUrl: string;
   name: string;
   price: number;
   promotionPrice: number;
-  availableQuantity: number;
 }
 
 const zillaSlab = Zilla_Slab({
