@@ -1,13 +1,13 @@
 import { Zilla_Slab } from "next/font/google";
 import styles from "./style.module.css";
 import ProductBox, {
-  ProductData,
+  ProdcutInfoData,
 } from "@/components/molecules/productBox/productBox";
 
 interface CategorySectionProps {
   colorScheme: "white" | "yellow";
   title: string;
-  products: ProductData[];
+  products: ProdcutInfoData[];
   hasTransiction: boolean;
 }
 
