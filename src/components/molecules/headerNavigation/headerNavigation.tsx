@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import HamburguerMenuIcon from "@/components/icons/hamburguerMenuIcon/hamburguerMenuIcon";
 import { useState } from "react";
 import CloseIcon from "@/components/icons/closeIcon/closeIcon";
+import { useCart } from "@/states/cartState";
 
 const poppins = Poppins({
   weight: ["400", "600"],
@@ -24,6 +25,7 @@ export default function HeaderNavigation() {
   const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const pathName = usePathname();
   const router = useRouter();
+  const { productsQuantity } = useCart();
 
   const routes = getRoutes();
 
@@ -95,7 +97,7 @@ export default function HeaderNavigation() {
       </section>
       <div style={{ width: "28px" }}>
         <CartCount
-          quantity={0}
+          quantity={productsQuantity}
           fontSize={14}
           onClick={() => console.log("vai pro carrinho")}
         />

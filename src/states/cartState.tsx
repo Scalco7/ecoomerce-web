@@ -19,8 +19,9 @@ interface Variant {
 
 type CartState = {
   products: ProductCartData[];
+  productsQuantity: number;
   setProducts: (products: ProductCartData[]) => void;
-  addProdcut: (product: ProductCartData) => void;
+  addProduct: (product: ProductCartData) => void;
   removeProduct: (productId: string) => void;
   increaseProductQuantity: (productId: string) => void;
   decreaseProductQuantity: (productId: string) => void;
@@ -28,18 +29,20 @@ type CartState = {
 
 export const useCart = create<CartState>((set) => ({
   products: [],
+  productsQuantity: 2,
 
   setProducts(products: ProductCartData[]) {
-    set({ products: products });
+    set({ products: products, productsQuantity: products.length });
   },
 
-  addProdcut(product: ProductCartData) {
-    set({ products: [...this.products, product] });
+  addProduct(product: ProductCartData) {
+    const newProducts = [...this.products, product];
+    set({ products: newProducts, productsQuantity: newProducts.length });
   },
 
   removeProduct(productId: string) {
     const newProducts = this.products.filter((p) => p.id != productId);
-    set({ products: newProducts });
+    set({ products: newProducts, productsQuantity: newProducts.length });
   },
 
   increaseProductQuantity(productId: string) {
