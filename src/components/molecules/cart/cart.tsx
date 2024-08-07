@@ -5,6 +5,7 @@ import ShowPriceCart from "@/components/atoms/showPriceCart/showPriceCart";
 import FreeShippingCounterCart from "@/components/atoms/freeShippingCounterCart/freeShippingCounterCart";
 import ProductCartBox from "../productCartBox/productCartBox";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
+import { useCart } from "@/states/cartState";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -13,6 +14,16 @@ const zillaSlab = Zilla_Slab({
 });
 
 export default function Cart() {
+  const {
+    products,
+    productsQuantity,
+    totalPrice,
+    totalPromotionPrice,
+    removeProduct,
+    increaseProductQuantity,
+    decreaseProductQuantity,
+  } = useCart();
+
   return (
     <main className={styles.main}>
       <section className={styles.titleBox}>
@@ -22,100 +33,24 @@ export default function Cart() {
         </p>
       </section>
       <section className={styles.productsSection}>
-        <ProductCartBox
-          product={{
-            id: "p-1",
-            name: "Boné clássico",
-            imgUrl: "/teste.png",
-            price: 49.99,
-            promotionPrice: 39,
-            availableQuantity: 8,
-            quantity: 1,
-            variant1: {
-              name: "Cor",
-              type: "Preto",
-            },
-          }}
-          onRemove={(productId) => {
-            console.log("removeu " + productId);
-          }}
-        />
-
-        <ProductCartBox
-          product={{
-            id: "p-1",
-            name: "Boné clássico do b a n a n a m o n k e y s",
-            imgUrl: "/teste.png",
-            price: 49.99,
-            promotionPrice: 39,
-            availableQuantity: 8,
-            quantity: 1,
-            variant1: {
-              name: "Cor",
-              type: "Preto",
-            },
-            variant2: {
-              name: "Tamanho",
-              type: "PP",
-            },
-          }}
-          onRemove={(productId) => {
-            console.log("removeu " + productId);
-          }}
-        />
-
-        <ProductCartBox
-          product={{
-            id: "p-1",
-            name: "Boné clássico do b a n a n a m o n k e y s",
-            imgUrl: "/teste.png",
-            price: 49.99,
-            promotionPrice: 39,
-            availableQuantity: 8,
-            quantity: 1,
-            variant1: {
-              name: "Cor",
-              type: "Preto",
-            },
-            variant2: {
-              name: "Tamanho",
-              type: "PP",
-            },
-          }}
-          onRemove={(productId) => {
-            console.log("removeu " + productId);
-          }}
-        />
-
-        <ProductCartBox
-          product={{
-            id: "p-1",
-            name: "Boné clássico do b a n a n a m o n k e y s",
-            imgUrl: "/teste.png",
-            price: 49.99,
-            promotionPrice: 39,
-            availableQuantity: 8,
-            quantity: 1,
-            variant1: {
-              name: "Cor",
-              type: "Preto",
-            },
-            variant2: {
-              name: "Tamanho",
-              type: "PP",
-            },
-          }}
-          onRemove={(productId) => {
-            console.log("removeu " + productId);
-          }}
-        />
+        {products.map((product) => (
+          <ProductCartBox
+            product={product}
+            onRemove={removeProduct}
+            onIncrease={increaseProductQuantity}
+            onDecrease={decreaseProductQuantity}
+          />
+        ))}
       </section>
       <section className={styles.botttomSection}>
-        <FreeShippingCounterCart freeShippingValue={300} value={20} />
+        <FreeShippingCounterCart
+          freeShippingValue={300}
+          value={totalPromotionPrice}
+        />
         <ShowPriceCart
-          price={256}
-          priceWithDiscount={199}
-          productQuantity={7}
+          price={totalPrice}
+          priceWithDiscount={totalPromotionPrice}
+          productQuantity={productsQuantity}
         />
         <section className={styles.buttonsSection}>
           <SecondaryButton

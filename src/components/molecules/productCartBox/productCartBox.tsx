@@ -21,11 +21,15 @@ const zillaSlab = Zilla_Slab({
 interface ProductCartBoxProps {
   product: ProductCartData;
   onRemove: (productId: string) => void;
+  onIncrease: (productId: string) => void;
+  onDecrease: (productId: string) => void;
 }
 
 export default function ProductCartBox({
   product,
   onRemove,
+  onIncrease,
+  onDecrease,
 }: ProductCartBoxProps) {
   return (
     <main className={styles.main}>
@@ -73,9 +77,8 @@ export default function ProductCartBox({
           <ProductQuantityInput
             fontSize={20}
             quantity={product.quantity}
-            onChange={(value) => {
-              console.log(value);
-            }}
+            onIncrease={() => onIncrease(product.id)}
+            onDecrease={() => onDecrease(product.id)}
           />
         </section>
       </section>

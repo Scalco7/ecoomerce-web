@@ -1,21 +1,42 @@
 "use client";
 
 import CartCount from "@/components/atoms/cartCount/cartCount";
-import FreeShippingCounterCart from "@/components/atoms/freeShippingCounterCart/freeShippingCounterCart";
 import PriceTag from "@/components/atoms/priceTag/priceTag";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
-import ProductQuantityInput from "@/components/atoms/productQuantityInput/productQuantityInput";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
-import ShowPriceCart from "@/components/atoms/showPriceCart/showPriceCart";
 import Cart from "@/components/molecules/cart/cart";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ProductBox from "@/components/molecules/productBox/productBox";
-import ProductCartBox from "@/components/molecules/productCartBox/productCartBox";
 import TShirtBuy from "@/components/molecules/tShirtBuy/tShirtBuy";
-import { useState } from "react";
+import { ProductCartData, useCart } from "@/states/cartState";
+
+const product1: ProductCartData = {
+  id: "product-1",
+  name: "Boné clássico banana",
+  imgUrl: "/teste.png",
+  price: 119,
+  promotionPrice: 89,
+  quantity: 1,
+  availableQuantity: 2,
+  variant1: { name: "Cor", type: "Preto" },
+};
+
+const mockProducts: ProductCartData[] = [
+  product1,
+  {
+    id: "product-2",
+    name: "Boné branco banana",
+    imgUrl: "/teste.png",
+    price: 119,
+    promotionPrice: 79,
+    quantity: 1,
+    availableQuantity: 8,
+    variant1: { name: "Cor", type: "Branco" },
+  },
+];
 
 export default function Components() {
-  const [productQuantity, setProductQuantity] = useState(0);
+  const { setProducts, addProduct } = useCart();
 
   return (
     <main style={{ overflow: "hidden", height: "100%" }}>
@@ -107,13 +128,15 @@ export default function Components() {
             <PriceTag
               price={79.9}
               onClick={() => {
-                console.log("quero comprar");
+                addProduct(product1);
+                console.log("era pra add");
               }}
             />
             <PriceTag
               price={29.9}
               onClick={() => {
-                console.log("quero comprar");
+                setProducts(mockProducts);
+                console.log("quero comprar 2323323");
               }}
             />
             <PriceTag
@@ -175,73 +198,6 @@ export default function Components() {
               onClick={() => {
                 console.log("clicou no outro botão");
               }}
-            />
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              gap: "20px",
-              width: "100%",
-              flexDirection: "column",
-            }}
-          >
-            <ProductQuantityInput
-              fontSize={16}
-              quantity={productQuantity}
-              onChange={(value: number) => {
-                setProductQuantity(value);
-                console.log("mudou quantidade - ", value);
-              }}
-            />
-            <ProductCartBox
-              product={{
-                id: "p-1",
-                name: "Boné clássico",
-                imgUrl: "/teste.png",
-                price: 49.99,
-                promotionPrice: 39,
-                availableQuantity: 8,
-                quantity: 1,
-                variant1: {
-                  name: "Cor",
-                  type: "Preto",
-                },
-              }}
-              onRemove={(productId) => {
-                console.log("removeu " + productId);
-              }}
-            />
-
-            <ProductCartBox
-              product={{
-                id: "p-1",
-                name: "Boné clássico do b a n a n a m o n k e y s",
-                imgUrl: "/teste.png",
-                price: 49.99,
-                promotionPrice: 39,
-                availableQuantity: 8,
-                quantity: 1,
-                variant1: {
-                  name: "Cor",
-                  type: "Preto",
-                },
-                variant2: {
-                  name: "Tamanho",
-                  type: "PP",
-                },
-              }}
-              onRemove={(productId) => {
-                console.log("removeu " + productId);
-              }}
-            />
-
-            <FreeShippingCounterCart freeShippingValue={300} value={20} />
-
-            <ShowPriceCart
-              price={256}
-              priceWithDiscount={199}
-              productQuantity={7}
             />
           </div>
 

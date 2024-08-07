@@ -6,7 +6,8 @@ import MinusIcon from "../../icons/minusIcon/minusIcon";
 interface ProductQuantityInputProps {
   fontSize: number;
   quantity: number;
-  onChange: (newValue: number) => void;
+  onIncrease: () => void;
+  onDecrease: () => void;
 }
 
 const poppins = Poppins({
@@ -18,16 +19,17 @@ const poppins = Poppins({
 export default function ProductQuantityInput({
   fontSize,
   quantity,
-  onChange,
+  onIncrease,
+  onDecrease,
 }: ProductQuantityInputProps) {
   const iconsHeight = fontSize * 1.2;
 
   function handleDecrease() {
-    if (quantity > 0) onChange(quantity - 1);
+    if (quantity > 0) onDecrease();
   }
 
   function handleIncrease() {
-    if (quantity < 99) onChange(quantity + 1);
+    if (quantity < 99) onIncrease();
   }
 
   return (
