@@ -1,0 +1,19 @@
+.main {
+  position: relative;
+  background-color: white;
+  width: 27%;
+  height: 100%;
+  padding: 15px 20px;
+}
+
+.titleBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.title {
+  color: #000;
+  font-size: 28px;
+}
