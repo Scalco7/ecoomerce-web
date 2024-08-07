@@ -1,6 +1,7 @@
 "use client";
 
 import CartCount from "@/components/atoms/cartCount/cartCount";
+import FreeShippingCounterCart from "@/components/atoms/freeShippingCounterCart/freeShippingCounterCart";
 import PriceTag from "@/components/atoms/priceTag/priceTag";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import ProductQuantityInput from "@/components/atoms/productQuantityInput/productQuantityInput";
@@ -234,6 +235,8 @@ export default function Components() {
                 console.log("removeu " + productId);
               }}
             />
+
+            <FreeShippingCounterCart freeShippingValue={300} value={20} />
 
             <ShowPriceCart
               price={256}
