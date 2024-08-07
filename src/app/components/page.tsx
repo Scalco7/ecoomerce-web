@@ -8,6 +8,7 @@ import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton"
 import Cart from "@/components/molecules/cart/cart";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ProductBox from "@/components/molecules/productBox/productBox";
+import ProductCartBox from "@/components/molecules/productCartBox/productCartBox";
 import TShirtBuy from "@/components/molecules/tShirtBuy/tShirtBuy";
 import { useState } from "react";
 
@@ -180,6 +181,7 @@ export default function Components() {
               display: "flex",
               gap: "20px",
               width: "100%",
+              flexDirection: "column",
             }}
           >
             <ProductQuantityInput
@@ -188,6 +190,47 @@ export default function Components() {
               onChange={(value: number) => {
                 setProductQuantity(value);
                 console.log("mudou quantidade - ", value);
+              }}
+            />
+            <ProductCartBox
+              product={{
+                id: "p-1",
+                name: "Boné clássico",
+                imgUrl: "/teste.png",
+                price: 49.99,
+                promotionPrice: 39,
+                availableQuantity: 8,
+                quantity: 1,
+                variant1: {
+                  name: "Cor",
+                  type: "Preto",
+                },
+              }}
+              onRemove={(productId) => {
+                console.log("removeu " + productId);
+              }}
+            />
+
+            <ProductCartBox
+              product={{
+                id: "p-1",
+                name: "Boné clássico do b a n a n a m o n k e y s",
+                imgUrl: "/teste.png",
+                price: 49.99,
+                promotionPrice: 39,
+                availableQuantity: 8,
+                quantity: 1,
+                variant1: {
+                  name: "Cor",
+                  type: "Preto",
+                },
+                variant2: {
+                  name: "Tamanho",
+                  type: "PP",
+                },
+              }}
+              onRemove={(productId) => {
+                console.log("removeu " + productId);
               }}
             />
           </div>
