@@ -22,3 +22,13 @@
   scrollbar-color: black rgb(60, 60, 60);
   scrollbar-width: thin;
 }
+
+.shopSection {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .shopSection {
+    display: flex;
+  }
+}

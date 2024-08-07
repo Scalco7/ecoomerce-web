@@ -23,7 +23,9 @@ export default function Home() {
         <YellowTextBanner text="Tecidos pensados para seu extremo conforto e versatilidade" />
         <div style={{ height: 20 }}></div>
         <CapSellSection />
-        <ShopSection />
+        <div className={styles.shopSection}>
+          <ShopSection />
+        </div>
         <HistorySection />
         <Footer />
       </section>
