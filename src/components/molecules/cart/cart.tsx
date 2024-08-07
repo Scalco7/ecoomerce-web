@@ -1,6 +1,7 @@
 import CartIcon from "@/components/icons/cartIcon/cartIcon";
 import styles from "./style.module.css";
 import { Zilla_Slab } from "next/font/google";
+import ShowPriceCart from "@/components/atoms/showPriceCart/showPriceCart";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -17,6 +18,7 @@ export default function Cart() {
           Carrinho de compras
         </p>
       </section>
+      <ShowPriceCart price={256} priceWithDiscount={199} productQuantity={7} />
     </main>
   );
 }

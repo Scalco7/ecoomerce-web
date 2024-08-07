@@ -5,6 +5,7 @@ import PriceTag from "@/components/atoms/priceTag/priceTag";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import ProductQuantityInput from "@/components/atoms/productQuantityInput/productQuantityInput";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
+import ShowPriceCart from "@/components/atoms/showPriceCart/showPriceCart";
 import Cart from "@/components/molecules/cart/cart";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ProductBox from "@/components/molecules/productBox/productBox";
@@ -232,6 +233,12 @@ export default function Components() {
               onRemove={(productId) => {
                 console.log("removeu " + productId);
               }}
+            />
+
+            <ShowPriceCart
+              price={256}
+              priceWithDiscount={199}
+              productQuantity={7}
             />
           </div>
 
