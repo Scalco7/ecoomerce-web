@@ -38,8 +38,9 @@ export default function Cart({ closeCart }: CartProps) {
         </p>
       </section>
       <section className={styles.productsSection}>
-        {products.map((product) => (
+        {products.map((product, index) => (
           <ProductCartBox
+            key={"cart-product-" + index}
             product={product}
             onRemove={removeProduct}
             onIncrease={increaseProductQuantity}
