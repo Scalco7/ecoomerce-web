@@ -51,7 +51,7 @@ const variantColorWhite = {
 const productsList: ProductItem[] = [
   {
     id: "product-1",
-    imgUrls: ["/teste.png", "/teste.png"],
+    imgUrls: ["/design-preto.png", "/teste.png"],
     price: 119,
     promotionPrice: 99,
     availableQuantity: 8,
@@ -59,7 +59,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-2",
-    imgUrls: ["/teste.png", "/teste.png"],
+    imgUrls: ["/design-preto.png", "/design-preto.png"],
     price: 119,
     promotionPrice: 89,
     availableQuantity: 2,
@@ -67,11 +67,41 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-3",
-    imgUrls: ["/teste.png", "/teste.png"],
+    imgUrls: ["/design-preto.png", "/design-preto.png"],
     price: 119,
     promotionPrice: 79,
     availableQuantity: 10,
     variant1: variantColorWhite,
+  },
+];
+
+const capType1List: ProductItem[] = [
+  {
+    id: "cap-1",
+    imgUrls: ["/teste.png", "/teste.png"],
+    price: 69.99,
+    promotionPrice: 39,
+    availableQuantity: 8,
+  },
+];
+
+const capType2List: ProductItem[] = [
+  {
+    id: "cap-2",
+    imgUrls: ["/bone-branco-01.png", "/teste.png"],
+    price: 69.99,
+    promotionPrice: 39,
+    availableQuantity: 8,
+  },
+];
+
+const capType3List: ProductItem[] = [
+  {
+    id: "cap-3",
+    imgUrls: ["/design-preto.png", "/teste.png"],
+    price: 69.99,
+    promotionPrice: 39,
+    availableQuantity: 8,
   },
 ];
 
@@ -90,19 +120,19 @@ const mockSectionProducts: ProductSection[] = [
     name: "Bonés",
     productTypes: [
       {
-        id: "product-type-1",
+        id: "cap-type-1",
         name: "Boné clássico",
-        products: productsList,
+        products: capType1List,
       },
       {
-        id: "product-type-1",
+        id: "cap-type-2",
         name: "Boné branco",
-        products: productsList,
+        products: capType2List,
       },
       {
-        id: "product-type-1",
+        id: "cap-type-3",
         name: "Boné amarelo",
-        products: productsList,
+        products: capType3List,
       },
     ],
   },
