@@ -98,7 +98,7 @@ const capType2List: ProductItem[] = [
 const capType3List: ProductItem[] = [
   {
     id: "cap-3",
-    imgUrls: ["/design-preto.png", "/teste.png"],
+    imgUrls: ["/bone-12.png", "/teste.png"],
     price: 69.99,
     promotionPrice: 39,
     availableQuantity: 8,
