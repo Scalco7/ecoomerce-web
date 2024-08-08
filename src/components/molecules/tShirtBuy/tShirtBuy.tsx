@@ -19,7 +19,7 @@ export default function TShirtBuy() {
         <path stroke="#D2ADAD" d="M57 1.5C39-1 17 1.5.5 33"></path>
       </svg>
       <Image
-        src="/t-shirt-buy.png"
+        src="/back-t-shirt-buy.png"
         alt="Camiseta"
         sizes="600px"
         fill={true}
