@@ -6,14 +6,14 @@
 
 .priceBoxBlackCap {
   position: absolute;
-  right: 162px;
-  top: 196px;
+  left: 30px;
+  bottom: 203px;
   z-index: 1;
 }
 
 .priceBoxWhiteCap {
   position: absolute;
-  left: 0px;
-  bottom: 195px;
+  right: 42px;
+  bottom: 227px;
   z-index: 1;
 }
