@@ -54,18 +54,15 @@ export default function ProductBox({
       <section
         className={`${styles.boxImg} ${isWhite ? styles.borderBottom : null}`}
       >
-        <Image
-          style={{
-            objectFit: "contain",
-            position: "relative",
-            height: "fit-content",
-            width: "100%",
-          }}
-          src={product.imgUrl}
-          alt={product.name}
-          width={500}
-          height={500}
-        />
+        <section className={styles.containImg}>
+          <Image
+            src={product.imgUrl}
+            alt={product.name}
+            objectFit="contain"
+            fill={true}
+            sizes={"500px"}
+          />
+        </section>
       </section>
       <section className={styles.boxInfos}>
         <section>
