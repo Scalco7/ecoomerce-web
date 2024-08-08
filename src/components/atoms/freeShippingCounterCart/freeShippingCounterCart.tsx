@@ -2,6 +2,7 @@ import { Poppins, Zilla_Slab } from "next/font/google";
 import styles from "./style.module.css";
 import { formatNumberToValue } from "@/utils/number.utils";
 import TruckIcon from "@/components/icons/truckIcon/truckIcon";
+import CorrectIcon from "@/components/icons/correctIcon/correctIcon";
 
 interface FreeShippingCounterCartProps {
   freeShippingValue: number;
@@ -38,7 +39,13 @@ export default function FreeShippingCounterCart({
         </p>
       </section>
       {hasFreeShipping ? (
-        <section></section>
+        <section className={styles.freeShippingSection}>
+          <CorrectIcon size={30} color="#00FF09" />
+          <p>
+            Aproveite o{" "}
+            <span className={zillaSlab.className}>Frete grátis</span>
+          </p>
+        </section>
       ) : (
         <section className={styles.progressSection}>
           <p>

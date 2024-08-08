@@ -8,6 +8,7 @@ import HamburguerMenuIcon from "@/components/icons/hamburguerMenuIcon/hamburguer
 import { useState } from "react";
 import CloseIcon from "@/components/icons/closeIcon/closeIcon";
 import { useCart } from "@/states/cartState";
+import CartSection from "@/components/organisms/cartSection/cartSection";
 
 const poppins = Poppins({
   weight: ["400", "600"],
@@ -23,6 +24,7 @@ interface INavigationRoute {
 
 export default function HeaderNavigation() {
   const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const pathName = usePathname();
   const router = useRouter();
   const { productsQuantity } = useCart();
@@ -69,39 +71,48 @@ export default function HeaderNavigation() {
     setMobileNavigationOpen(!mobileNavigationOpen);
   }
 
+  function toogleShowCart(show: boolean) {
+    setShowCart(show);
+  }
+
   return (
-    <main className={styles.main}>
-      <section className={styles.logoBox}>
-        <div className={styles.logoImg}>
-          <Image
-            fill={true}
-            sizes="70px"
-            src={"/logo-header.png"}
-            alt={"Logo"}
+    <>
+      <main className={styles.main}>
+        <section className={styles.logoBox}>
+          <div className={styles.logoImg}>
+            <Image
+              fill={true}
+              sizes="70px"
+              src={"/logo-header.png"}
+              alt={"Logo"}
+            />
+          </div>
+        </section>
+        {mobileNavigationOpen && (
+          <section className={styles.mobileNavBar}>{routesComponent}</section>
+        )}
+        <section className={styles.navigationDesktop}>
+          {routesComponent}
+        </section>
+        <section
+          className={`${poppins.className} ${styles.navigationMobile}`}
+          onClick={handleMobileNavBarOpening}
+        >
+          {mobileNavigationOpen ? (
+            <CloseIcon size={30} color="white" />
+          ) : (
+            <HamburguerMenuIcon size={30} strokeWidth={3} color="white" />
+          )}
+        </section>
+        <div style={{ width: "28px" }}>
+          <CartCount
+            quantity={productsQuantity}
+            fontSize={14}
+            onClick={() => toogleShowCart(true)}
           />
         </div>
-      </section>
-      {mobileNavigationOpen && (
-        <section className={styles.mobileNavBar}>{routesComponent}</section>
-      )}
-      <section className={styles.navigationDesktop}>{routesComponent}</section>
-      <section
-        className={`${poppins.className} ${styles.navigationMobile}`}
-        onClick={handleMobileNavBarOpening}
-      >
-        {mobileNavigationOpen ? (
-          <CloseIcon size={30} color="white" />
-        ) : (
-          <HamburguerMenuIcon size={30} strokeWidth={3} color="white" />
-        )}
-      </section>
-      <div style={{ width: "28px" }}>
-        <CartCount
-          quantity={productsQuantity}
-          fontSize={14}
-          onClick={() => console.log("vai pro carrinho")}
-        />
-      </div>
-    </main>
+      </main>
+      <CartSection open={showCart} closeCart={() => toogleShowCart(false)} />
+    </>
   );
 }

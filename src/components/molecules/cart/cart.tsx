@@ -6,6 +6,7 @@ import FreeShippingCounterCart from "@/components/atoms/freeShippingCounterCart/
 import ProductCartBox from "../productCartBox/productCartBox";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import { useCart } from "@/states/cartState";
+import CircleCloseIcon from "@/components/icons/circleCloseIcon/circleCloseIcon";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -13,7 +14,11 @@ const zillaSlab = Zilla_Slab({
   display: "swap",
 });
 
-export default function Cart() {
+interface CartProps {
+  closeCart: () => void;
+}
+
+export default function Cart({ closeCart }: CartProps) {
   const {
     products,
     productsQuantity,
@@ -60,15 +65,13 @@ export default function Cart() {
             fontSize={20}
             onClick={() => console.log("clicou no botão")}
           />
-          <section
-            className={styles.textButton}
-            onClick={() => {
-              console.log("continuar comprando");
-            }}
-          >
+          <section className={styles.textButton} onClick={closeCart}>
             continuar comprando
           </section>
         </section>
+      </section>
+      <section className={styles.closeSection} onClick={closeCart}>
+        <CircleCloseIcon size={30} color="#000" />
       </section>
     </main>
   );
