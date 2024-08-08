@@ -59,21 +59,6 @@ export default function Components() {
           style={{
             position: "relative",
             width: "100%",
-            height: "800px",
-            minHeight: "800px",
-            background: "rgb(50,50,50)",
-            display: "flex",
-            justifyContent: "flex-end",
-            borderTop: "3px solid tomato",
-            borderBottom: "3px solid tomato",
-          }}
-        >
-          <Cart />
-        </div>
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
