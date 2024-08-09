@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
-import CapBuy from "@/components/molecules/capBuy/capBuy";
+import ProductWithTag from "@/components/molecules/productWithTag/productWithTag";
 import { Zilla_Slab } from "next/font/google";
 
 const zillaSlabBolder = Zilla_Slab({
@@ -12,7 +12,19 @@ const zillaSlabBolder = Zilla_Slab({
 export default function CapSellSection() {
   return (
     <main className={`${styles.main} `}>
-      <CapBuy />
+      <ProductWithTag
+        imgSrc={"/caps-buy-home-1.png"}
+        width={"600px"}
+        height={"600px"}
+        tags={[
+          { price: 29, onCLick: () => {}, position: { left: 30, bottom: 203 } },
+          {
+            price: 39,
+            onCLick: () => {},
+            position: { right: 42, bottom: 227 },
+          },
+        ]}
+      />
       <section className={styles.dataBox}>
         <p className={styles.title}>Bonés do hype</p>
         <section className={styles.textSection}>
