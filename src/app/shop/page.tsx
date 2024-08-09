@@ -4,6 +4,7 @@ import Footer from "@/components/molecules/footer/footer";
 import styles from "./style.module.css";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ShopProductsSection from "@/components/organisms/shopPageSections/shopProductsSection/shopProductsSection";
+import TopSection from "@/components/organisms/shopPageSections/topSection/topSection";
 
 export default function Shop() {
   return (
@@ -12,6 +13,7 @@ export default function Shop() {
         <HeaderNavigation />
       </header>
       <section className={`${styles.body}`}>
+        <TopSection />
         <ShopProductsSection />
         <Footer />
       </section>
