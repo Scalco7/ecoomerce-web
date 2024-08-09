@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
-import TShirtBuy from "@/components/molecules/tShirtBuy/tShirtBuy";
+import ProductWithTag from "@/components/molecules/productWithTag/productWithTag";
 import { Zilla_Slab } from "next/font/google";
 
 const zillaSlabBolder = Zilla_Slab({
@@ -12,7 +12,14 @@ const zillaSlabBolder = Zilla_Slab({
 export default function TShirtSellSection() {
   return (
     <main className={`${styles.main} `}>
-      <TShirtBuy />
+      <ProductWithTag
+        imgSrc={"/t-shirt-tag-home-1.png"}
+        width={"600px"}
+        height={"600px"}
+        tags={[
+          { price: 89, onCLick: () => {}, position: { right: 25, top: 30 } },
+        ]}
+      />
       <section className={styles.dataBox}>
         <p className={styles.title}>Camisetas no estilo</p>
         <section className={styles.textSection}>

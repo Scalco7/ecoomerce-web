@@ -4,10 +4,8 @@ import CartCount from "@/components/atoms/cartCount/cartCount";
 import PriceTag from "@/components/atoms/priceTag/priceTag";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
-import Cart from "@/components/molecules/cart/cart";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ProductBox from "@/components/molecules/productBox/productBox";
-import TShirtBuy from "@/components/molecules/tShirtBuy/tShirtBuy";
 import { ProductCartData, useCart } from "@/states/cartState";
 
 const product1: ProductCartData = {
@@ -237,10 +235,6 @@ export default function Components() {
                 promotionPrice: 79,
               }}
             />
-          </div>
-
-          <div>
-            <TShirtBuy />
           </div>
         </div>
       </section>
