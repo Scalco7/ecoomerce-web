@@ -1,7 +1,3 @@
-.svg path {
-  cursor: pointer;
-}
-
 .svg path:hover {
   opacity: 1;
 }
