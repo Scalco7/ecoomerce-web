@@ -33,6 +33,7 @@ export default function ProductWithTag({
       {tags &&
         tags?.map((tag, index) => (
           <section
+            key={`tag-${index}`}
             className={styles.tag}
             style={{
               top: tag.position.top,
