@@ -5,10 +5,10 @@ import styles from "./style.module.css";
 import { useSearchParams } from "next/navigation";
 import { Zilla_Slab } from "next/font/google";
 import { Suspense, useState } from "react";
-import PrivacySection from "@/components/organisms/policiesSection/privacySection/privacySection";
-import ExchangesSection from "@/components/organisms/policiesSection/exchangesSection/exchangesSection";
-import DeliverySection from "@/components/organisms/policiesSection/deliverySection/deliverySection";
-import TermSection from "@/components/organisms/policiesSection/termSection/termSection";
+import PrivacySection from "@/components/organisms/policiesSections/privacySection/privacySection";
+import ExchangesSection from "@/components/organisms/policiesSections/exchangesSection/exchangesSection";
+import DeliverySection from "@/components/organisms/policiesSections/deliverySection/deliverySection";
+import TermSection from "@/components/organisms/policiesSections/termSection/termSection";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
