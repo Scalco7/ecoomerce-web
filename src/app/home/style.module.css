@@ -23,12 +23,12 @@
   scrollbar-width: thin;
 }
 
-.shopSection {
+.desktopSection {
   display: none;
 }
 
-@media (min-width: 769px) {
-  .shopSection {
+@media (min-width: 768px) {
+  .desktopSection {
     display: flex;
   }
 }

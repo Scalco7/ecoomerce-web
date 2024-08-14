@@ -20,10 +20,12 @@ export default function Home() {
         <PresentationSection />
         <div style={{ height: 40 }}></div>
         <TShirtSellSection />
-        <YellowTextBanner text="Tecidos pensados para seu extremo conforto e versatilidade" />
+        <div className={styles.desktopSection}>
+          <YellowTextBanner text="Tecidos pensados para seu extremo conforto e versatilidade" />
+        </div>
         <div style={{ height: 20 }}></div>
         <CapSellSection />
-        <div className={styles.shopSection}>
+        <div className={styles.desktopSection}>
           <ShopSection />
         </div>
         <HistorySection />
