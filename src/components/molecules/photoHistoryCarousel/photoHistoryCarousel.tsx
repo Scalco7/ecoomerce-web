@@ -3,6 +3,7 @@ import PhotoHistory, {
   PhotoHistoryProps,
 } from "@/components/atoms/photoHistory/photoHistory";
 import ChevronIcon from "@/components/icons/chevronIconButton/chevronIconButton";
+import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 import { useState } from "react";
 
 interface PhotoHistoryCarouselProps {
@@ -13,6 +14,10 @@ export default function PhotoHistoryCarousel({
   historys,
 }: PhotoHistoryCarouselProps) {
   const [showCount, setShowCount] = useState(0);
+  const isTablet = useClientMediaQuery("(min-width: 576px)");
+  const isDesktop = useClientMediaQuery("(min-width: 1200px)");
+
+  const iconSize = isDesktop ? 100 : isTablet ? 50 : 30;
 
   function handleLeftIconClick() {
     const newShowCount = showCount <= 0 ? historys.length - 1 : showCount - 1;
@@ -26,8 +31,8 @@ export default function PhotoHistoryCarousel({
 
   return (
     <main className={styles.main}>
-      <section onClick={handleLeftIconClick} className={styles.pointer}>
-        <ChevronIcon side="left" size={100} color="#fff" opacity={0.7} />
+      <section onClick={handleLeftIconClick} className={styles.chevronIcon}>
+        <ChevronIcon side="left" size={iconSize} color="#fff" opacity={0.7} />
       </section>
       <section className={styles.carousel}>
         {historys.map((his, index) => (
@@ -46,8 +51,13 @@ export default function PhotoHistoryCarousel({
           </section>
         ))}
       </section>
-      <section onClick={handleRightIconClick} className={styles.pointer}>
-        <ChevronIcon side="right" size={100} color="#b3b3b2" opacity={0.7} />
+      <section onClick={handleRightIconClick} className={styles.chevronIcon}>
+        <ChevronIcon
+          side="right"
+          size={iconSize}
+          color="#b3b3b2"
+          opacity={0.7}
+        />
       </section>
     </main>
   );

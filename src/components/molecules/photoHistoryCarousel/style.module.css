@@ -5,7 +5,7 @@
   display: flex;
   position: relative;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -29,6 +29,17 @@
   opacity: 1;
 }
 
-.pointer {
+.chevronIcon {
+  margin-top: 120px;
   cursor: pointer;
+}
+
+@media (min-width: 576px) {
+  .main {
+    align-items: center;
+  }
+
+  .chevronIcon {
+    margin-top: 0px;
+  }
 }

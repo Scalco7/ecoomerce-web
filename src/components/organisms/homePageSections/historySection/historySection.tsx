@@ -32,7 +32,7 @@ export default function HistorySection() {
     <main className={styles.main}>
       <TransitionArrowLines initColor={"#fff"} endColor={"#000"} />
       <header className={styles.header}>
-        <section>
+        <section className={styles.textBox}>
           <p className={styles.text}> - Não somos apenas uma marca</p>
           <p className={styles.text}>
             {" "}
@@ -47,6 +47,7 @@ export default function HistorySection() {
             src={"/monkey-logo-purple.png"}
             alt="logo purple"
             sizes="300px"
+            objectFit="contain"
             fill={true}
           />
         </section>

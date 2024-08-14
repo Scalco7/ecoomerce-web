@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./style.module.css";
+import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 
 interface TransitionArrowLinesProps {
   initColor: string;
@@ -10,6 +11,8 @@ export default function TransitionArrowLines({
   initColor,
   endColor,
 }: TransitionArrowLinesProps) {
+  const isMobile = useClientMediaQuery("(max-width: 575px)");
+
   return (
     <main
       className={styles.main}
@@ -20,8 +23,8 @@ export default function TransitionArrowLines({
       <Image
         src={"/arrow-transiction.svg"}
         alt={"Linha"}
-        width={1920}
-        height={183}
+        width={isMobile ? 1259.02 : 1920}
+        height={isMobile ? 120 : 183}
       />
     </main>
   );

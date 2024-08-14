@@ -3,21 +3,94 @@
 }
 
 .header {
-  padding: 0px 35px;
-  height: 120px;
+  padding: 0px 10px;
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   align-items: flex-end;
   justify-content: space-between;
 }
 
+.textBox {
+  width: 100%;
+}
+
 .text {
-  font-size: 36px;
-  margin-bottom: 15px;
+  font-size: 17px;
+  margin-bottom: 5px;
 }
 
 .imgSection {
   position: relative;
-  width: 250px;
-  height: 250px;
+  margin-top: -30px;
+  width: 110px;
+  height: 110px;
+}
+
+@media (min-width: 425px) {
+  .imgSection {
+    width: 150px;
+    height: 150px;
+    margin-top: -50px;
+  }
+
+  .text {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 576px) {
+  .imgSection {
+    width: 180px;
+    height: 180px;
+  }
+
+  .text {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 670px) {
+  .header {
+    padding: 0px 35px;
+    height: 120px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .textBox {
+    width: fit-content;
+  }
+}
+
+@media (min-width: 768px) {
+  .text {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .imgSection {
+    margin-top: 0px;
+    width: 210px;
+    height: 210px;
+  }
+}
+
+@media (min-width: 992px) {
+  .text {
+    font-size: 36px;
+  }
+
+  .imgSection {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .imgSection {
+    width: 250px;
+    height: 250px;
+  }
 }
