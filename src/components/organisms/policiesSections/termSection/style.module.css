@@ -6,7 +6,11 @@
 }
 
 .boxText {
+  font-size: 18px;
   padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .title {

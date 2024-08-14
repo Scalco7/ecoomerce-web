@@ -16,13 +16,13 @@ export default function ExchangesSection() {
           <section>
             <p>1. Condições Gerais</p>
             <p className={zillaSlab.className}>
-              - A Banana Monkeys se compromete a realizar trocas ou devoluções
-              de produtos que apresentem defeitos de fabricação ou que não
-              atendam às expectativas do cliente, respeitando o prazo de 7 dias
-              corridos após o recebimento do produto. <br />- Para solicitar a
-              troca ou devolução, o cliente deve entrar em contato com nosso
-              atendimento pelo e-mail ou telefone informado no site, detalhando
-              o motivo da solicitação.
+              - A Banana {"Monkey's"} se compromete a realizar trocas ou
+              devoluções de produtos que apresentem defeitos de fabricação ou
+              que não atendam às expectativas do cliente, respeitando o prazo de
+              7 dias corridos após o recebimento do produto. <br />- Para
+              solicitar a troca ou devolução, o cliente deve entrar em contato
+              com nosso atendimento pelo e-mail ou telefone informado no site,
+              detalhando o motivo da solicitação.
             </p>
           </section>
           <section>
@@ -38,8 +38,8 @@ export default function ExchangesSection() {
           <section>
             <p>3. Procedimento para Troca/Devolução</p>
             <p className={zillaSlab.className}>
-              - Após o contato inicial, a Banana Monkeys fornecerá as instruções
-              para envio do produto.
+              - Após o contato inicial, a Banana {"Monkey's"} fornecerá as
+              instruções para envio do produto.
               <br />- O frete da primeira troca é por conta da loja. Em casos de
               devolução, o reembolso será feito na mesma forma de pagamento
               utilizada na compra, após o recebimento e análise do produto.

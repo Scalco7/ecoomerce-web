@@ -16,8 +16,9 @@ export default function DeliverySection() {
           <section>
             <p>1. Condições de Entrega</p>
             <p className={zillaSlab.className}>
-              - A Banana Monkeys realiza entregas em todo o território nacional,
-              utilizando serviços de correios ou transportadoras parceiras.
+              - A Banana {"Monkey's"} realiza entregas em todo o território
+              nacional, utilizando serviços de correios ou transportadoras
+              parceiras.
               <br /> - O prazo de entrega pode variar conforme a localidade do
               destinatário e a forma de envio escolhida.
             </p>
