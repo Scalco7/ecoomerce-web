@@ -16,19 +16,22 @@ const zillaSlabHighlight = Zilla_Slab_Highlight({
 });
 
 export default function PresentationSection() {
-  const isMobile = useClientMediaQuery("(max-width: 575px)");
+  const isDesktop = useClientMediaQuery("(min-width: 576px)");
 
   return (
     <main className={styles.main}>
-      <Image
-        src={
-          isMobile
-            ? "/basquete-back-home-mobile.png"
-            : "/basquete-back-home.png"
-        }
-        alt="background"
-        fill={true}
-      />
+      <section className={styles.imgBox}>
+        <Image
+          src={
+            isDesktop
+              ? "/basquete-back-home.png"
+              : "/basquete-back-home-mobile.png"
+          }
+          alt="background"
+          fill={true}
+        />
+      </section>
+
       <section className={styles.textBox}>
         <p className={`${styles.firstText} ${anton.className}`}>
           Banana {"Monkey's"}

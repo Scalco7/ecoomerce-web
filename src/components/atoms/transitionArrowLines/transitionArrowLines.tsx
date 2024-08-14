@@ -11,7 +11,7 @@ export default function TransitionArrowLines({
   initColor,
   endColor,
 }: TransitionArrowLinesProps) {
-  const isMobile = useClientMediaQuery("(max-width: 575px)");
+  const isDesktop = useClientMediaQuery("(min-width: 576px)");
 
   return (
     <main
@@ -23,8 +23,8 @@ export default function TransitionArrowLines({
       <Image
         src={"/arrow-transiction.svg"}
         alt={"Linha"}
-        width={isMobile ? 1259.02 : 1920}
-        height={isMobile ? 120 : 183}
+        width={isDesktop ? 1920 : 1259.02}
+        height={isDesktop ? 183 : 120}
       />
     </main>
   );
