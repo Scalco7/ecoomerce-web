@@ -134,6 +134,10 @@
     font-size: 34px;
   }
 
+  .bottomSection {
+    margin-left: -10px;
+  }
+
   .detailsSection {
     font-size: 34px;
     gap: 20px;
