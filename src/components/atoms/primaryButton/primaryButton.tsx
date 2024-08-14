@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 interface PrimaryButtonProps {
   text?: string;
-  rounded: boolean;
+  borderRadius: number;
   isDark: boolean;
   width: string;
   height: string;
@@ -14,7 +14,7 @@ interface PrimaryButtonProps {
 
 export default function PrimaryButton({
   text,
-  rounded,
+  borderRadius,
   isDark,
   width,
   height,
@@ -35,7 +35,7 @@ export default function PrimaryButton({
         fontSize: fontSize,
         background: background,
         color: color,
-        borderRadius: rounded ? "15px" : "0px",
+        borderRadius: borderRadius,
         justifyContent: text ? "space-between" : "center",
       }}
     >

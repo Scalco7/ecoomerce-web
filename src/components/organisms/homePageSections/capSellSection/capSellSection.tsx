@@ -45,7 +45,7 @@ export default function CapSellSection() {
           <PrimaryButton
             text="Adquirir o Hype"
             fontSize={30}
-            rounded={true}
+            borderRadius={15}
             isDark={true}
             width={"300px"}
             height={"80px"}

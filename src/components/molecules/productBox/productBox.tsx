@@ -79,7 +79,7 @@ export default function ProductBox({
           </section>
         </section>
         <PrimaryButton
-          rounded={false}
+          borderRadius={0}
           isDark={!isWhite}
           width={"100%"}
           height={"40px"}
