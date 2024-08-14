@@ -63,12 +63,12 @@ export default function CapSellSection() {
           </p>
           <PrimaryButton
             text={buttonText}
-            fontSize={20}
+            fontSize={18}
             borderRadius={10}
             isDark={true}
-            width={"200px"}
+            width={"210px"}
             height={"50px"}
-            iconSize={28}
+            iconSize={24}
             onClick={() => {}}
           />
         </footer>

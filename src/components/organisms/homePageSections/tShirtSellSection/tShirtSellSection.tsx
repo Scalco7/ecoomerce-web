@@ -31,7 +31,11 @@ export default function TShirtSellSection() {
         </section>
       )}
       <ProductWithTag
-        imgSrc={"/t-shirt-tag-home-1.png"}
+        imgSrc={
+          isTablet
+            ? "/t-shirt-tag-home-1.png"
+            : "/t-shirt-tag-home-1-unline.png"
+        }
         width={isBigScreen ? "600px" : isTablet ? "450px" : "300px"}
         height={isBigScreen ? "600px" : isTablet ? "450px" : "300px"}
         tags={[
