@@ -9,6 +9,7 @@ interface PrimaryButtonProps {
   height: string;
   fontSize?: number;
   iconSize: number;
+  padding?: number;
   onClick: () => void;
 }
 
@@ -21,6 +22,7 @@ export default function PrimaryButton({
   fontSize,
   iconSize,
   onClick,
+  padding = 20,
 }: PrimaryButtonProps) {
   const background: string = isDark ? "black" : "white";
   const color: string = isDark ? "white" : "black";
@@ -36,6 +38,7 @@ export default function PrimaryButton({
         background: background,
         color: color,
         borderRadius: borderRadius,
+        padding: padding,
         justifyContent: text ? "space-between" : "center",
       }}
     >

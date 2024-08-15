@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import { Poppins, Zilla_Slab } from "next/font/google";
 import { formatNumberToValue } from "@/utils/number.utils";
+import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 
 interface ProductBoxProps {
   colorScheme: "white" | "yellow";
@@ -37,6 +38,8 @@ export default function ProductBox({
   width,
 }: ProductBoxProps) {
   const router = useRouter();
+  const isDesktop = useClientMediaQuery("(min-width: 576px)");
+
   const isWhite = colorScheme == "white";
 
   function handleProductClick() {
@@ -82,8 +85,9 @@ export default function ProductBox({
           borderRadius={0}
           isDark={!isWhite}
           width={"100%"}
-          height={"40px"}
-          iconSize={20}
+          height={isDesktop ? "40px" : "30px"}
+          padding={0}
+          iconSize={isDesktop ? 20 : 16}
           onClick={() => console.log("comprando bonéF")}
         />
       </section>

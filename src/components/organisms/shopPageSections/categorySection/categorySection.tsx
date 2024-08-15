@@ -3,6 +3,7 @@ import styles from "./style.module.css";
 import ProductBox, {
   ProductInfoData,
 } from "@/components/molecules/productBox/productBox";
+import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 
 interface CategorySectionProps {
   colorScheme: "white" | "yellow";
@@ -23,6 +24,9 @@ export default function CategorySection({
   products,
   hasTransiction,
 }: CategorySectionProps) {
+  const isMobileBigger = useClientMediaQuery("(min-width: 375px)");
+  const isDesktop = useClientMediaQuery("(min-width: 576px)");
+
   const isWhiteScheme = colorScheme == "white";
   const productsColorScheme = isWhiteScheme ? "yellow" : "white";
   const bgColor = isWhiteScheme ? "white" : "#FFEF6D";
@@ -61,7 +65,7 @@ export default function CategorySection({
           <ProductBox
             key={`product-${index}`}
             colorScheme={productsColorScheme}
-            width={"250px"}
+            width={isDesktop ? "250px" : isMobileBigger ? "160px" : "140px"}
             product={product}
           />
         ))}
