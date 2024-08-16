@@ -2,6 +2,7 @@ import ProductWithTag from "@/components/molecules/productWithTag/productWithTag
 import styles from "./style.module.css";
 import { Zilla_Slab } from "next/font/google";
 import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
+import Image from "next/image";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -10,6 +11,7 @@ const zillaSlab = Zilla_Slab({
 });
 
 export default function TopSection() {
+  const isTablet = useClientMediaQuery("(min-width: 576px)");
   const isDesktop = useClientMediaQuery("(min-width: 992px)");
   const isXLScreen = useClientMediaQuery("(min-width: 1200px)");
   const isXXLScreen = useClientMediaQuery("(min-width: 1400px)");
@@ -71,31 +73,45 @@ export default function TopSection() {
   return (
     <main className={`${styles.main} ${zillaSlab.className}`}>
       <section className={styles.imgsSection}>
-        <ProductWithTag
-          imgSrc={"/t-shirt-1.png"}
-          width={littleTShirtSize}
-          height={littleTShirtSize}
-          tags={tagsTshirt1}
-        />
-        <ProductWithTag
-          imgSrc={"/t-shirt-2.png"}
-          width={bigTShirtSize}
-          height={bigTShirtSize}
-          tags={tagsTshirt2}
-        />
-        <ProductWithTag
-          imgSrc={"/t-shirt-3.png"}
-          width={littleTShirtSize}
-          height={littleTShirtSize}
-          tags={tagsTshirt3}
-        />
+        {isTablet ? (
+          <>
+            <ProductWithTag
+              imgSrc={"/t-shirt-1.png"}
+              width={littleTShirtSize}
+              height={littleTShirtSize}
+              tags={tagsTshirt1}
+            />
+            <ProductWithTag
+              imgSrc={"/t-shirt-2.png"}
+              width={bigTShirtSize}
+              height={bigTShirtSize}
+              tags={tagsTshirt2}
+            />
+            <ProductWithTag
+              imgSrc={"/t-shirt-3.png"}
+              width={littleTShirtSize}
+              height={littleTShirtSize}
+              tags={tagsTshirt3}
+            />{" "}
+          </>
+        ) : (
+          <Image
+            src={"/t-shirts-mobile-shop.png"}
+            alt={"Camisetas"}
+            objectFit="contain"
+            fill={true}
+            sizes="600px"
+          />
+        )}
       </section>
-      <div className={styles.box1}>
-        <p className={styles.text1}>Let the game</p>
-      </div>
-      <div className={styles.box2}>
-        <p className={styles.text2}>Begin</p>
-      </div>
+      <section className={styles.boxTexts}>
+        <div className={styles.box1}>
+          <p className={styles.text1}>Let the game</p>
+        </div>
+        <div className={styles.box2}>
+          <p className={styles.text2}>Begin</p>
+        </div>
+      </section>
     </main>
   );
 }
