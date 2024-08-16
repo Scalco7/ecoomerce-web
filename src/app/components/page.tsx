@@ -5,8 +5,10 @@ import PriceTag from "@/components/atoms/priceTag/priceTag";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ProductBox from "@/components/molecules/productBox/productBox";
-import VariantSelect from "@/components/molecules/variantSelect/variantSelect";
+import VariantModal from "@/components/molecules/variantModal/variantModal";
+import VariantModalSection from "@/components/organisms/variantModalSection/variantModalSection";
 import { ProductCartData, useCart } from "@/states/cartState";
+import { useState } from "react";
 
 const product1: ProductCartData = {
   id: "product-1",
@@ -34,6 +36,7 @@ const mockProducts: ProductCartData[] = [
 ];
 
 export default function Components() {
+  const [variantSectionIsOpen, setVariantSectionIsOpen] = useState(false);
   const { setProducts, addProduct } = useCart();
 
   return (
@@ -114,7 +117,7 @@ export default function Components() {
               background: "rgba(0, 0, 0, 0.4)",
             }}
           >
-            <VariantSelect
+            <VariantModal
               variantBoxWidth={100}
               variant={{
                 type: "Cor",
@@ -130,7 +133,7 @@ export default function Components() {
               }}
             />
 
-            <VariantSelect
+            <VariantModal
               variant={{
                 type: "Tamanho",
                 variants: [
@@ -145,7 +148,7 @@ export default function Components() {
               }}
             />
 
-            <VariantSelect
+            <VariantModal
               variant={{
                 type: "Tamanho",
                 variants: [
@@ -188,7 +191,7 @@ export default function Components() {
             <PriceTag
               price={109.9}
               onClick={() => {
-                console.log("quero comprar");
+                setVariantSectionIsOpen(true);
               }}
             />
           </div>
@@ -264,6 +267,25 @@ export default function Components() {
           </div>
         </div>
       </section>
+      <VariantModalSection
+        variantBoxWidth={100}
+        variant={{
+          type: "Cor",
+          variants: [
+            { id: "cor-red", name: "Vermelho" },
+            { id: "cor-black", name: "Preto" },
+            { id: "cor-white", name: "Branco" },
+            { id: "cor-blue", name: "Azul" },
+          ],
+        }}
+        open={variantSectionIsOpen}
+        onSelect={(variantId: string) => {
+          setVariantSectionIsOpen(false);
+        }}
+        onClose={() => {
+          setVariantSectionIsOpen(false);
+        }}
+      />
     </main>
   );
 }
