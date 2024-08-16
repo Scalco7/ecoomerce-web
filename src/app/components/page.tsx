@@ -5,6 +5,7 @@ import PriceTag from "@/components/atoms/priceTag/priceTag";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ProductBox from "@/components/molecules/productBox/productBox";
+import VariantSelect from "@/components/molecules/variantSelect/variantSelect";
 import { ProductCartData, useCart } from "@/states/cartState";
 
 const product1: ProductCartData = {
@@ -100,6 +101,69 @@ export default function Components() {
                 }}
               />
             </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "30px",
+              padding: 50,
+              background: "rgba(0, 0, 0, 0.4)",
+            }}
+          >
+            <VariantSelect
+              variantBoxWidth={100}
+              variant={{
+                type: "Cor",
+                variants: [
+                  { id: "cor-red", name: "Vermelho" },
+                  { id: "cor-black", name: "Preto" },
+                  { id: "cor-white", name: "Branco" },
+                  { id: "cor-blue", name: "Azul" },
+                ],
+              }}
+              onSelect={(variantId) => {
+                console.log("selecionou - " + variantId);
+              }}
+            />
+
+            <VariantSelect
+              variant={{
+                type: "Tamanho",
+                variants: [
+                  { id: "t-p", name: "P" },
+                  { id: "t-m", name: "M" },
+                  { id: "t-g", name: "G" },
+                  { id: "t-gg", name: "GG" },
+                ],
+              }}
+              onSelect={(variantId) => {
+                console.log("selecionou - " + variantId);
+              }}
+            />
+
+            <VariantSelect
+              variant={{
+                type: "Tamanho",
+                variants: [
+                  { id: "t-xpp", name: "XPP" },
+                  { id: "t-xp", name: "XP" },
+                  { id: "t-pp", name: "PP" },
+                  { id: "t-p", name: "P" },
+                  { id: "t-m", name: "M" },
+                  { id: "t-g", name: "G" },
+                  { id: "t-gg", name: "GG" },
+                  { id: "t-xg", name: "XG" },
+                  { id: "t-xgg", name: "XGG" },
+                ],
+              }}
+              onSelect={(variantId) => {
+                console.log("selecionou - " + variantId);
+              }}
+            />
           </div>
           <div
             style={{

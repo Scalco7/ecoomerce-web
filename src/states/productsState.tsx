@@ -2,8 +2,12 @@ import { create } from "zustand";
 
 interface Variant {
   id: string;
-  type: string;
   name: string;
+}
+
+export interface VariantType {
+  type: string;
+  variants: Variant[];
 }
 
 interface ProductItem {
@@ -12,14 +16,16 @@ interface ProductItem {
   price: number;
   promotionPrice: number;
   availableQuantity: number;
-  variant1?: Variant;
-  variant2?: Variant;
+  variant1Id?: string;
+  variant2Id?: string;
 }
 
 export interface ProductType {
   id: string;
   name: string;
   products: ProductItem[];
+  variantType1?: VariantType;
+  variantType2?: VariantType;
 }
 
 interface ProductSection {
@@ -32,22 +38,6 @@ type ProductsState = {
   setProductsSections: (productsSections: ProductSection[]) => void;
 };
 
-const variantColorRed = {
-  id: "variant-color-red",
-  type: "Cor",
-  name: "Vermelho",
-};
-const variantColorBlack = {
-  id: "variant-color-black",
-  type: "Cor",
-  name: "Preto",
-};
-const variantColorWhite = {
-  id: "variant-color-white",
-  type: "Cor",
-  name: "Branco",
-};
-
 const productsList: ProductItem[] = [
   {
     id: "product-1",
@@ -55,7 +45,7 @@ const productsList: ProductItem[] = [
     price: 119,
     promotionPrice: 99,
     availableQuantity: 8,
-    variant1: variantColorRed,
+    variant1Id: "red-v",
   },
   {
     id: "product-2",
@@ -63,7 +53,7 @@ const productsList: ProductItem[] = [
     price: 119,
     promotionPrice: 89,
     availableQuantity: 2,
-    variant1: variantColorBlack,
+    variant1Id: "black-v",
   },
   {
     id: "product-3",
@@ -71,7 +61,7 @@ const productsList: ProductItem[] = [
     price: 119,
     promotionPrice: 79,
     availableQuantity: 10,
-    variant1: variantColorWhite,
+    variant1Id: "white-v",
   },
 ];
 
@@ -113,6 +103,14 @@ const mockSectionProducts: ProductSection[] = [
         id: "product-type-1",
         name: "Regata clássica",
         products: productsList,
+        variantType1: {
+          type: "Cor",
+          variants: [
+            { id: "red-v", name: "Vermelho" },
+            { id: "black-v", name: "Preto" },
+            { id: "white-v", name: "Branco" },
+          ],
+        },
       },
     ],
   },

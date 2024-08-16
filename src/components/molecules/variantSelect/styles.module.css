@@ -1,0 +1,38 @@
+.main {
+  background-color: white;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  color: black;
+  padding: 20px;
+  gap: 25px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.variantsBox {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.variantButton {
+  height: 30px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  background-color: white;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.variantButton:active {
+  background-color: black;
+  transition: background-color 0.15s ease-in-out;
+}
