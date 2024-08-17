@@ -8,13 +8,15 @@ import TopSection from "@/components/organisms/shopPageSections/topSection/topSe
 import { useState } from "react";
 import { VariantType } from "@/states/productsState";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
-
-interface ModalVariantPromise {
-  resolve: (result: string) => void;
-}
+import {
+  ModalVariantPromise,
+  onCloseModalVariant,
+  onSelectModalVariant,
+} from "@/utils/modalVariant.utils";
 
 export default function Shop() {
   const [variantSectionIsOpen, setVariantSectionIsOpen] = useState(false);
+  const [variantBoxWidth, setVariantBoxWidth] = useState<number>(80);
   const [currentVariant, setCurrentVariant] = useState<
     VariantType | undefined
   >();
@@ -28,33 +30,30 @@ export default function Shop() {
       </header>
       <section className={`${styles.body}`}>
         <TopSection />
-        {/* <button
-          onClick={async () => {
-            const id = await openModalVariant({
-              type: "Cor",
-              variants: [
-                { id: "c-black", name: "Preto" },
-                { id: "c-red", name: "Vermelho" },
-                { id: "c-white", name: "Branco" },
-              ],
-            });
-            console.log("id - ", id);
-          }}
-        >
-          clique aqui
-        </button> */}
         <ShopProductsSection />
         <Footer />
       </section>
       {variantSectionIsOpen && (
         <ModalVariantSection
-          variantBoxWidth={100}
+          variantBoxWidth={variantBoxWidth}
           variant={currentVariant}
-          onSelect={onSelectModalVariant} //colocar um .resolve, que quando ele seleciona ele resolve a promisse
-          // Vai ser assim, vai chamar a função que vai setar tudo certinho para abrir o modal - setar a variant, o visibilidade e a função de fechar, a função de fechar, no caso vai ter um resolve, para finalizar a promisse e a função retornar, q a função de abrir irá retornar uma promisse, com o valor da resposta (string com Id), dai na função de fechar essa promisse vai ser resolvida e o valor de resposta retornado.
-
+          onSelect={(variantId) =>
+            onSelectModalVariant(
+              variantId,
+              resolveModalVariant,
+              setVariantSectionIsOpen,
+              setResolveModalVariant,
+              setCurrentVariant
+            )
+          }
           open={variantSectionIsOpen}
-          onClose={onCloseModalVariant}
+          onClose={() =>
+            onCloseModalVariant(
+              setVariantSectionIsOpen,
+              setResolveModalVariant,
+              setCurrentVariant
+            )
+          }
         />
       )}
     </main>
