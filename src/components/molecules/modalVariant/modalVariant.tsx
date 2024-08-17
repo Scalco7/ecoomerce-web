@@ -1,17 +1,17 @@
 import styles from "./styles.module.css";
 import { VariantType } from "@/states/productsState";
 
-interface VariantModalProps {
+interface ModalVariantProps {
   variantBoxWidth?: number;
   variant: VariantType;
   onSelect: (variantId: string) => void;
 }
 
-export default function VariantModal({
+export default function ModalVariant({
   variant,
   onSelect,
   variantBoxWidth = 50,
-}: VariantModalProps) {
+}: ModalVariantProps) {
   return (
     <main className={styles.main}>
       <p className={styles.title}>{variant.type}</p>

@@ -5,10 +5,10 @@ import PriceTag from "@/components/atoms/priceTag/priceTag";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import ProductBox from "@/components/molecules/productBox/productBox";
-import VariantModal from "@/components/molecules/variantModal/variantModal";
-import VariantModalSection from "@/components/organisms/variantModalSection/variantModalSection";
 import { ProductCartData, useCart } from "@/states/cartState";
 import { useState } from "react";
+import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
+import ModalVariant from "@/components/molecules/modalVariant/modalVariant";
 
 const product1: ProductCartData = {
   id: "product-1",
@@ -117,7 +117,7 @@ export default function Components() {
               background: "rgba(0, 0, 0, 0.4)",
             }}
           >
-            <VariantModal
+            <ModalVariant
               variantBoxWidth={100}
               variant={{
                 type: "Cor",
@@ -133,7 +133,7 @@ export default function Components() {
               }}
             />
 
-            <VariantModal
+            <ModalVariant
               variant={{
                 type: "Tamanho",
                 variants: [
@@ -148,7 +148,7 @@ export default function Components() {
               }}
             />
 
-            <VariantModal
+            <ModalVariant
               variant={{
                 type: "Tamanho",
                 variants: [
@@ -267,7 +267,7 @@ export default function Components() {
           </div>
         </div>
       </section>
-      <VariantModalSection
+      <ModalVariantSection
         variantBoxWidth={100}
         variant={{
           type: "Cor",
@@ -278,10 +278,10 @@ export default function Components() {
             { id: "cor-blue", name: "Azul" },
           ],
         }}
-        open={variantSectionIsOpen}
         onSelect={(variantId: string) => {
           setVariantSectionIsOpen(false);
         }}
+        open={variantSectionIsOpen}
         onClose={() => {
           setVariantSectionIsOpen(false);
         }}
