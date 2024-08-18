@@ -8,11 +8,11 @@ export interface ProductCartData {
   promotionPrice: number;
   availableQuantity: number;
   quantity: number;
-  variant1?: Variant;
-  variant2?: Variant;
+  variant1?: CartVariant;
+  variant2?: CartVariant;
 }
 
-interface Variant {
+export interface CartVariant {
   type: string;
   name: string;
 }

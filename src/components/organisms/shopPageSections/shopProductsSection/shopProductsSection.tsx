@@ -2,6 +2,10 @@ import { ProductType, useProduct } from "@/states/productsState";
 import CategorySection from "../categorySection/categorySection";
 import { ProductInfoData } from "@/components/molecules/productBox/productBox";
 
+interface ShopProductsSectionProps {
+  buyProduct: (productTypeId: string) => void;
+}
+
 function productsDataToProductBox(productType: ProductType): ProductInfoData {
   const cheapProduct = productType.products.reduce((p1, p2) => {
     if (p1.price < p2.price) return p1;
@@ -20,7 +24,9 @@ function productsDataToProductBox(productType: ProductType): ProductInfoData {
   return formattedProductData;
 }
 
-export default function ShopProductsSection() {
+export default function ShopProductsSection({
+  buyProduct,
+}: ShopProductsSectionProps) {
   const { productsSections } = useProduct();
 
   return (
@@ -35,6 +41,7 @@ export default function ShopProductsSection() {
             products={section.productTypes.map((pt) =>
               productsDataToProductBox(pt)
             )}
+            buyProduct={buyProduct}
           />
           <div style={{ height: 20 }}></div>
         </>

@@ -10,7 +10,7 @@ export interface VariantType {
   variants: Variant[];
 }
 
-interface ProductItem {
+export interface ProductItem {
   id: string;
   imgUrls: string[];
   price: number;

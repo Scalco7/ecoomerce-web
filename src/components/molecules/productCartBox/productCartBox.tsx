@@ -33,14 +33,17 @@ export default function ProductCartBox({
 }: ProductCartBoxProps) {
   return (
     <main className={styles.main}>
-      <section className={styles.imgBox}>
-        <Image
-          src={product.imgUrl}
-          alt={product.name}
-          fill={true}
-          objectFit="contain"
-        />
+      <section className={styles.imgBoxBig}>
+        <section className={styles.imgBox}>
+          <Image
+            src={product.imgUrl}
+            alt={product.name}
+            fill={true}
+            objectFit="contain"
+          />
+        </section>
       </section>
+
       <section className={styles.dataSection}>
         <section className={styles.topSection}>
           <section className={styles.textSection}>
@@ -50,12 +53,12 @@ export default function ProductCartBox({
             <section className={styles.variantsSection}>
               {product.variant1 && (
                 <p className={styles.variantText}>
-                  {product.variant1.name}: {product.variant1.type}
+                  {product.variant1.type}: {product.variant1.name}
                 </p>
               )}
               {product.variant2 && (
                 <p className={styles.variantText}>
-                  {product.variant2.name}: {product.variant2.type}
+                  {product.variant2.type}: {product.variant2.name}
                 </p>
               )}
             </section>

@@ -4,13 +4,17 @@ import { Zilla_Slab } from "next/font/google";
 import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 import Image from "next/image";
 
+interface TopSectionProps {
+  buyProduct: (productTypeId: string) => void;
+}
+
 const zillaSlab = Zilla_Slab({
   weight: "700",
   subsets: ["latin"],
   display: "swap",
 });
 
-export default function TopSection() {
+export default function TopSection({ buyProduct }: TopSectionProps) {
   const isTablet = useClientMediaQuery("(min-width: 576px)");
   const isDesktop = useClientMediaQuery("(min-width: 992px)");
   const isXLScreen = useClientMediaQuery("(min-width: 1200px)");
@@ -35,7 +39,9 @@ export default function TopSection() {
     ? [
         {
           price: 89,
-          onCLick: () => {},
+          onCLick: () => {
+            buyProduct("");
+          },
           position: {
             right: isXXLScreen ? -43 : isXLScreen ? -45 : -50,
             top: isXXLScreen ? 42 : isXLScreen ? 35 : 23,

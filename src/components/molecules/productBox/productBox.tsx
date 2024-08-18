@@ -10,6 +10,7 @@ interface ProductBoxProps {
   colorScheme: "white" | "yellow";
   width: string;
   product: ProductInfoData;
+  buyProduct: (productTypeId: string) => void;
 }
 
 export interface ProductInfoData {
@@ -36,6 +37,7 @@ export default function ProductBox({
   colorScheme,
   product,
   width,
+  buyProduct,
 }: ProductBoxProps) {
   const router = useRouter();
   const isDesktop = useClientMediaQuery("(min-width: 576px)");
@@ -88,7 +90,7 @@ export default function ProductBox({
           height={isDesktop ? "40px" : "30px"}
           padding={0}
           iconSize={isDesktop ? 20 : 16}
-          onClick={() => console.log("comprando bonéF")}
+          onClick={() => buyProduct(product.id)}
         />
       </section>
     </main>

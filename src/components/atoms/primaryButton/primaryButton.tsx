@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import CartIcon from "../../icons/cartIcon/cartIcon";
 import styles from "./styles.module.css";
 
@@ -30,7 +31,10 @@ export default function PrimaryButton({
   return (
     <main
       className={styles.main}
-      onClick={onClick}
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick();
+      }}
       style={{
         width: width,
         height: height,

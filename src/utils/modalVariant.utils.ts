@@ -2,30 +2,38 @@ import { VariantType } from "@/states/productsState";
 import { Dispatch, SetStateAction } from "react";
 
 export interface ModalVariantPromise {
-    resolve: (result: string) => void;
+    resolve: (result: string | undefined) => void;
 }
 
-export function openModalVariant(variant: VariantType, variantBoxWidth: number, setVariantSectionIsOpen: Dispatch<SetStateAction<boolean>>, setResolveModalVariant: Dispatch<SetStateAction<ModalVariantPromise | null>>, setCurrentVariant: Dispatch<SetStateAction<VariantType | undefined>>, setVariantBoxWidth: Dispatch<SetStateAction<number>>): Promise<string> {
-    return new Promise<string>((resolve) => {
+export function openModalVariant(variant: VariantType, variantBoxWidth: number, setVariantSectionIsOpen: Dispatch<SetStateAction<boolean>>, setResolveModalVariant: Dispatch<SetStateAction<ModalVariantPromise | null>>, setCurrentVariant: Dispatch<SetStateAction<VariantType | undefined>>, setVariantBoxWidth: Dispatch<SetStateAction<number>>): Promise<string | undefined> {
+    return new Promise<string | undefined>((resolve) => {
         setResolveModalVariant({
-            resolve: (result: string) => {
+            resolve: (result: string | undefined) => {
                 resolve(result);
             },
         });
+        setVariantBoxWidth(variantBoxWidth)
         setCurrentVariant(variant);
         setVariantSectionIsOpen(true);
     });
 }
 
-export function onCloseModalVariant(setVariantSectionIsOpen: Dispatch<SetStateAction<boolean>>, setResolveModalVariant: Dispatch<SetStateAction<ModalVariantPromise | null>>, setCurrentVariant: Dispatch<SetStateAction<VariantType | undefined>>) {
+function closeModalVariant(setVariantSectionIsOpen: Dispatch<SetStateAction<boolean>>, setResolveModalVariant: Dispatch<SetStateAction<ModalVariantPromise | null>>, setCurrentVariant: Dispatch<SetStateAction<VariantType | undefined>>) {
     setVariantSectionIsOpen(false);
     setResolveModalVariant(null);
     setCurrentVariant(undefined);
 }
 
+export function onCloseModalVariant(resolveModalVariant: ModalVariantPromise | null, setVariantSectionIsOpen: Dispatch<SetStateAction<boolean>>, setResolveModalVariant: Dispatch<SetStateAction<ModalVariantPromise | null>>, setCurrentVariant: Dispatch<SetStateAction<VariantType | undefined>>) {
+    if (resolveModalVariant) {
+        resolveModalVariant.resolve(undefined);
+        closeModalVariant(setVariantSectionIsOpen, setResolveModalVariant, setCurrentVariant);
+    }
+}
+
 export function onSelectModalVariant(variantId: string, resolveModalVariant: ModalVariantPromise | null, setVariantSectionIsOpen: Dispatch<SetStateAction<boolean>>, setResolveModalVariant: Dispatch<SetStateAction<ModalVariantPromise | null>>, setCurrentVariant: Dispatch<SetStateAction<VariantType | undefined>>) {
     if (resolveModalVariant) {
         resolveModalVariant.resolve(variantId);
-        onCloseModalVariant(setVariantSectionIsOpen, setResolveModalVariant, setCurrentVariant);
+        closeModalVariant(setVariantSectionIsOpen, setResolveModalVariant, setCurrentVariant);
     }
 }

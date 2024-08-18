@@ -10,6 +10,7 @@ interface CategorySectionProps {
   title: string;
   products: ProductInfoData[];
   hasTransiction: boolean;
+  buyProduct: (productTypeId: string) => void;
 }
 
 const zillaSlab = Zilla_Slab({
@@ -23,6 +24,7 @@ export default function CategorySection({
   title,
   products,
   hasTransiction,
+  buyProduct,
 }: CategorySectionProps) {
   const isMobileBigger = useClientMediaQuery("(min-width: 375px)");
   const isDesktop = useClientMediaQuery("(min-width: 576px)");
@@ -67,6 +69,7 @@ export default function CategorySection({
             colorScheme={productsColorScheme}
             width={isDesktop ? "250px" : isMobileBigger ? "160px" : "140px"}
             product={product}
+            buyProduct={buyProduct}
           />
         ))}
       </section>
