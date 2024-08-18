@@ -78,7 +78,7 @@
 
 .productsSection::-webkit-scrollbar-thumb {
   width: 5px;
-  background-color: black;
+  background-color: #ffef6d;
   border-radius: 5px;
 }
 
