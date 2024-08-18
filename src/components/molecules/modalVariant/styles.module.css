@@ -6,6 +6,7 @@
   border-top: 2px solid black;
   color: black;
   padding: 20px;
+  padding-bottom: 70px;
   gap: 25px;
 }
 
@@ -49,6 +50,7 @@
 @media (min-width: 768px) {
   .main {
     width: 65%;
+    padding: 20px;
   }
 }
 
