@@ -33,7 +33,7 @@ export default function FreeShippingCounterCart({
     <main className={styles.main}>
       <section className={styles.titleSection}>
         <TruckIcon size={24} color="#000" />
-        <p className={styles.title}>
+        <p>
           Frete grátis para{" "}
           <span className={zillaSlab.className}>todo o Brasil</span>
         </p>

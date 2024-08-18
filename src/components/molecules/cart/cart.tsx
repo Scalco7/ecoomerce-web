@@ -48,7 +48,7 @@ export default function Cart({ closeCart }: CartProps) {
           />
         ))}
       </section>
-      <section className={styles.botttomSection}>
+      <section className={styles.bottomSection}>
         <FreeShippingCounterCart
           freeShippingValue={300}
           value={totalPromotionPrice}
