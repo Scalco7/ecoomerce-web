@@ -28,13 +28,14 @@ export interface ProductType {
   variantType2?: VariantType;
 }
 
-interface ProductSection {
+export interface ProductSection {
   name: string;
   productTypes: ProductType[];
 }
 
 type ProductsState = {
   productsSections: ProductSection[];
+  styleSection: ProductSection;
   setProductsSections: (productsSections: ProductSection[]) => void;
 };
 
@@ -152,57 +153,70 @@ const capType3List: ProductItem[] = [
   },
 ];
 
+const productTypeRegata: ProductType = {
+  id: "product-type-1",
+  name: "Regata clássica",
+  products: productsList,
+  variantType1: {
+    type: "Cor",
+    variants: [
+      { id: "red-v", name: "Vermelho" },
+      { id: "black-v", name: "Preto" },
+      { id: "white-v", name: "Branco" },
+    ],
+  },
+  variantType2: {
+    type: "Tamanho",
+    variants: [
+      { id: "t-p", name: "P" },
+      { id: "t-m", name: "M" },
+      { id: "t-g", name: "G" },
+    ],
+  },
+};
+
+const productTypeCap1 = {
+  id: "cap-type-1",
+  name: "Boné clássico",
+  products: capType1List,
+};
+
+const productTypeCap2 = {
+  id: "cap-type-2",
+  name: "Boné branco",
+  products: capType2List,
+};
+
+const productTypeCap3 = {
+  id: "cap-type-3",
+  name: "Boné amarelo",
+  products: capType3List,
+};
+
 const mockSectionProducts: ProductSection[] = [
   {
     name: "Regatas",
-    productTypes: [
-      {
-        id: "product-type-1",
-        name: "Regata clássica",
-        products: productsList,
-        variantType1: {
-          type: "Cor",
-          variants: [
-            { id: "red-v", name: "Vermelho" },
-            { id: "black-v", name: "Preto" },
-            { id: "white-v", name: "Branco" },
-          ],
-        },
-        variantType2: {
-          type: "Tamanho",
-          variants: [
-            { id: "t-p", name: "P" },
-            { id: "t-m", name: "M" },
-            { id: "t-g", name: "G" },
-          ],
-        },
-      },
-    ],
+    productTypes: [productTypeRegata],
   },
   {
     name: "Bonés",
-    productTypes: [
-      {
-        id: "cap-type-1",
-        name: "Boné clássico",
-        products: capType1List,
-      },
-      {
-        id: "cap-type-2",
-        name: "Boné branco",
-        products: capType2List,
-      },
-      {
-        id: "cap-type-3",
-        name: "Boné amarelo",
-        products: capType3List,
-      },
-    ],
+    productTypes: [productTypeCap1, productTypeCap2, productTypeCap3],
   },
 ];
 
+const styleSection: ProductSection = {
+  name: "Nosso Estilo",
+  productTypes: [
+    productTypeCap1,
+    productTypeRegata,
+    productTypeCap2,
+    productTypeCap3,
+  ],
+};
+
 export const useProduct = create<ProductsState>((set) => ({
-  productsSections: mockSectionProducts, // ### []
+  productsSections: mockSectionProducts,
+  styleSection: styleSection,
   setProductsSections: (productsSections) =>
     set({ productsSections: productsSections }),
 }));

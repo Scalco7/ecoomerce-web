@@ -9,7 +9,6 @@ export async function getVariantDetailsByVariantType(
     variant: VariantType | undefined,
     handleOpenModalVariant: (
         variantType: VariantType,
-        variantBoxWidth: number
     ) => Promise<string | undefined>
 ): Promise<VariantData | undefined> {
     if (!variant) return;
@@ -18,7 +17,7 @@ export async function getVariantDetailsByVariantType(
     if (variant.variants.length <= 1) {
         variantId = variant.variants[0].id;
     } else {
-        variantId = await handleOpenModalVariant(variant, 100);
+        variantId = await handleOpenModalVariant(variant);
     }
 
     if (!variantId) return;

@@ -1,68 +1,30 @@
 import ProductBox from "@/components/molecules/productBox/productBox";
 import styles from "./style.module.css";
+import { useProduct } from "@/states/productsState";
+import { productsDataToProductBox } from "@/utils/product.utils";
 
-export default function ShopSection() {
+interface ShopSectionProps {
+  buyProduct: (productTypeId: string) => void;
+}
+
+export default function ShopSection({ buyProduct }: ShopSectionProps) {
+  const { styleSection } = useProduct();
+
   return (
     <main className={styles.main}>
       <header className={styles.titleBox}>
         <p className={styles.titleText}>Nosso Estilo</p>
       </header>
       <section className={styles.productsSection}>
-        <ProductBox
-          width="250px"
-          colorScheme={"yellow"}
-          product={{
-            id: "",
-            imgUrl: "/teste.png",
-            name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
-            price: 89,
-            promotionPrice: 79,
-          }}
-        />
-        <ProductBox
-          width="250px"
-          colorScheme={"yellow"}
-          product={{
-            id: "",
-            imgUrl: "/teste.png",
-            name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
-            price: 89,
-            promotionPrice: 79,
-          }}
-        />
-        <ProductBox
-          width="250px"
-          colorScheme={"yellow"}
-          product={{
-            id: "",
-            imgUrl: "/teste.png",
-            name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
-            price: 89,
-            promotionPrice: 79,
-          }}
-        />
-        <ProductBox
-          width="250px"
-          colorScheme={"yellow"}
-          product={{
-            id: "",
-            imgUrl: "/teste.png",
-            name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
-            price: 89,
-            promotionPrice: 79,
-          }}
-        />
-        <ProductBox
-          width="250px"
-          colorScheme={"yellow"}
-          product={{
-            id: "",
-            imgUrl: "/teste.png",
-            name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
-            price: 89,
-            promotionPrice: 79,
-          }}
-        />
+        {styleSection.productTypes.map((p, index) => (
+          <ProductBox
+            key={"product-home-index"}
+            buyProduct={buyProduct}
+            width="250px"
+            colorScheme={"yellow"}
+            product={productsDataToProductBox(p)}
+          />
+        ))}
       </section>
     </main>
   );
