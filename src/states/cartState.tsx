@@ -29,6 +29,23 @@ type CartState = {
   decreaseProductQuantity: (productId: string) => void;
 };
 
+function increaseProductQuantity(product: ProductCartData): {
+  product: ProductCartData;
+  increasePrice: number;
+  increasePromotionPrice: number;
+} {
+  let increasePrice = 0;
+  let increasePromotionPrice = 0;
+
+  if (product && product.quantity < product.availableQuantity) {
+    product.quantity++;
+    increasePrice = product.price;
+    increasePromotionPrice = product.promotionPrice;
+  }
+
+  return { product, increasePrice, increasePromotionPrice };
+}
+
 export const useCart = create<CartState>((set) => ({
   products: [],
   productsQuantity: 0,
@@ -52,7 +69,23 @@ export const useCart = create<CartState>((set) => ({
 
   addProduct(product: ProductCartData) {
     set((state) => {
-      const newProducts = [...state.products, product];
+      const stateProducts = state.products;
+      let sameProduct = state.products.find((sp) => sp.id == product.id);
+
+      if (sameProduct) {
+        const { product, increasePrice, increasePromotionPrice } =
+          increaseProductQuantity(sameProduct);
+        sameProduct = product;
+
+        return {
+          products: stateProducts,
+          totalPrice: state.totalPrice + increasePrice,
+          totalPromotionPrice:
+            state.totalPromotionPrice + increasePromotionPrice,
+        };
+      }
+
+      const newProducts = [...stateProducts, product];
       const price = newProducts
         .map((p) => p.price * p.quantity)
         .reduce((a, b) => a + b);
@@ -95,15 +128,14 @@ export const useCart = create<CartState>((set) => ({
   increaseProductQuantity(productId: string) {
     set((state) => {
       const newProducts = state.products;
-      const product = newProducts.find((p) => p.id == productId);
-      let increasePrice = 0;
-      let increasePromotionPrice = 0;
+      let stateProduct = newProducts.find((p) => p.id == productId);
 
-      if (product && product.quantity < product.availableQuantity) {
-        product.quantity++;
-        increasePrice = product.price;
-        increasePromotionPrice = product.promotionPrice;
-      }
+      if (!stateProduct) return state;
+
+      const { product, increasePrice, increasePromotionPrice } =
+        increaseProductQuantity(stateProduct);
+
+      stateProduct = product;
 
       return {
         products: newProducts,

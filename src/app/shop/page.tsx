@@ -53,6 +53,9 @@ export default function Shop() {
         product.variantType1,
         handleOpenModalVariant
       );
+
+    if (product.variantType1 && !variant1) return;
+
     let variant2: VariantData | undefined =
       await getVariantDetailsByVariantType(
         product.variantType2,
