@@ -4,7 +4,6 @@ import CartCount from "@/components/atoms/cartCount/cartCount";
 import PriceTag from "@/components/atoms/priceTag/priceTag";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
-import ProductBox from "@/components/molecules/productBox/productBox";
 import { ProductCartData, useCart } from "@/states/cartState";
 import { useState } from "react";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
@@ -209,59 +208,6 @@ export default function Components() {
               text="Finalizar compra"
               onClick={() => {
                 console.log("clicou no botão");
-              }}
-            />
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              gap: "20px",
-              width: "100%",
-            }}
-          >
-            <ProductBox
-              width="300px"
-              colorScheme={"yellow"}
-              product={{
-                id: "",
-                imgUrl: "/teste.png",
-                name: "Boné",
-                price: 89,
-                promotionPrice: 79,
-              }}
-            />
-            <ProductBox
-              width="200px"
-              colorScheme={"white"}
-              product={{
-                id: "",
-                imgUrl: "/teste.png",
-                name: "Boné clássico do Banana Monkeys, pronto para você vencer vários jogos",
-                price: 89,
-                promotionPrice: 79,
-              }}
-            />
-            <ProductBox
-              width="200px"
-              colorScheme={"white"}
-              product={{
-                id: "",
-                imgUrl: "/teste.png",
-                name: "Boné",
-                price: 89,
-                promotionPrice: 79,
-              }}
-            />
-            <ProductBox
-              width="200px"
-              colorScheme={"yellow"}
-              product={{
-                id: "",
-                imgUrl: "/teste.png",
-                name: "Boné",
-                price: 89,
-                promotionPrice: 79,
               }}
             />
           </div>
