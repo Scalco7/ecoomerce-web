@@ -19,15 +19,17 @@ import {
   onSelectModalVariant,
   openModalVariant,
 } from "@/utils/modalVariant.utils";
-import { CartVariant, ProductCartData, useCart } from "@/states/cartState";
-
-interface VariantData extends CartVariant {
-  id: string;
-}
+import {
+  getVariantDetailsByVariantType,
+  VariantData,
+} from "@/utils/variant.utils";
+import { addProductToCart } from "@/utils/cart.utils";
+import { useCart } from "@/states/cartState";
 
 export default function Shop() {
   const { productsSections } = useProduct();
   const { addProduct } = useCart();
+
   const [variantSectionIsOpen, setVariantSectionIsOpen] = useState(false);
   const [variantBoxWidth, setVariantBoxWidth] = useState<number>(80);
   const [currentVariant, setCurrentVariant] = useState<
@@ -46,40 +48,16 @@ export default function Shop() {
       return;
     }
 
-    let variant1: VariantData | undefined;
-    let variant2: VariantData | undefined;
-
-    if (product.variantType1) {
-      let variant1Id;
-      if (product.variantType1.variants.length <= 1) {
-        variant1Id = product.variantType1.variants[0].id;
-      } else {
-        variant1Id = await handleOpenModalVariant(product.variantType1, 100);
-      }
-
-      if (variant1Id) {
-        variant1 = getVariantDetailsByVariantType(
-          product.variantType1,
-          variant1Id
-        );
-      }
-    }
-
-    if (product.variantType2) {
-      let variant2Id;
-      if (product.variantType2.variants.length <= 1) {
-        variant2Id = product.variantType2.variants[0].id;
-      } else {
-        variant2Id = await handleOpenModalVariant(product.variantType2, 100);
-      }
-
-      if (variant2Id) {
-        variant1 = getVariantDetailsByVariantType(
-          product.variantType2,
-          variant2Id
-        );
-      }
-    }
+    let variant1: VariantData | undefined =
+      await getVariantDetailsByVariantType(
+        product.variantType1,
+        handleOpenModalVariant
+      );
+    let variant2: VariantData | undefined =
+      await getVariantDetailsByVariantType(
+        product.variantType2,
+        handleOpenModalVariant
+      );
 
     const productItem: ProductItem | undefined = product.products.find(
       (p) => p.variant1Id == variant1?.id && p.variant2Id == variant2?.id
@@ -90,51 +68,20 @@ export default function Shop() {
       return;
     }
 
-    addProductToCart(product.id, product.name, productItem, variant1, variant2);
-  }
-
-  function getVariantDetailsByVariantType(
-    variant: VariantType,
-    variantId: string
-  ): VariantData | undefined {
-    const variantName = variant.variants.find((v) => v.id == variantId)?.name;
-
-    if (!variantName) {
-      return;
-    }
-
-    const cartVariant: VariantData = {
-      id: variantId,
-      type: variant.type,
-      name: variantName,
-    };
-
-    return cartVariant;
-  }
-
-  function addProductToCart(
-    id: string,
-    name: string,
-    product: ProductItem,
-    variant1?: CartVariant,
-    variant2?: CartVariant
-  ): void {
-    const productToCart: ProductCartData = {
-      ...product,
-      id: id + "-" + product.id, // fazer função para gerar o id
-      imgUrl: product.imgUrls[0],
-      name: name,
-      quantity: 1,
-      variant1: variant1,
-      variant2: variant2,
-    };
-    addProduct(productToCart);
+    addProductToCart(
+      product.id,
+      product.name,
+      productItem,
+      addProduct,
+      variant1,
+      variant2
+    );
   }
 
   async function handleOpenModalVariant(
     variantType: VariantType,
     variantBoxWidth: number
-  ) {
+  ): Promise<string | undefined> {
     return openModalVariant(
       variantType,
       variantBoxWidth,
