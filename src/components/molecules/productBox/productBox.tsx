@@ -45,7 +45,7 @@ export default function ProductBox({
   const isWhite = colorScheme == "white";
 
   function handleProductClick() {
-    router.push(`product/${product.id}`);
+    router.push(`/product/${product.id}`);
   }
 
   return (
