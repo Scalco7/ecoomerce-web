@@ -9,6 +9,7 @@ import { useState } from "react";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
 import ModalVariant from "@/components/molecules/modalVariant/modalVariant";
 import toast, { Toaster } from "react-hot-toast";
+import { darkToastOptions } from "@/utils/toast.utils";
 
 const product1: ProductCartData = {
   id: "product-1",
@@ -81,14 +82,7 @@ export default function Components() {
                 fontSize={14}
                 quantity={0}
                 onClick={() => {
-                  toast("Adicionado ao carrinho", {
-                    // icon: '✅',
-                    style: {
-                      borderRadius: "5px",
-                      background: "#6DFF83",
-                      color: "#000",
-                    },
-                  });
+                  toast.success("Adicionado ao carrinho", darkToastOptions);
                 }}
               />
             </div>
@@ -98,7 +92,7 @@ export default function Components() {
                 fontSize={14}
                 quantity={5}
                 onClick={() => {
-                  toast.success("Adiconado ao carrinho");
+                  toast.success("Adiconado ao carrinho", darkToastOptions);
                 }}
               />
             </div>

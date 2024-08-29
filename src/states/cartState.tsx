@@ -1,3 +1,4 @@
+import { darkToastOptions } from "@/utils/toast.utils";
 import toast from "react-hot-toast";
 import { create } from "zustand";
 
@@ -43,7 +44,7 @@ function increaseProductQuantity(product: ProductCartData): {
     increasePrice = product.price;
     increasePromotionPrice = product.promotionPrice;
   } else {
-    toast.error("Limite de compra do produto atingido.");
+    toast.error("Limite de compra do produto atingido.", darkToastOptions);
   }
 
   return { product, increasePrice, increasePromotionPrice };
@@ -81,7 +82,7 @@ export const useCart = create<CartState>((set) => ({
         sameProduct = product;
 
         if (increasePrice > 0) {
-          toast.success("Adicionado ao carrinho");
+          toast.success("Adicionado ao carrinho.", darkToastOptions);
         }
 
         return {
@@ -100,7 +101,7 @@ export const useCart = create<CartState>((set) => ({
         .map((p) => p.promotionPrice * p.quantity)
         .reduce((a, b) => a + b);
 
-      toast.success("Adicionado ao carrinho");
+      toast.success("Adicionado ao carrinho.", darkToastOptions);
 
       return {
         products: newProducts,

@@ -4,6 +4,7 @@ import { addProductToCart } from "./cart.utils";
 import { ProductCartData } from "@/states/cartState";
 import { ProductInfoData } from "@/components/molecules/productBox/productBox";
 import toast from "react-hot-toast";
+import { darkToastOptions } from "./toast.utils";
 
 export async function buyProduct(
     productTypeId: string,
@@ -18,7 +19,7 @@ export async function buyProduct(
         (p) => p.id == productTypeId
     );
     if (!product) {
-        toast.error("Produto inexistente")
+        toast.error("Produto inexistente.", darkToastOptions)
         return;
     }
 
@@ -29,7 +30,7 @@ export async function buyProduct(
         );
 
     if (product.variantType1 && !variant1) {
-        toast.error("Selecione uma opção")
+        toast.error("Selecione uma opção.", darkToastOptions)
         return;
     }
 
@@ -40,7 +41,7 @@ export async function buyProduct(
         );
 
     if (product.variantType2 && !variant2) {
-        toast.error("Selecione uma opção")
+        toast.error("Selecione uma opção.", darkToastOptions)
         return;
     }
 
@@ -49,7 +50,7 @@ export async function buyProduct(
     );
 
     if (!productItem) {
-        toast.error("Selecione uma opção")
+        toast.error("Selecione uma opção.", darkToastOptions)
         return;
     }
 
