@@ -3,6 +3,7 @@ import { getVariantDetailsByVariantType, VariantData } from "./variant.utils";
 import { addProductToCart } from "./cart.utils";
 import { ProductCartData } from "@/states/cartState";
 import { ProductInfoData } from "@/components/molecules/productBox/productBox";
+import toast from "react-hot-toast";
 
 export async function buyProduct(
     productTypeId: string,
@@ -17,7 +18,7 @@ export async function buyProduct(
         (p) => p.id == productTypeId
     );
     if (!product) {
-        //colocar um toast
+        toast.error("Produto inexistente")
         return;
     }
 
@@ -27,7 +28,10 @@ export async function buyProduct(
             handleOpenModalVariant
         );
 
-    if (product.variantType1 && !variant1) return;
+    if (product.variantType1 && !variant1) {
+        toast.error("Selecione uma opção")
+        return;
+    }
 
     let variant2: VariantData | undefined =
         await getVariantDetailsByVariantType(
@@ -35,12 +39,17 @@ export async function buyProduct(
             handleOpenModalVariant
         );
 
+    if (product.variantType2 && !variant2) {
+        toast.error("Selecione uma opção")
+        return;
+    }
+
     const productItem: ProductItem | undefined = product.products.find(
         (p) => p.variant1Id == variant1?.id && p.variant2Id == variant2?.id
     );
 
     if (!productItem) {
-        //colocar um toast
+        toast.error("Selecione uma opção")
         return;
     }
 

@@ -8,6 +8,7 @@ import { ProductCartData, useCart } from "@/states/cartState";
 import { useState } from "react";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
 import ModalVariant from "@/components/molecules/modalVariant/modalVariant";
+import toast, { Toaster } from "react-hot-toast";
 
 const product1: ProductCartData = {
   id: "product-1",
@@ -80,7 +81,14 @@ export default function Components() {
                 fontSize={14}
                 quantity={0}
                 onClick={() => {
-                  console.log("clicou");
+                  toast("Adicionado ao carrinho", {
+                    // icon: '✅',
+                    style: {
+                      borderRadius: "5px",
+                      background: "#6DFF83",
+                      color: "#000",
+                    },
+                  });
                 }}
               />
             </div>
@@ -90,7 +98,7 @@ export default function Components() {
                 fontSize={14}
                 quantity={5}
                 onClick={() => {
-                  console.log("clicou");
+                  toast.success("Adiconado ao carrinho");
                 }}
               />
             </div>
@@ -232,6 +240,9 @@ export default function Components() {
           setVariantSectionIsOpen(false);
         }}
       />
+      <div>
+        <Toaster position="bottom-center" reverseOrder={false} />
+      </div>
     </main>
   );
 }

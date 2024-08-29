@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { create } from "zustand";
 
 export interface ProductCartData {
@@ -41,6 +42,8 @@ function increaseProductQuantity(product: ProductCartData): {
     product.quantity++;
     increasePrice = product.price;
     increasePromotionPrice = product.promotionPrice;
+  } else {
+    toast.error("Limite de compra do produto atingido.");
   }
 
   return { product, increasePrice, increasePromotionPrice };
@@ -77,6 +80,10 @@ export const useCart = create<CartState>((set) => ({
           increaseProductQuantity(sameProduct);
         sameProduct = product;
 
+        if (increasePrice > 0) {
+          toast.success("Adicionado ao carrinho");
+        }
+
         return {
           products: stateProducts,
           totalPrice: state.totalPrice + increasePrice,
@@ -92,6 +99,8 @@ export const useCart = create<CartState>((set) => ({
       const promotionPrice = newProducts
         .map((p) => p.promotionPrice * p.quantity)
         .reduce((a, b) => a + b);
+
+      toast.success("Adicionado ao carrinho");
 
       return {
         products: newProducts,

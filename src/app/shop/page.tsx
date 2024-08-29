@@ -16,6 +16,7 @@ import {
 } from "@/utils/modalVariant.utils";
 import { useCart } from "@/states/cartState";
 import { buyProduct } from "@/utils/product.utils";
+import { Toaster } from "react-hot-toast";
 
 export default function Shop() {
   const { productsSections } = useProduct();
@@ -82,6 +83,9 @@ export default function Shop() {
           }
         />
       )}
+      <div>
+        <Toaster position="bottom-center" reverseOrder={false} />
+      </div>
     </main>
   );
 }
