@@ -2,6 +2,7 @@ import { ProductItem } from "@/states/productsState";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import ChevronIcon from "@/components/icons/chevronIcon/chevronIcon";
 
 interface CarouselProductImgProps {
   product: ProductItem;
@@ -10,23 +11,46 @@ interface CarouselProductImgProps {
 export default function CarouselProductImg({
   product,
 }: CarouselProductImgProps) {
-  const [selectedImg, setSelectedImg] = useState(product.imgUrls[0]);
+  const [selectedImgIndex, setSelectedImgIndex] = useState(0);
 
-  function handleChangeImg(imgSelected: string) {
-    setSelectedImg(imgSelected);
+  function handleNextImg() {
+    let nextIndex = selectedImgIndex + 1;
+    if (nextIndex >= product.imgUrls.length) {
+      nextIndex = 0;
+    }
+
+    setSelectedImgIndex(nextIndex);
+  }
+
+  function handlePreviousImg() {
+    let previousIndex = selectedImgIndex - 1;
+    if (previousIndex < 0) {
+      previousIndex = product.imgUrls.length - 1;
+    }
+
+    setSelectedImgIndex(previousIndex);
   }
 
   return (
     <main className={styles.main}>
       <section className={`${styles.paddingImg} ${styles.widthTotal}`}>
+        <section className={styles.passImgLeftSection} onClick={handleNextImg}>
+          <ChevronIcon side={"left"} opacity={1} size={30} color="#000" />
+        </section>
         <section className={styles.imgBox}>
           <Image
-            src={selectedImg}
+            src={product.imgUrls[selectedImgIndex]}
             alt={"Imagem Principal Produto"}
             fill={true}
             sizes="1000px"
             objectFit="contain"
           />
+        </section>
+        <section
+          className={styles.passImgRigthSection}
+          onClick={handlePreviousImg}
+        >
+          <ChevronIcon side={"right"} opacity={1} size={30} color="#000" />
         </section>
       </section>
 
@@ -34,13 +58,13 @@ export default function CarouselProductImg({
         {product.imgUrls.map((img, index) => (
           <section
             className={`${styles.paddingImg} ${
-              img == selectedImg ? styles.selectedImg : null
+              index == selectedImgIndex ? styles.selectedImg : null
             }`}
             key={`select-img-${index}`}
           >
             <section
               className={styles.selectImgBox}
-              onClick={() => handleChangeImg(img)}
+              onClick={() => setSelectedImgIndex(index)}
             >
               <Image
                 alt="selecionar imagem"
