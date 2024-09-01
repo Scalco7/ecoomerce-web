@@ -11,8 +11,7 @@ export async function buyProduct(
     productsSections: ProductSection[],
     addProduct: (product: ProductCartData) => void,
     handleOpenModalVariant: (
-        variantType: VariantType,
-
+        variantType: VariantType
     ) => Promise<string | undefined>): Promise<void> {
     const productList = productsSections.map((sec) => sec.productTypes).flat();
     const product: ProductType | undefined = productList.find(
@@ -54,14 +53,14 @@ export async function buyProduct(
         return;
     }
 
-    addProductToCart(
-        product.id,
-        product.name,
-        productItem,
-        addProduct,
-        variant1,
-        variant2
-    );
+    addProductToCart({
+        id: product.id,
+        name: product.name,
+        product: productItem,
+        addProduct: addProduct,
+        variant1: variant1,
+        variant2: variant2
+    });
 }
 
 export function productsDataToProductBox(productType: ProductType): ProductInfoData {

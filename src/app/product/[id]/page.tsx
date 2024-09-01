@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import { Zilla_Slab } from "next/font/google";
 import ProductTopSection from "@/components/organisms/productSection/productTopSection/productTopSection";
+import { Toaster } from "react-hot-toast";
 
 const zillaSlabThin = Zilla_Slab({
   weight: "400",
@@ -44,6 +45,9 @@ export default function Product() {
         <section className={styles.buySection}></section>
         <section className={styles.commentSection}></section>
       </section>
+      <div>
+        <Toaster position="bottom-center" reverseOrder={false} />
+      </div>
     </main>
   );
 }

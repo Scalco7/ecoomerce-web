@@ -6,6 +6,9 @@ import { Poppins, Zilla_Slab } from "next/font/google";
 import { useState } from "react";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
 import SelectProductVariant from "@/components/molecules/selectProductVariant/selectProductVariant";
+import { addProductToCart } from "@/utils/cart.utils";
+import { useCart } from "@/states/cartState";
+import { getVariantDetails } from "@/utils/variant.utils";
 
 interface ProductTopSectionProps {
   product: ProductType;
@@ -36,6 +39,48 @@ const poppinsBolder = Poppins({
 
 export default function ProductTopSection({ product }: ProductTopSectionProps) {
   const [indexSelectedProduct, setIndexSelectedProduct] = useState(0);
+  const { addProduct } = useCart();
+
+  function handleChangeVariant(
+    variantType: "primary" | "secondary",
+    variantId: string
+  ) {
+    const actuaProduct = product.products[indexSelectedProduct];
+    let newIndex: number;
+
+    if (variantType == "primary") {
+      newIndex = product.products.findIndex(
+        (p) =>
+          p.variant1Id == variantId && p.variant2Id == actuaProduct.variant2Id
+      );
+    } else {
+      newIndex = product.products.findIndex(
+        (p) =>
+          p.variant1Id == actuaProduct.variant1Id && p.variant2Id == variantId
+      );
+    }
+
+    setIndexSelectedProduct(newIndex);
+  }
+
+  function handleBuyProduct() {
+    const actualProduct = product.products[indexSelectedProduct];
+
+    addProductToCart({
+      id: actualProduct.id,
+      name: product.name,
+      product: actualProduct,
+      addProduct: addProduct,
+      variant1: getVariantDetails(
+        product.variantType1,
+        actualProduct.variant1Id
+      ),
+      variant2: getVariantDetails(
+        product.variantType2,
+        actualProduct.variant2Id
+      ),
+    });
+  }
 
   return (
     <main className={styles.topSection}>
@@ -68,7 +113,7 @@ export default function ProductTopSection({ product }: ProductTopSectionProps) {
                 selectedVariantId={
                   product.products[indexSelectedProduct].variant1Id
                 }
-                onChange={(id) => console.log(id)}
+                onChange={(id) => handleChangeVariant("primary", id)}
               />
             )}
           {product.variantType2 &&
@@ -78,7 +123,7 @@ export default function ProductTopSection({ product }: ProductTopSectionProps) {
                 selectedVariantId={
                   product.products[indexSelectedProduct].variant2Id
                 }
-                onChange={(id) => console.log(id)}
+                onChange={(id) => handleChangeVariant("secondary", id)}
               />
             )}
         </section>
@@ -91,7 +136,7 @@ export default function ProductTopSection({ product }: ProductTopSectionProps) {
             text="Comprar Agora"
             fontSize={24}
             iconSize={24}
-            onClick={() => {}}
+            onClick={handleBuyProduct}
           />
           <p className={`${zillaSlabThin.className} ${styles.obsBuyText}`}>
             * Compre agora Banana {"Monkey's"}, para adicionar aventura a sua

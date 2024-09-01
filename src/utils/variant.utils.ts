@@ -34,3 +34,26 @@ export async function getVariantDetailsByVariantType(
 
     return cartVariant;
 }
+
+export function getVariantDetails(
+    variant: VariantType | undefined,
+    variantSelectedId: string | undefined
+): VariantData | undefined {
+    if (!variant) return;
+
+    let variantId = variantSelectedId;
+
+    if (!variantId) return;
+
+    const variantName = variant.variants.find((v) => v.id == variantId)?.name;
+
+    if (!variantName) return;
+
+    const cartVariant: VariantData = {
+        id: variantId,
+        type: variant.type,
+        name: variantName,
+    };
+
+    return cartVariant;
+}
