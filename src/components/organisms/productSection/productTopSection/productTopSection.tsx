@@ -5,6 +5,7 @@ import { formatNumberToValue } from "@/utils/number.utils";
 import { Poppins, Zilla_Slab } from "next/font/google";
 import { useState } from "react";
 import PrimaryButton from "@/components/atoms/primaryButton/primaryButton";
+import SelectProductVariant from "@/components/molecules/selectProductVariant/selectProductVariant";
 
 interface ProductTopSectionProps {
   product: ProductType;
@@ -60,13 +61,33 @@ export default function ProductTopSection({ product }: ProductTopSectionProps) {
               )}
             </p>
           </section>
+          {product.variantType1 &&
+            product.products[indexSelectedProduct].variant1Id && (
+              <SelectProductVariant
+                variant={product.variantType1}
+                selectedVariantId={
+                  product.products[indexSelectedProduct].variant1Id
+                }
+                onChange={(id) => console.log(id)}
+              />
+            )}
+          {product.variantType2 &&
+            product.products[indexSelectedProduct].variant2Id && (
+              <SelectProductVariant
+                variant={product.variantType2}
+                selectedVariantId={
+                  product.products[indexSelectedProduct].variant2Id
+                }
+                onChange={(id) => console.log(id)}
+              />
+            )}
         </section>
         <section className={styles.buttonSection}>
           <PrimaryButton
             borderRadius={10}
             isDark={true}
             width={"250px"}
-            height={"70px"}
+            height={"60px"}
             text="Comprar Agora"
             fontSize={24}
             iconSize={24}
