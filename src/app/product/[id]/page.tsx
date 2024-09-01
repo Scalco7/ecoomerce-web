@@ -5,9 +5,9 @@ import { useParams, useRouter } from "next/navigation";
 import styles from "./style.module.css";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import { Zilla_Slab } from "next/font/google";
-import CarouselProductImg from "@/components/molecules/carouselProductImg/carouselProductImg";
+import ProductTopSection from "@/components/organisms/productSection/productTopSection/productTopSection";
 
-const zillaSlab = Zilla_Slab({
+const zillaSlabThin = Zilla_Slab({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
@@ -34,12 +34,10 @@ export default function Product() {
       </header>
       <section className={`${styles.body}`}>
         <section className={styles.topSection}>
-          <section className={styles.carouselSection}>
-            <CarouselProductImg product={product.products[0]} />
-          </section>
+          <ProductTopSection product={product} />
         </section>
         <section className={styles.descriptionSection}>
-          <p className={`${zillaSlab.className} ${styles.descriptionText}`}>
+          <p className={`${zillaSlabThin.className} ${styles.descriptionText}`}>
             {product.description}
           </p>
         </section>

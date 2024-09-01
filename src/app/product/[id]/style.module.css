@@ -23,18 +23,6 @@
   scrollbar-width: thin;
 }
 
-.topSection {
-  width: 100%;
-  padding: 0px 40px;
-  display: flex;
-  flex-direction: row;
-}
-
-.carouselSection {
-  width: 55%;
-  padding: 40px 0px;
-}
-
 .descriptionSection {
   width: 100%;
 }
