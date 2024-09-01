@@ -48,7 +48,7 @@ export default function HeaderNavigation() {
     routes.forEach((route) => {
       route.selected = pathName == `/${route.name}`;
       route.onClick = () => {
-        if (!route.selected) router.push(route.name);
+        if (!route.selected) router.push(`/${route.name}`);
       };
     });
 
