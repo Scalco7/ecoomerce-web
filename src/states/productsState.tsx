@@ -43,7 +43,7 @@ type ProductsState = {
 const productsList: ProductItem[] = [
   {
     id: "product-1-p",
-    imgUrls: ["/design-preto.png", "/teste.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/teste.png"],
     price: 119,
     promotionPrice: 99,
     availableQuantity: 8,
@@ -52,7 +52,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-1-m",
-    imgUrls: ["/design-preto.png", "/teste.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/teste.png"],
     price: 119,
     promotionPrice: 99,
     availableQuantity: 8,
@@ -61,7 +61,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-1-g",
-    imgUrls: ["/design-preto.png", "/teste.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/teste.png"],
     price: 119,
     promotionPrice: 99,
     availableQuantity: 8,
@@ -70,7 +70,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-2-p",
-    imgUrls: ["/design-preto.png", "/design-preto.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/design-preto.png"],
     price: 119,
     promotionPrice: 89,
     availableQuantity: 2,
@@ -79,7 +79,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-2-m",
-    imgUrls: ["/design-preto.png", "/design-preto.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/design-preto.png"],
     price: 119,
     promotionPrice: 89,
     availableQuantity: 2,
@@ -88,7 +88,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-2-g",
-    imgUrls: ["/design-preto.png", "/design-preto.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/design-preto.png"],
     price: 119,
     promotionPrice: 89,
     availableQuantity: 2,
@@ -97,7 +97,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-3-p",
-    imgUrls: ["/design-preto.png", "/design-preto.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/design-preto.png"],
     price: 119,
     promotionPrice: 79,
     availableQuantity: 10,
@@ -106,7 +106,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-3-m",
-    imgUrls: ["/design-preto.png", "/design-preto.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/design-preto.png"],
     price: 119,
     promotionPrice: 79,
     availableQuantity: 10,
@@ -115,7 +115,7 @@ const productsList: ProductItem[] = [
   },
   {
     id: "product-3-g",
-    imgUrls: ["/design-preto.png", "/design-preto.png"],
+    imgUrls: ["/mocks/design-preto.png", "/mocks/design-preto.png"],
     price: 119,
     promotionPrice: 79,
     availableQuantity: 10,
@@ -127,7 +127,7 @@ const productsList: ProductItem[] = [
 const capType1List: ProductItem[] = [
   {
     id: "cap-1",
-    imgUrls: ["/teste.png", "/teste.png"],
+    imgUrls: ["/mocks/teste.png", "/mocks/teste.png"],
     price: 69.99,
     promotionPrice: 39,
     availableQuantity: 8,
@@ -137,7 +137,7 @@ const capType1List: ProductItem[] = [
 const capType2List: ProductItem[] = [
   {
     id: "cap-2",
-    imgUrls: ["/bone-branco-01.png", "/teste.png"],
+    imgUrls: ["/mocks/bone-branco-01.png", "/mocks/teste.png"],
     price: 69.99,
     promotionPrice: 39,
     availableQuantity: 8,
@@ -147,7 +147,7 @@ const capType2List: ProductItem[] = [
 const capType3List: ProductItem[] = [
   {
     id: "cap-3",
-    imgUrls: ["/bone-12.png", "/teste.png"],
+    imgUrls: ["/mocks/bone-12.png", "/mocks/teste.png"],
     price: 69.99,
     promotionPrice: 39,
     availableQuantity: 8,
