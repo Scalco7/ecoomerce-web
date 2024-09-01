@@ -1,18 +1,17 @@
-import { openAsBlob } from "fs";
 import { IconsProps } from "../icons.props";
 import styles from "./styles.module.css";
 
-interface ChevronIconButtonProps extends IconsProps {
+interface ChevronIconProps extends IconsProps {
   side: "left" | "right";
   opacity: number;
 }
 
-export default function ChevronIconButton({
+export default function ChevronIcon({
   size,
   side,
   color,
   opacity,
-}: ChevronIconButtonProps) {
+}: ChevronIconProps) {
   const left = (
     <svg
       className={styles.svg}

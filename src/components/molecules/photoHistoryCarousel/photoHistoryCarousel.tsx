@@ -2,7 +2,7 @@ import styles from "./style.module.css";
 import PhotoHistory, {
   PhotoHistoryProps,
 } from "@/components/atoms/photoHistory/photoHistory";
-import ChevronIcon from "@/components/icons/chevronIconButton/chevronIconButton";
+import ChevronIcon from "@/components/icons/chevronIcon/chevronIcon";
 import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 import { useState } from "react";
 
