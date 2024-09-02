@@ -55,7 +55,7 @@ const tShirtType1List: ProductItem[] = [
     imgUrls: [
       "/mocks/mockup-camisa-tp-1-1.jpeg",
       "/mocks/mockup-camisa-tp-1-2.jpeg",
-      "mockup-camisa-tp-1-3.jpeg",
+      "/mocks/mockup-camisa-tp-1-3.jpeg",
     ],
     price: 99,
     promotionPrice: 69,
@@ -67,7 +67,7 @@ const tShirtType1List: ProductItem[] = [
     imgUrls: [
       "/mocks/mockup-camisa-tp-1-1.jpeg",
       "/mocks/mockup-camisa-tp-1-2.jpeg",
-      "mockup-camisa-tp-1-3.jpeg",
+      "/mocks/mockup-camisa-tp-1-3.jpeg",
     ],
     price: 99,
     promotionPrice: 79,
@@ -79,7 +79,7 @@ const tShirtType1List: ProductItem[] = [
     imgUrls: [
       "/mocks/mockup-camisa-tp-1-1.jpeg",
       "/mocks/mockup-camisa-tp-1-2.jpeg",
-      "mockup-camisa-tp-1-3.jpeg",
+      "/mocks/mockup-camisa-tp-1-3.jpeg",
     ],
     price: 99,
     promotionPrice: 89,
