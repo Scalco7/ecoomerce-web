@@ -28,7 +28,7 @@
 }
 
 .descriptionText {
-  width: 60%;
+  width: 95%;
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 500px;
@@ -43,7 +43,24 @@
 .commentSection {
   display: flex;
   flex-direction: column;
-  padding: 0px 60px;
+  padding: 0px 10px;
   padding-bottom: 30px;
   gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .descriptionText {
+    width: 70%;
+  }
+
+  .commentSection {
+    padding: 0px 60px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .descriptionText {
+    width: 60%;
+  }
 }

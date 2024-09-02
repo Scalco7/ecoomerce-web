@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .comment {
@@ -11,4 +11,10 @@
 
 .name {
   color: #000;
+}
+
+@media (min-width: 375px) {
+  .main {
+    font-size: 18px;
+  }
 }

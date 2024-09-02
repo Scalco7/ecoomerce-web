@@ -87,9 +87,9 @@ export default function Product() {
           <CategorySection
             colorScheme={"white"}
             title={"Adicione aventura a sua vida"}
-            products={styleSection.productTypes.map((pt) =>
-              productsDataToProductBox(pt)
-            )}
+            products={styleSection.productTypes
+              .slice(0, 4)
+              .map((pt) => productsDataToProductBox(pt))}
             hasTransiction={false}
             buyProduct={handleBuyProduct}
           />
