@@ -9,6 +9,7 @@ import PrivacySection from "@/components/organisms/policiesSections/privacySecti
 import ExchangesSection from "@/components/organisms/policiesSections/exchangesSection/exchangesSection";
 import DeliverySection from "@/components/organisms/policiesSections/deliverySection/deliverySection";
 import TermSection from "@/components/organisms/policiesSections/termSection/termSection";
+import Footer from "@/components/molecules/footer/footer";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -85,6 +86,7 @@ function PoliciesPage() {
           </nav>
           {sectionMap[section]}
         </section>
+        <Footer />
       </section>
     </main>
   );
