@@ -18,7 +18,9 @@ export default function CommentAvalliations({
 }: CommentAvalliationsProps) {
   return (
     <main className={styles.main}>
-      <p className={`${zillaSlab.className} ${styles.comment}`}>"{comment}"</p>
+      <p
+        className={`${zillaSlab.className} ${styles.comment}`}
+      >{`"${comment}"`}</p>
       <p className={styles.name}>{name}</p>
     </main>
   );
