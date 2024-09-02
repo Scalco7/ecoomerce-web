@@ -1,6 +1,5 @@
-import { ProductType, useProduct } from "@/states/productsState";
-import CategorySection from "../categorySection/categorySection";
-import { ProductInfoData } from "@/components/molecules/productBox/productBox";
+import { useProduct } from "@/states/productsState";
+import CategorySection from "../../categorySection/categorySection";
 import { productsDataToProductBox } from "@/utils/product.utils";
 
 interface ShopProductsSectionProps {
