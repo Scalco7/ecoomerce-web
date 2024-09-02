@@ -1,12 +1,12 @@
 .main {
   position: relative;
   width: 100%;
-  height: 544px;
+  height: 320px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
-  gap: 40px;
+  justify-content: space-between;
+  gap: 10px;
   overflow: hidden;
 }
 
@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 45px;
+  padding: 2px 10px;
 
   -webkit-box-shadow: inset 0px 0px 0px 1px #000;
   -moz-box-shadow: inset 0px 0px 0px 1px #000;
@@ -36,8 +36,8 @@
 
 .imgBox {
   position: relative;
-  width: 360px;
-  height: 540px;
+  width: 210px;
+  height: 315px;
 }
 
 .selectImgSection {
@@ -47,7 +47,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-left: 10px;
+  padding-left: 5px;
 
   direction: rtl;
   scrollbar-color: black rgb(60, 60, 60);
@@ -57,8 +57,8 @@
 
 .selectImgBox {
   position: relative;
-  width: 70px;
-  height: 105px;
+  width: 50px;
+  height: 75px;
   cursor: pointer;
 }
 
@@ -96,20 +96,68 @@
   cursor: pointer;
 }
 
-/* @media (min-width: 425px) {
+@media (min-width: 340px) {
+  .main {
+    height: 350px;
+  }
+
   .imgBox {
-    height: 400px;
+    width: 230px;
+    height: 345px;
   }
 }
 
-@media (min-width: 768px) {
-  .imgBox {
+@media (min-width: 370px) {
+  .main {
     height: 400px;
   }
+
+  .imgBox {
+    width: 260px;
+    height: 390px;
+  }
 }
+
+@media (min-width: 420px) {
+  .main {
+    height: 480px;
+  }
+
+  .imgBox {
+    width: 310px;
+    height: 465px;
+  }
+}
+
+@media (min-width: 470px) {
+  .main {
+    height: 544px;
+    justify-content: flex-start;
+  }
+
+  .imgBox {
+    width: 360px;
+    height: 540px;
+  }
+}
+
+/* Terminar responsividade */
 
 @media (min-width: 992px) {
-  .imgBox {
-    height: 450px;
+  .main {
+    gap: 40px;
   }
-} */
+
+  .selectImgBox {
+    width: 70px;
+    height: 105px;
+  }
+
+  .selectImgSection {
+    padding-left: 10px;
+  }
+
+  .paddingImg {
+    padding: 2px 45px;
+  }
+}
