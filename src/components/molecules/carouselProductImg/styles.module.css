@@ -1,11 +1,12 @@
 .main {
   position: relative;
   width: 100%;
+  height: 544px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 40px;
   overflow: hidden;
 }
 
@@ -14,34 +15,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 60px;
+  padding: 2px 45px;
 
   -webkit-box-shadow: inset 0px 0px 0px 1px #000;
   -moz-box-shadow: inset 0px 0px 0px 1px #000;
   box-shadow: inset 0px 0px 0px 1px #000;
 }
 
-.widthTotal {
-  width: 100%;
+.paddingSelectImg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+
+  -webkit-box-shadow: inset 0px 0px 0px 1px #000;
+  -moz-box-shadow: inset 0px 0px 0px 1px #000;
+  box-shadow: inset 0px 0px 0px 1px #000;
 }
 
 .imgBox {
   position: relative;
-  width: 100%;
-  height: 240px;
+  width: 360px;
+  height: 540px;
 }
 
 .selectImgSection {
   position: relative;
-  width: 100%;
+  height: 100%;
+  overflow-y: auto;
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 10px;
+
+  direction: rtl;
+  scrollbar-color: black rgb(60, 60, 60);
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
 }
 
 .selectImgBox {
   position: relative;
-  width: 100px;
-  height: 90px;
+  width: 70px;
+  height: 105px;
   cursor: pointer;
 }
 
@@ -79,7 +96,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 425px) {
+/* @media (min-width: 425px) {
   .imgBox {
     height: 400px;
   }
@@ -95,4 +112,4 @@
   .imgBox {
     height: 450px;
   }
-}
+} */

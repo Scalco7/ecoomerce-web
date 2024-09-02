@@ -57,6 +57,7 @@ const tShirtType1List: ProductItem[] = [
       "/mocks/camisa-preta-macaco-preto-branco-2.jpeg",
       "/mocks/camisa-preta-macaco-preto-branco-3.jpeg",
       "/mocks/camisa-preta-macaco-preto-branco-4.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-4.jpeg",
     ],
     price: 99,
     promotionPrice: 69,

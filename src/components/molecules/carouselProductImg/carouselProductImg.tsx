@@ -33,31 +33,10 @@ export default function CarouselProductImg({
 
   return (
     <main className={styles.main}>
-      <section className={`${styles.paddingImg} ${styles.widthTotal}`}>
-        <section
-          className={styles.passImgLeftSection}
-          onClick={handlePreviousImg}
-        >
-          <ChevronIcon side={"left"} opacity={1} size={30} color="#000" />
-        </section>
-        <section className={styles.imgBox}>
-          <Image
-            src={product.imgUrls[selectedImgIndex]}
-            alt={"Imagem Principal Produto"}
-            fill={true}
-            sizes="1000px"
-            objectFit="contain"
-          />
-        </section>
-        <section className={styles.passImgRigthSection} onClick={handleNextImg}>
-          <ChevronIcon side={"right"} opacity={1} size={30} color="#000" />
-        </section>
-      </section>
-
       <section className={styles.selectImgSection}>
         {product.imgUrls.map((img, index) => (
           <section
-            className={`${styles.paddingImg} ${
+            className={`${styles.paddingSelectImg} ${
               index == selectedImgIndex ? styles.selectedImg : null
             }`}
             key={`select-img-${index}`}
@@ -76,6 +55,26 @@ export default function CarouselProductImg({
             </section>
           </section>
         ))}
+      </section>
+      <section className={styles.paddingImg}>
+        <section
+          className={styles.passImgLeftSection}
+          onClick={handlePreviousImg}
+        >
+          <ChevronIcon side={"left"} opacity={1} size={30} color="#000" />
+        </section>
+        <section className={styles.imgBox}>
+          <Image
+            src={product.imgUrls[selectedImgIndex]}
+            alt={"Imagem Principal Produto"}
+            fill={true}
+            sizes="1000px"
+            objectFit="contain"
+          />
+        </section>
+        <section className={styles.passImgRigthSection} onClick={handleNextImg}>
+          <ChevronIcon side={"right"} opacity={1} size={30} color="#000" />
+        </section>
       </section>
     </main>
   );
