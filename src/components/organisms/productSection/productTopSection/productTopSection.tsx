@@ -84,11 +84,18 @@ export default function ProductTopSection({ product }: ProductTopSectionProps) {
 
   return (
     <main className={styles.topSection}>
+      <section
+        className={`${styles.titleBox} ${zillaSlabBolder.className} ${styles.onlyMobile}`}
+      >
+        <p className={styles.titleText}>{product.name}</p>
+      </section>
       <section className={styles.carouselSection}>
         <CarouselProductImg product={product.products[indexSelectedProduct]} />
       </section>
       <section className={styles.topSectionData}>
-        <section className={`${styles.titleBox} ${zillaSlabBolder.className}`}>
+        <section
+          className={`${styles.titleBox} ${zillaSlabBolder.className} ${styles.onlyDesktop}`}
+        >
           <p className={styles.titleText}>{product.name}</p>
         </section>
         <section className={styles.productsData}>

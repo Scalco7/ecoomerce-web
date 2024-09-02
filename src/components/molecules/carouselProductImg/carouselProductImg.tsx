@@ -34,7 +34,10 @@ export default function CarouselProductImg({
   return (
     <main className={styles.main}>
       <section className={`${styles.paddingImg} ${styles.widthTotal}`}>
-        <section className={styles.passImgLeftSection} onClick={handleNextImg}>
+        <section
+          className={styles.passImgLeftSection}
+          onClick={handlePreviousImg}
+        >
           <ChevronIcon side={"left"} opacity={1} size={30} color="#000" />
         </section>
         <section className={styles.imgBox}>
@@ -46,10 +49,7 @@ export default function CarouselProductImg({
             objectFit="contain"
           />
         </section>
-        <section
-          className={styles.passImgRigthSection}
-          onClick={handlePreviousImg}
-        >
+        <section className={styles.passImgRigthSection} onClick={handleNextImg}>
           <ChevronIcon side={"right"} opacity={1} size={30} color="#000" />
         </section>
       </section>

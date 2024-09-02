@@ -1,6 +1,5 @@
 import { VariantType } from "@/states/productsState";
 import styles from "./style.module.css";
-import { Zilla_Slab } from "next/font/google";
 
 interface SelectProductVariantProps {
   selectedVariantId: string;
