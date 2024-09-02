@@ -40,6 +40,54 @@ type ProductsState = {
   setProductsSections: (productsSections: ProductSection[]) => void;
 };
 
+const tamVariant: VariantType = {
+  type: "Tamanho",
+  variants: [
+    { id: "t-p", name: "P" },
+    { id: "t-m", name: "M" },
+    { id: "t-g", name: "G" },
+  ],
+};
+
+const tShirtType1List: ProductItem[] = [
+  {
+    id: "t-shirt-1-p",
+    imgUrls: [
+      "/mocks/mockup-camisa-tp-1-1.jpeg",
+      "/mocks/mockup-camisa-tp-1-2.jpeg",
+      "mockup-camisa-tp-1-3.jpeg",
+    ],
+    price: 99,
+    promotionPrice: 69,
+    availableQuantity: 8,
+    variant1Id: "t-p",
+  },
+  {
+    id: "t-shirt-1-m",
+    imgUrls: [
+      "/mocks/mockup-camisa-tp-1-1.jpeg",
+      "/mocks/mockup-camisa-tp-1-2.jpeg",
+      "mockup-camisa-tp-1-3.jpeg",
+    ],
+    price: 99,
+    promotionPrice: 79,
+    availableQuantity: 8,
+    variant1Id: "t-m",
+  },
+  {
+    id: "t-shirt-1-g",
+    imgUrls: [
+      "/mocks/mockup-camisa-tp-1-1.jpeg",
+      "/mocks/mockup-camisa-tp-1-2.jpeg",
+      "mockup-camisa-tp-1-3.jpeg",
+    ],
+    price: 99,
+    promotionPrice: 89,
+    availableQuantity: 8,
+    variant1Id: "t-g",
+  },
+];
+
 const productsList: ProductItem[] = [
   {
     id: "product-1-p",
@@ -168,14 +216,16 @@ const productTypeRegata: ProductType = {
       { id: "white-v", name: "Branco" },
     ],
   },
-  variantType2: {
-    type: "Tamanho",
-    variants: [
-      { id: "t-p", name: "P" },
-      { id: "t-m", name: "M" },
-      { id: "t-g", name: "G" },
-    ],
-  },
+  variantType2: tamVariant,
+};
+
+const productTypeTShirt: ProductType = {
+  id: "product-tshirt",
+  name: "Camiseta Banana Monkeys old",
+  description:
+    "A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura  ,A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura,A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura  ,A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundo, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura  ,A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura,A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura, A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura  ,A regata clássica tem 100% de algodão e foi inspirada nos pensamentos mais profundos de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventuras de um banana monkey, foi pensada extatamente apara quem gosta de estilo, conforto e claro, muita aventura",
+  products: tShirtType1List,
+  variantType1: tamVariant,
 };
 
 const productTypeCap1: ProductType = {
@@ -200,6 +250,10 @@ const productTypeCap3: ProductType = {
 };
 
 const mockSectionProducts: ProductSection[] = [
+  {
+    name: "Camisetas",
+    productTypes: [productTypeTShirt],
+  },
   {
     name: "Regatas",
     productTypes: [productTypeRegata],
