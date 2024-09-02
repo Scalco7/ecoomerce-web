@@ -18,6 +18,8 @@ import { useState } from "react";
 import { buyProduct, productsDataToProductBox } from "@/utils/product.utils";
 import { useCart } from "@/states/cartState";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
+import CommentAvalliations from "@/components/atoms/commentAvalliations/commentAvalliations";
+import Footer from "@/components/molecules/footer/footer";
 
 const zillaSlabThin = Zilla_Slab({
   weight: "400",
@@ -92,7 +94,31 @@ export default function Product() {
             buyProduct={handleBuyProduct}
           />
         </section>
-        <section className={styles.commentSection}></section>
+        <section className={styles.commentSection}>
+          <CommentAvalliations
+            comment={"Gosto muito do design e da qualidade"}
+            name={"Gabriel dos Santos Magalhães"}
+          />
+          <CommentAvalliations
+            comment={
+              "Com o estilo do Banana Monkeys eu comecei a jogar com mais confiança"
+            }
+            name={"João Gomes de Oliveira"}
+          />
+          <CommentAvalliations
+            comment={
+              "O tecido é macio e de boa qualidade, minha namorada adora!!"
+            }
+            name={"Matheus Júnior Batista"}
+          />
+          <CommentAvalliations
+            comment={
+              "Toda vez que eu estou usando Banana Monkeys, fico muito gata"
+            }
+            name={"Nathália de Medeiros"}
+          />
+        </section>
+        <Footer />
       </section>
       {variantSectionIsOpen && (
         <ModalVariantSection
