@@ -53,9 +53,10 @@ const tShirtType1List: ProductItem[] = [
   {
     id: "t-shirt-1-p",
     imgUrls: [
-      "/mocks/mockup-camisa-tp-1-1.jpeg",
-      "/mocks/mockup-camisa-tp-1-2.jpeg",
-      "/mocks/mockup-camisa-tp-1-3.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-1.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-2.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-3.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-4.jpeg",
     ],
     price: 99,
     promotionPrice: 69,
@@ -65,9 +66,10 @@ const tShirtType1List: ProductItem[] = [
   {
     id: "t-shirt-1-m",
     imgUrls: [
-      "/mocks/mockup-camisa-tp-1-1.jpeg",
-      "/mocks/mockup-camisa-tp-1-2.jpeg",
-      "/mocks/mockup-camisa-tp-1-3.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-1.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-2.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-3.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-4.jpeg",
     ],
     price: 99,
     promotionPrice: 79,
@@ -77,9 +79,10 @@ const tShirtType1List: ProductItem[] = [
   {
     id: "t-shirt-1-g",
     imgUrls: [
-      "/mocks/mockup-camisa-tp-1-1.jpeg",
-      "/mocks/mockup-camisa-tp-1-2.jpeg",
-      "/mocks/mockup-camisa-tp-1-3.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-1.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-2.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-3.jpeg",
+      "/mocks/camisa-preta-macaco-preto-branco-4.jpeg",
     ],
     price: 99,
     promotionPrice: 89,
