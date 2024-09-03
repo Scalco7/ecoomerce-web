@@ -141,13 +141,29 @@
   }
 }
 
-/* Terminar responsividade */
-
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .main {
-    gap: 40px;
+    height: 400px;
   }
 
+  .imgBox {
+    width: 260px;
+    height: 390px;
+  }
+}
+
+@media (min-width: 840px) {
+  .main {
+    height: 480px;
+  }
+
+  .imgBox {
+    width: 310px;
+    height: 465px;
+  }
+}
+
+@media (min-width: 992px) {
   .selectImgBox {
     width: 70px;
     height: 105px;
@@ -159,5 +175,23 @@
 
   .paddingImg {
     padding: 2px 45px;
+  }
+}
+
+@media (min-width: 1028px) {
+  .main {
+    height: 544px;
+    gap: 40px;
+  }
+
+  .imgBox {
+    width: 360px;
+    height: 540px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .main {
+    gap: 80px;
   }
 }
