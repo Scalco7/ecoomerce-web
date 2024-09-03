@@ -17,7 +17,7 @@ export default function PhotoHistoryCarousel({
   const isTablet = useClientMediaQuery("(min-width: 576px)");
   const isDesktop = useClientMediaQuery("(min-width: 1200px)");
 
-  const iconSize = isDesktop ? 100 : isTablet ? 50 : 30;
+  const iconSize = isDesktop ? 80 : isTablet ? 50 : 30;
 
   function handleLeftIconClick() {
     const newShowCount = showCount <= 0 ? historys.length - 1 : showCount - 1;
