@@ -281,6 +281,25 @@ const styleSection: ProductSection = {
 export const useProduct = create<ProductsState>((set) => ({
   productsSections: mockSectionProducts,
   styleSection: styleSection,
-  setProductsSections: (productsSections) =>
-    set({ productsSections: productsSections }),
+  setProductsSections: (productsSections) => {
+    const styleSection: ProductSection = {
+      name: "Nosso Estilo",
+      productTypes: [],
+    };
+
+    let countSections = 0;
+    let countProductTypes = 0;
+    for (let i = 0; i < 4; i++) {
+      styleSection.productTypes.push(
+        productsSections[countSections].productTypes[countProductTypes]
+      );
+      countSections++;
+      if (countSections == productsSections.length) {
+        countSections = 0;
+        countProductTypes++;
+      }
+    }
+
+    set({ productsSections: productsSections, styleSection: styleSection });
+  },
 }));

@@ -1,7 +1,7 @@
 import { ProductItem } from "@/states/productsState";
 import styles from "./styles.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChevronIcon from "@/components/icons/chevronIcon/chevronIcon";
 
 interface CarouselProductImgProps {
@@ -12,6 +12,10 @@ export default function CarouselProductImg({
   product,
 }: CarouselProductImgProps) {
   const [selectedImgIndex, setSelectedImgIndex] = useState(0);
+
+  useEffect(() => {
+    setSelectedImgIndex(0);
+  }, [product]);
 
   function handleNextImg() {
     let nextIndex = selectedImgIndex + 1;
