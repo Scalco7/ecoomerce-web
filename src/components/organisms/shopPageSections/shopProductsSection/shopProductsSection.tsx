@@ -14,9 +14,8 @@ export default function ShopProductsSection({
   return (
     <>
       {productsSections.map((section, index) => (
-        <>
+        <section key={`section-${index}`}>
           <CategorySection
-            key={`section-${index}`}
             title={section.name}
             colorScheme={index % 2 == 0 ? "yellow" : "white"}
             hasTransiction={index == 0}
@@ -26,7 +25,7 @@ export default function ShopProductsSection({
             buyProduct={buyProduct}
           />
           <div style={{ height: 20 }}></div>
-        </>
+        </section>
       ))}
     </>
   );

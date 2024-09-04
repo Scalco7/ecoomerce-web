@@ -16,14 +16,15 @@ import {
   onSelectModalVariant,
   openModalVariant,
 } from "@/utils/modalVariant.utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "@/states/cartState";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
 import { buyProduct } from "@/utils/product.utils";
 import { Toaster } from "react-hot-toast";
+import { ProductRepository } from "@/repositoryes/product.repository";
 
 export default function Home() {
-  const { productsSections } = useProduct();
+  const { productsSections, setProductsSections } = useProduct();
   const { addProduct } = useCart();
 
   const [variantSectionIsOpen, setVariantSectionIsOpen] = useState(false);
@@ -32,6 +33,17 @@ export default function Home() {
   >();
   const [resolveModalVariant, setResolveModalVariant] =
     useState<ModalVariantPromise | null>(null);
+
+  const productRepository = new ProductRepository();
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  async function fetchProducts() {
+    const response = await productRepository.getProductsBySection();
+    setProductsSections(response.sections);
+  }
 
   async function handleBuyProduct(productTypeId: string): Promise<void> {
     await buyProduct(
