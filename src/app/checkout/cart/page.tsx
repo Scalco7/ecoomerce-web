@@ -16,6 +16,7 @@ import {
 import { useCart } from "@/states/cartState";
 import { useState } from "react";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
+import CommentAvalliations from "@/components/atoms/commentAvalliations/commentAvalliations";
 
 export default function CheckoutCart() {
   const { productsSections, styleSection } = useProduct();
@@ -64,6 +65,36 @@ export default function CheckoutCart() {
             hasTransiction={true}
             buyProduct={handleBuyProduct}
           />
+        </section>
+        <section className={styles.commentSection}>
+          <div className={styles.commentsBox}>
+            <CommentAvalliations
+              comment={"Os produtos chegaram bem rápido e até antes do tempo"}
+              name={"Diogo Teixeira dos Santos"}
+            />
+            <CommentAvalliations
+              comment={
+                "Eu estou comprando aqui de novo, porque meu filho roubou minha regata"
+              }
+              name={"Jaison Oliveira de Almeida"}
+            />
+            <CommentAvalliations
+              comment={"Gostei da camiseta, serviu certinho em mim"}
+              name={"Julia Ester Pereira Rodrigues"}
+            />
+            <CommentAvalliations
+              comment={
+                "Sou apaixonado pelo basquete, e tenho orgulho de poder ter uma regata Banana Monkey"
+              }
+              name={"Anastácio Junior"}
+            />
+            <CommentAvalliations
+              comment={
+                "Pensei que a Oversized fosse um pouco menor, mas até que ficou legal em mim"
+              }
+              name={"Ericsson de Medeiros Alves"}
+            />
+          </div>
         </section>
         <Footer />
       </section>
