@@ -22,3 +22,7 @@
   scrollbar-color: black rgb(60, 60, 60);
   scrollbar-width: thin;
 }
+
+.buySection {
+  padding: 40px 0px;
+}
