@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid white;
+  color: white;
 }
 
 .logoBox {
@@ -69,7 +70,16 @@
   gap: 20px;
 }
 
+.checkoutText {
+  font-size: 12px;
+  width: 40%;
+}
+
 @media (min-width: 576px) {
+  .checkoutText {
+    font-size: 16px;
+  }
+
   .routeText {
     font-size: 20px;
   }

@@ -38,7 +38,7 @@
 
 .commentsBox {
   display: flex;
-  width: 60%;
+  width: 100%;
   flex-direction: column;
   gap: 20px;
 }
@@ -49,6 +49,31 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 50px;
-  font-size: 40px;
+  gap: 30px;
+  font-size: 34px;
+}
+
+@media (min-width: 425px) {
+  .commentsBox {
+    width: 85%;
+  }
+}
+
+@media (min-width: 576px) {
+  .commentsBox {
+    width: 75%;
+  }
+}
+
+@media (min-width: 768px) {
+  .titleSection {
+    gap: 50px;
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .commentsBox {
+    width: 60%;
+  }
 }

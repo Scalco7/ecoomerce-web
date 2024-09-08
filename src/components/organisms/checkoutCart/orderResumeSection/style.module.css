@@ -35,7 +35,7 @@
 .buttonsSection {
   display: flex;
   gap: 5px;
-  width: 30%;
+  width: 95%;
   flex-direction: column;
 }
 
@@ -48,4 +48,22 @@
   font-size: 20px;
   color: #a4a4a4;
   cursor: pointer;
+}
+
+@media (min-width: 375px) {
+  .buttonsSection {
+    width: 90%;
+  }
+}
+
+@media (min-width: 576px) {
+  .buttonsSection {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .buttonsSection {
+    width: 30%;
+  }
 }

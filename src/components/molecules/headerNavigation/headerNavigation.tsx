@@ -107,7 +107,7 @@ export default function HeaderNavigation() {
           </div>
         </section>
         {isCheckout ? (
-          <p className={zillaSlab.className}>
+          <p className={`${zillaSlab.className} ${styles.checkoutText}`}>
             Garantimos que você fez a{" "}
             <span className={zillaSlabBold.className}>melhor</span> escolha
           </p>
