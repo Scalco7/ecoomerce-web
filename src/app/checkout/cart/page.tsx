@@ -18,6 +18,14 @@ import { useState } from "react";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
 import CommentAvalliations from "@/components/atoms/commentAvalliations/commentAvalliations";
 import OrderResumeSection from "@/components/organisms/checkoutCart/orderResumeSection/orderResumeSection";
+import CartIcon from "@/components/icons/cartIcon/cartIcon";
+import { Zilla_Slab } from "next/font/google";
+
+const zillaSlab = Zilla_Slab({
+  weight: "700",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function CheckoutCart() {
   const { productsSections, styleSection } = useProduct();
@@ -56,6 +64,10 @@ export default function CheckoutCart() {
         <HeaderNavigation />
       </header>
       <section className={`${styles.body}`}>
+        <section className={styles.titleSection}>
+          <CartIcon size={40} color="#000" />{" "}
+          <p className={zillaSlab.className}>Meu carrinho</p>
+        </section>
         <section className={styles.buySection}>
           <CategorySection
             colorScheme={"yellow"}
