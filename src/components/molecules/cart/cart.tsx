@@ -20,15 +20,8 @@ interface CartProps {
 }
 
 export default function Cart({ closeCart }: CartProps) {
-  const {
-    products,
-    productsQuantity,
-    totalPrice,
-    totalPromotionPrice,
-    removeProduct,
-    increaseProductQuantity,
-    decreaseProductQuantity,
-  } = useCart();
+  const { products, productsQuantity, totalPrice, totalPromotionPrice } =
+    useCart();
 
   const router = useRouter();
 
@@ -46,13 +39,7 @@ export default function Cart({ closeCart }: CartProps) {
       </section>
       <section className={styles.productsSection}>
         {products.map((product, index) => (
-          <ProductCartBox
-            key={"cart-product-" + index}
-            product={product}
-            onRemove={removeProduct}
-            onIncrease={increaseProductQuantity}
-            onDecrease={decreaseProductQuantity}
-          />
+          <ProductCartBox key={"cart-product-" + index} product={product} />
         ))}
       </section>
       <section className={styles.bottomSection}>

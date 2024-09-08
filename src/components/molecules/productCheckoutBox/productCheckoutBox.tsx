@@ -19,11 +19,13 @@ const zillaSlab = Zilla_Slab({
   display: "swap",
 });
 
-interface ProductCartBoxProps {
+interface ProductCheckoutBoxProps {
   product: ProductCartData;
 }
 
-export default function ProductCartBox({ product }: ProductCartBoxProps) {
+export default function ProductCheckoutBox({
+  product,
+}: ProductCheckoutBoxProps) {
   const { removeProduct, increaseProductQuantity, decreaseProductQuantity } =
     useCart();
   const router = useRouter();

@@ -20,6 +20,7 @@ import CommentAvalliations from "@/components/atoms/commentAvalliations/commentA
 import OrderResumeSection from "@/components/organisms/checkoutCart/orderResumeSection/orderResumeSection";
 import CartIcon from "@/components/icons/cartIcon/cartIcon";
 import { Zilla_Slab } from "next/font/google";
+import CheckoutProductsSection from "@/components/organisms/checkoutCart/productsSection/productsSection";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -68,6 +69,7 @@ export default function CheckoutCart() {
           <CartIcon size={40} color="#000" />{" "}
           <p className={zillaSlab.className}>Meu carrinho</p>
         </section>
+        <CheckoutProductsSection/>
         <section className={styles.buySection}>
           <CategorySection
             colorScheme={"yellow"}
