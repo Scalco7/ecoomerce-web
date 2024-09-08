@@ -4,6 +4,11 @@ import ProductWithTag from "@/components/molecules/productWithTag/productWithTag
 import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 import { Zilla_Slab } from "next/font/google";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+interface CapSellSectionProps {
+  buyProduct: (productTypeId: string) => void;
+}
 
 const zillaSlabBolder = Zilla_Slab({
   weight: "700",
@@ -11,12 +16,22 @@ const zillaSlabBolder = Zilla_Slab({
   display: "swap",
 });
 
-export default function CapSellSection() {
+export default function CapSellSection({ buyProduct }: CapSellSectionProps) {
   const isTablet = useClientMediaQuery("(min-width: 768px)");
   const isDesktop = useClientMediaQuery("(min-width: 992px)");
   const isBigScreen = useClientMediaQuery("(min-width: 1320px)");
+  const router = useRouter();
+
   const title = "Bonés do hype";
   const buttonText = "Adquirir o Hype";
+  const capPrice = 49;
+
+  const capBlackId = "00000006";
+  const capWhiteId = "00000005";
+
+  function handleBuyProduct() {
+    router.push(`product/${capWhiteId}`);
+  }
 
   return (
     <main className={`${styles.main} `}>
@@ -39,16 +54,16 @@ export default function CapSellSection() {
         height={isBigScreen ? "600px" : isTablet ? "450px" : "300px"}
         tags={[
           {
-            price: 29,
-            onCLick: () => {},
+            price: capPrice,
+            onCLick: () => buyProduct(capBlackId),
             position: {
               left: isBigScreen ? 30 : -5,
               bottom: isBigScreen ? 203 : 150,
             },
           },
           {
-            price: 39,
-            onCLick: () => {},
+            price: capPrice,
+            onCLick: () => buyProduct(capWhiteId),
             position: {
               right: isBigScreen ? 42 : 5,
               bottom: isBigScreen ? 227 : 168,
@@ -69,7 +84,7 @@ export default function CapSellSection() {
             width={"210px"}
             height={"50px"}
             iconSize={24}
-            onClick={() => {}}
+            onClick={handleBuyProduct}
           />
         </footer>
       )}
@@ -99,7 +114,7 @@ export default function CapSellSection() {
               width={isBigScreen ? "300px" : "250px"}
               height={isBigScreen ? "80px" : "70px"}
               iconSize={isBigScreen ? 38 : 30}
-              onClick={() => {}}
+              onClick={handleBuyProduct}
             />
             <section
               className={`${styles.detailsSection} ${zillaSlabBolder.className}`}

@@ -20,6 +20,12 @@ export default function TopSection({ buyProduct }: TopSectionProps) {
   const isXLScreen = useClientMediaQuery("(min-width: 1200px)");
   const isXXLScreen = useClientMediaQuery("(min-width: 1400px)");
 
+  const tShirtTrucoId = "00000000";
+  const tShirtLetsGameId = "00000001";
+  const tShirtUglyGuyId = "00000002";
+
+  const tShirtPrice = 79;
+
   const littleTShirtSize = isXXLScreen
     ? "420px"
     : isXLScreen
@@ -38,10 +44,8 @@ export default function TopSection({ buyProduct }: TopSectionProps) {
   const tagsTshirt1 = isDesktop
     ? [
         {
-          price: 89,
-          onCLick: () => {
-            buyProduct("");
-          },
+          price: tShirtPrice,
+          onCLick: () => buyProduct(tShirtUglyGuyId),
           position: {
             right: isXXLScreen ? -43 : isXLScreen ? -45 : -50,
             top: isXXLScreen ? 42 : isXLScreen ? 35 : 23,
@@ -53,8 +57,8 @@ export default function TopSection({ buyProduct }: TopSectionProps) {
   const tagsTshirt2 = isDesktop
     ? [
         {
-          price: 89,
-          onCLick: () => {},
+          price: tShirtPrice,
+          onCLick: () => buyProduct(tShirtTrucoId),
           position: {
             right: isXXLScreen ? -3 : isXLScreen ? -17 : -33,
             top: isXXLScreen ? 106 : isXLScreen ? 90 : 72,
@@ -66,8 +70,8 @@ export default function TopSection({ buyProduct }: TopSectionProps) {
   const tagsTshirt3 = isDesktop
     ? [
         {
-          price: 89,
-          onCLick: () => {},
+          price: tShirtPrice,
+          onCLick: () => buyProduct(tShirtLetsGameId),
           position: {
             right: isXXLScreen ? -10 : isXLScreen ? -15 : -15,
             top: isXXLScreen ? 260 : isXLScreen ? 215 : 175,

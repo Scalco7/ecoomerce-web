@@ -4,6 +4,11 @@ import ProductWithTag from "@/components/molecules/productWithTag/productWithTag
 import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 import { Zilla_Slab } from "next/font/google";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+interface TShirtSellSectionProps {
+  buyProduct: (productTypeId: string) => void;
+}
 
 const zillaSlabBolder = Zilla_Slab({
   weight: "700",
@@ -11,11 +16,20 @@ const zillaSlabBolder = Zilla_Slab({
   display: "swap",
 });
 
-export default function TShirtSellSection() {
+export default function TShirtSellSection({
+  buyProduct,
+}: TShirtSellSectionProps) {
   const isTablet = useClientMediaQuery("(min-width: 768px)");
   const isDesktop = useClientMediaQuery("(min-width: 992px)");
   const isBigScreen = useClientMediaQuery("(min-width: 1320px)");
+  const router = useRouter();
+
   const title = "Camisetas no estilo";
+  const productId = "00000002";
+
+  function handleBuyProduct() {
+    router.push(`product/${productId}`);
+  }
 
   return (
     <main className={`${styles.main} `}>
@@ -40,8 +54,8 @@ export default function TShirtSellSection() {
         height={isBigScreen ? "600px" : isTablet ? "450px" : "300px"}
         tags={[
           {
-            price: 89,
-            onCLick: () => {},
+            price: 79,
+            onCLick: () => buyProduct(productId),
             position: {
               right: isBigScreen ? 25 : 0,
               top: isBigScreen ? 30 : 20,
@@ -62,7 +76,7 @@ export default function TShirtSellSection() {
             width={"200px"}
             height={"50px"}
             iconSize={28}
-            onClick={() => {}}
+            onClick={handleBuyProduct}
           />
         </footer>
       )}
@@ -92,7 +106,7 @@ export default function TShirtSellSection() {
               width={isBigScreen ? "300px" : "240px"}
               height={isBigScreen ? "80px" : "65px"}
               iconSize={isBigScreen ? 38 : 28}
-              onClick={() => {}}
+              onClick={handleBuyProduct}
             />
             <section
               className={`${styles.detailsSection} ${zillaSlabBolder.className}`}

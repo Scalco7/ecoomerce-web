@@ -73,12 +73,12 @@ export default function Home() {
       <section className={`${styles.body}`}>
         <PresentationSection />
         <div style={{ height: 40 }}></div>
-        <TShirtSellSection />
+        <TShirtSellSection buyProduct={handleBuyProduct} />
         <div className={styles.desktopSection}>
           <YellowTextBanner text="Tecidos pensados para seu extremo conforto e versatilidade" />
         </div>
         <div style={{ height: 20 }}></div>
-        <CapSellSection />
+        <CapSellSection buyProduct={handleBuyProduct} />
         <div className={styles.desktopSection}>
           <ShopSection buyProduct={handleBuyProduct} />
         </div>
