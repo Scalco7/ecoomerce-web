@@ -17,6 +17,7 @@ import { useCart } from "@/states/cartState";
 import { useState } from "react";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
 import CommentAvalliations from "@/components/atoms/commentAvalliations/commentAvalliations";
+import OrderResumeSection from "@/components/organisms/checkoutCart/orderResumeSection/orderResumeSection";
 
 export default function CheckoutCart() {
   const { productsSections, styleSection } = useProduct();
@@ -66,6 +67,7 @@ export default function CheckoutCart() {
             buyProduct={handleBuyProduct}
           />
         </section>
+        <OrderResumeSection />
         <section className={styles.commentSection}>
           <div className={styles.commentsBox}>
             <CommentAvalliations
