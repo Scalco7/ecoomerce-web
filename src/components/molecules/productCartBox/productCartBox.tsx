@@ -5,6 +5,7 @@ import ProductQuantityInput from "@/components/atoms/productQuantityInput/produc
 import { formatNumberToValue } from "@/utils/number.utils";
 import { Poppins, Zilla_Slab } from "next/font/google";
 import TrashIcon from "@/components/icons/trashIcon/trashIcon";
+import { useRouter } from "next/navigation";
 
 const poppins = Poppins({
   weight: "500",
@@ -31,8 +32,14 @@ export default function ProductCartBox({
   onIncrease,
   onDecrease,
 }: ProductCartBoxProps) {
+  const router = useRouter();
+
+  function handleOnProductClick() {
+    router.push(`/product/${product.productTypeId}`);
+  }
+
   return (
-    <main className={styles.main}>
+    <main className={styles.main} onClick={() => handleOnProductClick()}>
       <section className={styles.imgBoxBig}>
         <section className={styles.imgBox}>
           <Image
@@ -43,7 +50,6 @@ export default function ProductCartBox({
           />
         </section>
       </section>
-
       <section className={styles.dataSection}>
         <section className={styles.topSection}>
           <section className={styles.textSection}>
@@ -65,7 +71,10 @@ export default function ProductCartBox({
           </section>
           <section
             className={styles.removeSection}
-            onClick={() => onRemove(product.id)}
+            onClick={(evt) => {
+              evt.stopPropagation();
+              onRemove(product.id);
+            }}
           >
             <TrashIcon size={24} color="#676767" />
           </section>

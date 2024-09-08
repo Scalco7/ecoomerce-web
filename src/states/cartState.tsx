@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { create } from "zustand";
 
 export interface ProductCartData {
+  productTypeId: string;
   id: string;
   imgUrl: string;
   name: string;

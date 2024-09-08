@@ -7,6 +7,7 @@ import ProductCartBox from "../productCartBox/productCartBox";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import { useCart } from "@/states/cartState";
 import CircleCloseIcon from "@/components/icons/circleCloseIcon/circleCloseIcon";
+import { useRouter } from "next/navigation";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -28,6 +29,12 @@ export default function Cart({ closeCart }: CartProps) {
     increaseProductQuantity,
     decreaseProductQuantity,
   } = useCart();
+
+  const router = useRouter();
+
+  function handleFinishBuy() {
+    router.push("/checkout/cart");
+  }
 
   return (
     <main className={styles.main}>
@@ -64,7 +71,7 @@ export default function Cart({ closeCart }: CartProps) {
             width={"100%"}
             height={"45px"}
             fontSize={20}
-            onClick={() => console.log("clicou no botão")}
+            onClick={handleFinishBuy}
           />
           <section className={styles.textButton} onClick={closeCart}>
             continuar comprando

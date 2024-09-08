@@ -7,6 +7,7 @@
   min-height: fit-content;
   border: 3px solid black;
   color: black;
+  cursor: pointer;
 }
 
 .imgBoxBig {

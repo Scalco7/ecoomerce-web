@@ -21,7 +21,8 @@ export function addProductToCart(
     }: AddProductToCartProps): void {
     const productToCart: ProductCartData = {
         ...product,
-        id: generateCartId(id, product.id),
+        productTypeId: id,
+        id: product.id,
         imgUrl: product.imgUrls[0],
         name: name,
         quantity: 1,
@@ -29,8 +30,4 @@ export function addProductToCart(
         variant2: variant2,
     };
     addProduct(productToCart);
-}
-
-function generateCartId(productTypeId: string, productId: string): string {
-    return productTypeId + "-" + productId
 }
