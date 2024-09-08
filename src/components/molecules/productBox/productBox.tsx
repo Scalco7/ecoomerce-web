@@ -8,7 +8,7 @@ import { useClientMediaQuery } from "@/hooks/useClientMediaQuery";
 
 interface ProductBoxProps {
   colorScheme: "white" | "yellow";
-  width: string;
+  width: number;
   product: ProductInfoData;
   buyProduct: (productTypeId: string) => void;
 }
@@ -43,6 +43,7 @@ export default function ProductBox({
   const isDesktop = useClientMediaQuery("(min-width: 576px)");
 
   const isWhite = colorScheme == "white";
+  const imgHeight = (width / 3) * 4;
 
   function handleProductClick() {
     router.push(`/product/${product.id}`);
@@ -58,6 +59,7 @@ export default function ProductBox({
     >
       <section
         className={`${styles.boxImg} ${isWhite ? styles.borderBottom : null}`}
+        style={{ height: imgHeight }}
       >
         <section className={styles.containImg}>
           <Image
@@ -68,12 +70,14 @@ export default function ProductBox({
             sizes={"500px"}
           />
         </section>
-      </section>
-      <section className={styles.boxInfos}>
-        <section>
+        <section className={styles.titleSection}>
           <p className={`${zillaSlab.className} ${styles.titleText}`}>
             + {product.name}
           </p>
+        </section>
+      </section>
+      <section className={styles.boxInfos}>
+        <section>
           <section className={`${poppins.className}`}>
             <p className={styles.textPrice}>
               {formatNumberToValue(product.price)}

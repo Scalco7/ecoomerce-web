@@ -20,7 +20,7 @@ export default function ShopSection({ buyProduct }: ShopSectionProps) {
           <ProductBox
             key={"product-home-index"}
             buyProduct={buyProduct}
-            width="250px"
+            width={250}
             colorScheme={"yellow"}
             product={productsDataToProductBox(p)}
           />

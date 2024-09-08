@@ -67,7 +67,7 @@ export default function CategorySection({
           <ProductBox
             key={`product-${index}`}
             colorScheme={productsColorScheme}
-            width={isDesktop ? "250px" : isMobileBigger ? "160px" : "140px"}
+            width={isDesktop ? 250 : isMobileBigger ? 160 : 140}
             product={product}
             buyProduct={buyProduct}
           />
