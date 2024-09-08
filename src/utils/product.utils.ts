@@ -54,7 +54,7 @@ export async function buyProduct(
     }
 
     addProductToCart({
-        id: product.id,
+        productTypeId: product.id,
         name: product.name,
         product: productItem,
         addProduct: addProduct,

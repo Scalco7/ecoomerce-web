@@ -34,7 +34,13 @@ export default function ProductQuantityInput({
 
   return (
     <main className={styles.main}>
-      <section className={styles.changeSection} onClick={handleDecrease}>
+      <section
+        className={styles.changeSection}
+        onClick={(evt) => {
+          evt.stopPropagation();
+          handleDecrease();
+        }}
+      >
         <MinusIcon size={iconsHeight} color="black" />
       </section>
       <section
@@ -43,7 +49,13 @@ export default function ProductQuantityInput({
       >
         {quantity}
       </section>
-      <section className={styles.changeSection} onClick={handleIncrease}>
+      <section
+        className={styles.changeSection}
+        onClick={(evt) => {
+          evt.stopPropagation();
+          handleIncrease();
+        }}
+      >
         <PlusIcon size={iconsHeight} color="black" />
       </section>
     </main>

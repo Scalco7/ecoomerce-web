@@ -2,7 +2,7 @@ import { CartVariant, ProductCartData, } from "@/states/cartState";
 import { ProductItem } from "@/states/productsState";
 
 interface AddProductToCartProps {
-    id: string,
+    productTypeId: string,
     name: string,
     product: ProductItem,
     addProduct: (product: ProductCartData) => void,
@@ -12,7 +12,7 @@ interface AddProductToCartProps {
 
 export function addProductToCart(
     {
-        id,
+        productTypeId,
         name,
         product,
         addProduct,
@@ -21,7 +21,7 @@ export function addProductToCart(
     }: AddProductToCartProps): void {
     const productToCart: ProductCartData = {
         ...product,
-        productTypeId: id,
+        productTypeId: productTypeId,
         id: product.id,
         imgUrl: product.imgUrls[0],
         name: name,
@@ -29,5 +29,6 @@ export function addProductToCart(
         variant1: variant1,
         variant2: variant2,
     };
+
     addProduct(productToCart);
 }

@@ -67,7 +67,7 @@ export default function ProductTopSection({ product }: ProductTopSectionProps) {
     const actualProduct = product.products[indexSelectedProduct];
 
     addProductToCart({
-      id: actualProduct.id,
+      productTypeId: product.id,
       name: product.name,
       product: actualProduct,
       addProduct: addProduct,
