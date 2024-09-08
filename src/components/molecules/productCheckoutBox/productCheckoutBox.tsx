@@ -78,7 +78,9 @@ export default function ProductCheckoutBox({
               </p>
             </section>
           </section>
-          <section className={styles.quantitySection}>
+          <section
+            className={`${styles.quantitySection} ${styles.desktopSection}`}
+          >
             <ProductQuantityInput
               fontSize={20}
               quantity={product.quantity}
@@ -98,6 +100,25 @@ export default function ProductCheckoutBox({
                 </p>
               </section>
             </section>
+          </section>
+        </section>
+      </section>
+      <section className={`${styles.quantitySection} ${styles.mobileSection}`}>
+        <ProductQuantityInput
+          fontSize={20}
+          quantity={product.quantity}
+          onIncrease={() => increaseProductQuantity(product.id)}
+          onDecrease={() => decreaseProductQuantity(product.id)}
+        />
+        <section className={styles.totalPriceSection}>
+          <p className={zillaSlab.className}>Total</p>
+          <section className={`${poppins.className}`}>
+            <p className={styles.price}>
+              {formatNumberToValue(product.price * product.quantity)}
+            </p>
+            <p className={`${styles.promotionPrice} ${styles.greenText}`}>
+              {formatNumberToValue(product.promotionPrice * product.quantity)}
+            </p>
           </section>
         </section>
       </section>

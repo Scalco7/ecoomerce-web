@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 50px 20px;
+  padding: 50px 5px;
 }
 
 .productsSection {
@@ -21,4 +21,10 @@
   scrollbar-color: black rgb(60, 60, 60);
   scrollbar-width: thin;
   scrollbar-gutter: stable;
+}
+
+@media (min-width: 576px) {
+  .main {
+    padding: 50px 20px;
+  }
 }
