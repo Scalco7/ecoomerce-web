@@ -16,9 +16,9 @@ export default function ShopSection({ buyProduct }: ShopSectionProps) {
         <p className={styles.titleText}>Nosso Estilo</p>
       </header>
       <section className={styles.productsSection}>
-        {styleSection.productTypes.map((p, index) => (
+        {styleSection.productTypes.map((p) => (
           <ProductBox
-            key={"product-home-index"}
+            key={`product-home-${p.id}`}
             buyProduct={buyProduct}
             width={250}
             colorScheme={"yellow"}
