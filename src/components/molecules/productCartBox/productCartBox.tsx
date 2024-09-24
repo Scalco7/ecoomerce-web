@@ -37,7 +37,7 @@ export default function ProductCartBox({ product }: ProductCartBoxProps) {
       <section className={styles.imgBoxBig}>
         <section className={styles.imgBox}>
           <Image
-            src={product.imgUrl}
+            src={product.imgUrl ?? "/no-img.svg"}
             alt={product.name}
             fill={true}
             objectFit="contain"

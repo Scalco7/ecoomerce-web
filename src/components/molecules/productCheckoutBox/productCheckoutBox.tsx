@@ -41,7 +41,7 @@ export default function ProductCheckoutBox({
               fill={true}
               sizes="300px"
               alt="imagem do produto"
-              src={product.imgUrl}
+              src={product.imgUrl ?? "/no-img.svg"}
               objectFit="contain"
             />
           </div>

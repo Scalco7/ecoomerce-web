@@ -63,7 +63,7 @@ export default function ProductBox({
       >
         <section className={styles.containImg}>
           <Image
-            src={product.imgUrl}
+            src={product.imgUrl ?? "/no-img.svg"}
             alt={product.name}
             objectFit="contain"
             fill={true}

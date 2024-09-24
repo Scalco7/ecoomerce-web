@@ -69,7 +69,7 @@ export default function CarouselProductImg({
         </section>
         <section className={styles.imgBox}>
           <Image
-            src={product.imgUrls[selectedImgIndex]}
+            src={product.imgUrls[selectedImgIndex] ?? "/no-img.svg"}
             alt={"Imagem Principal Produto"}
             fill={true}
             sizes="1000px"
