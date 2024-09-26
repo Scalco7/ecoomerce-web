@@ -1,0 +1,143 @@
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: black;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.body {
+  padding-top: 95px;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 45px;
+
+  scrollbar-color: black rgb(60, 60, 60);
+  scrollbar-width: thin;
+}
+
+.titleSection {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 30px;
+}
+
+.dataSection {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.subSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.titleText {
+  font-size: 20px;
+  text-align: center;
+}
+
+.normalText {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+
+.boxButton {
+  width: 95%;
+  font-size: 16px;
+  text-wrap: nowrap;
+}
+
+.orderDetailsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.orderDetailsBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+@media (min-width: 375px) {
+  .normalText {
+    font-size: 16px;
+  }
+
+  .boxButton {
+    font-size: 18px;
+  }
+
+  .titleText {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 425px) {
+  .boxButton {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 475px) {
+  .boxButton {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 768px) {
+  .body {
+    gap: 85px;
+  }
+
+  .titleText {
+    font-size: 28px;
+  }
+
+  .dataSection {
+    width: 700px;
+  }
+
+  .titleSection {
+    gap: 50px;
+    font-size: 40px;
+  }
+
+  .normalText {
+    font-size: 22px;
+  }
+
+  .boxButton {
+    width: 550px;
+  }
+}
