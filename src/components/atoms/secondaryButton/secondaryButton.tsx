@@ -5,7 +5,7 @@ interface SecondaryButtonProps {
   text: string;
   width: string;
   height: string;
-  fontSize: number;
+  fontSize?: number;
   textTransform?: "capitalize" | "lowercase" | "none" | "uppercase";
   Icon?: React.ReactNode;
   onClick: () => void;

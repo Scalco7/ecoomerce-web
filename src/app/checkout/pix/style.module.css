@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 85px;
+  gap: 45px;
 
   scrollbar-color: black rgb(60, 60, 60);
   scrollbar-width: thin;
@@ -39,7 +39,7 @@
 }
 
 .dataSection {
-  width: 700px;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -64,26 +64,84 @@
 
 .qrCodeBox {
   position: relative;
-  width: 400px;
-  height: 400px;
-  padding: 50px;
+  width: 280px;
+  height: 280px;
+  padding: 30px;
   border: 3px solid #000;
 }
 
 .stepText {
   width: 100%;
-  font-size: 20px;
+  font-size: 14px;
   text-align: left;
 }
 
 .subTitles {
-  font-size: 28px;
+  font-size: 20px;
   text-align: center;
 }
 
+.boxButton {
+  width: 95%;
+  font-size: 16px;
+  text-wrap: nowrap;
+}
+
+@media (min-width: 375px) {
+  .subTitles {
+    font-size: 24px;
+  }
+
+  .stepText {
+    font-size: 16px;
+  }
+
+  .boxButton {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 425px) {
+  .boxButton {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 475px) {
+  .boxButton {
+    font-size: 22px;
+  }
+}
+
 @media (min-width: 768px) {
+  .body {
+    gap: 85px;
+  }
+
+  .qrCodeBox {
+    width: 400px;
+    height: 400px;
+    padding: 50px;
+  }
+
+  .dataSection {
+    width: 700px;
+  }
+
   .titleSection {
     gap: 50px;
     font-size: 40px;
+  }
+
+  .subTitles {
+    font-size: 28px;
+  }
+
+  .stepText {
+    font-size: 20px;
+  }
+
+  .boxButton {
+    width: 500px;
   }
 }

@@ -71,15 +71,16 @@ export default function CheckoutPix() {
               Copie o código para o pagamento do pix copia e cola clicando no
               botão abaixo.
             </p>
-            <SecondaryButton
-              width={"500px"}
-              height={"54px"}
-              text="Copiar código pix copia e cola"
-              fontSize={24}
-              Icon={<PixIcon size={32} color="#fff" />}
-              textTransform="none"
-              onClick={handleCopyPixCode}
-            />
+            <div className={styles.boxButton}>
+              <SecondaryButton
+                width={"100%"}
+                height={"54px"}
+                text="Copiar código pix copia e cola"
+                Icon={<PixIcon size={32} color="#fff" />}
+                textTransform="none"
+                onClick={handleCopyPixCode}
+              />
+            </div>
           </section>
           <section className={styles.subSection}>
             <p className={styles.subTitles}>Como efetuar um pagamento Pix:</p>
