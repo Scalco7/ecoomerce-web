@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./styles.module.css";
 
 interface SecondaryButtonProps {
@@ -5,6 +6,8 @@ interface SecondaryButtonProps {
   width: string;
   height: string;
   fontSize: number;
+  textTransform?: "capitalize" | "lowercase" | "none" | "uppercase";
+  Icon?: React.ReactNode;
   onClick: () => void;
 }
 
@@ -14,6 +17,8 @@ export default function SecondaryButton({
   height,
   fontSize,
   onClick,
+  Icon,
+  textTransform = "uppercase",
 }: SecondaryButtonProps) {
   return (
     <main
@@ -23,8 +28,10 @@ export default function SecondaryButton({
         width: width,
         height: height,
         fontSize: fontSize,
+        textTransform: textTransform,
       }}
     >
+      {Icon && Icon}
       <p>{text}</p>
     </main>
   );

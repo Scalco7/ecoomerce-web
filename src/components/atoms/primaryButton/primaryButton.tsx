@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import CartIcon from "../../icons/cartIcon/cartIcon";
 import styles from "./styles.module.css";
 
