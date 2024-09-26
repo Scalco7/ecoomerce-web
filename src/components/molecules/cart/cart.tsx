@@ -8,6 +8,8 @@ import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton"
 import { useCart } from "@/states/cartState";
 import CircleCloseIcon from "@/components/icons/circleCloseIcon/circleCloseIcon";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { darkToastOptions } from "@/utils/toast.utils";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -22,11 +24,11 @@ interface CartProps {
 export default function Cart({ closeCart }: CartProps) {
   const { products, productsQuantity, totalPrice, totalPromotionPrice } =
     useCart();
-
   const router = useRouter();
 
   function handleFinishBuy() {
-    router.push("/checkout/cart");
+    if (productsQuantity > 0) router.push("/checkout/cart");
+    else toast.error("Selecione ao menos um produto.", darkToastOptions);
   }
 
   return (
