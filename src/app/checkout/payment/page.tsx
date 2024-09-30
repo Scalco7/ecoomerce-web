@@ -1,11 +1,12 @@
 "use client";
+
 import { Zilla_Slab } from "next/font/google";
 import styles from "./style.module.css";
 import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavigation";
 import Footer from "@/components/molecules/footer/footer";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
-import CorrectIcon from "@/components/icons/correctIcon/correctIcon";
 import CardIcon from "@/components/icons/cardIcon/cardIcon";
+import Input from "@/components/atoms/input/input";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -25,6 +26,18 @@ export default function CheckoutPayment() {
           <p className={zillaSlab.className}>Pagamento</p>
         </section>
         <section className={styles.dataSection}>
+          <section className={styles.subSection}>
+            <p className={`${zillaSlab.className} ${styles.sectionTitle}`}>
+              1 - Dados do pagador
+            </p>
+            <section className={styles.inputSection}>
+              <Input placeholder="Nome completo" />
+              <Input placeholder="E-mail" />
+              <Input placeholder="CPF" />
+              <Input placeholder="Celular com DDD" />
+            </section>
+          </section>
+
           <div className={styles.boxButton}>
             <SecondaryButton
               width={"100%"}

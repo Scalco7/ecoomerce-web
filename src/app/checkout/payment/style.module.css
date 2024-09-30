@@ -47,6 +47,31 @@
   gap: 60px;
 }
 
+.subSection {
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.sectionTitle {
+  width: 100%;
+  text-align: start;
+  font-size: 26px;
+}
+
+.inputSection {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
 .boxButton {
   width: 95%;
   font-size: 16px;
