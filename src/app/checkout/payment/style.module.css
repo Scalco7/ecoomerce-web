@@ -72,6 +72,16 @@
   gap: 10px;
 }
 
+.rowSection {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.addressNumberBox {
+  width: 150px;
+}
+
 .boxButton {
   width: 95%;
   font-size: 16px;

@@ -10,6 +10,7 @@ import {
 
 export interface InputController {
   value: string;
+  hasError: boolean;
 }
 
 interface InputProps {
@@ -84,6 +85,7 @@ export default function Input({
   const isInitialMount = useRef(true);
   const [inputValue, setInputValue] = useState("");
   const isPoppins = type != "email" && type != "text";
+  const inputType = type == "email" ? type : "text";
 
   useEffect(() => setInputText(controller.value), []);
   useEffect(() => {
@@ -91,6 +93,7 @@ export default function Input({
       isInitialMount.current = false;
     } else {
       controller.value = inputValue;
+      controller.hasError = false;
     }
   }, [inputValue]);
 
@@ -125,10 +128,13 @@ export default function Input({
       className={`${isPoppins ? poppins.className : zillaSlab.className} ${
         styles.input
       }`}
-      style={{ fontSize: isPoppins ? "15px" : "18px" }}
+      style={{
+        fontSize: isPoppins ? "15px" : "18px",
+        borderColor: controller.hasError ? "red" : "black",
+      }}
       placeholder={placeholder}
       autoComplete={autocomplete}
-      type={type}
+      type={inputType}
       value={inputValue}
       onChange={(event) => handleOnChange(event)}
     />

@@ -7,6 +7,10 @@ import Footer from "@/components/molecules/footer/footer";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import CardIcon from "@/components/icons/cardIcon/cardIcon";
 import Input, { InputController } from "@/components/atoms/input/input";
+import toast, { Toaster } from "react-hot-toast";
+import { darkToastOptions } from "@/utils/toast.utils";
+import { useState } from "react";
+import validarCpf from "validar-cpf";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -31,23 +35,73 @@ interface AddressData {
   complement: InputController;
 }
 
+function validatePayerData(payerData: PayerData): PayerData {
+  const { name, email, cpf, cellphone } = payerData;
+
+  if (name.value == "") {
+    name.hasError = true;
+    toast.error("Digite um nome.", darkToastOptions);
+    return { name, email, cpf, cellphone };
+  }
+  name.hasError = false;
+
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (!emailRegex.test(email.value)) {
+    email.hasError = true;
+    toast.error("Digite um E-mail válido.", darkToastOptions);
+    return { name, email, cpf, cellphone };
+  }
+  email.hasError = false;
+
+  if (!validarCpf(cpf.value)) {
+    cpf.hasError = true;
+    toast.error("Digite um cpf válido.", darkToastOptions);
+    return { name, email, cpf, cellphone };
+  }
+  cpf.hasError = false;
+
+  if (cellphone.value == "") {
+    cellphone.hasError = true;
+    toast.error("Digite um número de celular.", darkToastOptions);
+    return { name, email, cpf, cellphone };
+  }
+  if (cellphone.value.length != 16) {
+    cellphone.hasError = true;
+    toast.error("Digite um número de celular válido.", darkToastOptions);
+    return { name, email, cpf, cellphone };
+  }
+  cellphone.hasError = false;
+
+  return { name, email, cpf, cellphone };
+}
+
 export default function CheckoutPayment() {
-  const payerDataForm: PayerData = {
-    name: { value: "" },
-    email: { value: "" },
-    cpf: { value: "" },
-    cellphone: { value: "" },
-  };
+  const [payerDataForm, setPayerDataForm] = useState<PayerData>({
+    name: { value: "", hasError: false },
+    email: { value: "", hasError: false },
+    cpf: { value: "", hasError: false },
+    cellphone: { value: "", hasError: false },
+  });
 
   const addressDataForm: AddressData = {
-    cep: { value: "" },
-    state: { value: "" },
-    city: { value: "" },
-    neighborhood: { value: "" },
-    street: { value: "" },
-    number: { value: "" },
-    complement: { value: "" },
+    cep: { value: "", hasError: false },
+    state: { value: "", hasError: false },
+    city: { value: "", hasError: false },
+    neighborhood: { value: "", hasError: false },
+    street: { value: "", hasError: false },
+    number: { value: "", hasError: false },
+    complement: { value: "", hasError: false },
   };
+
+  function handleOnCorfirmData() {
+    const newPayerForm = validatePayerData(payerDataForm);
+    setPayerDataForm(newPayerForm);
+
+    console.log(payerDataForm);
+
+    // if (newPayerForm) console.log("válido");
+  }
 
   return (
     <main className={styles.main}>
@@ -119,18 +173,23 @@ export default function CheckoutPayment() {
                 autocomplete="address-level3"
                 controller={addressDataForm.neighborhood}
               />
-              <Input
-                placeholder="Rua"
-                type="text"
-                autocomplete="address-line1"
-                controller={addressDataForm.street}
-              />
-              <Input
-                placeholder="Número"
-                type="number"
-                autocomplete="address-line2"
-                controller={addressDataForm.number}
-              />
+              <section className={styles.rowSection}>
+                <Input
+                  placeholder="Rua"
+                  type="text"
+                  autocomplete="address-line1"
+                  controller={addressDataForm.street}
+                />
+                <div className={styles.addressNumberBox}>
+                  <Input
+                    placeholder="Número"
+                    type="number"
+                    autocomplete="address-line2"
+                    controller={addressDataForm.number}
+                  />
+                </div>
+              </section>
+
               <Input
                 placeholder="Complemento"
                 type="text"
@@ -144,14 +203,15 @@ export default function CheckoutPayment() {
               height={"54px"}
               text="Confirmar Dados"
               textTransform="uppercase"
-              onClick={() => {
-                console.log(addressDataForm);
-              }}
+              onClick={handleOnCorfirmData}
             />
           </div>
         </section>
         <Footer />
       </section>
+      <div>
+        <Toaster position="bottom-center" reverseOrder={false} />
+      </div>
     </main>
   );
 }
