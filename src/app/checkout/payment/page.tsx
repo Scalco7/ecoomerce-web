@@ -30,7 +30,7 @@ export default function CheckoutPayment() {
               width={"100%"}
               height={"54px"}
               text="Confirmar Dados"
-              textTransform="none"
+              textTransform="uppercase"
               onClick={() => {}}
             />
           </div>

@@ -31,6 +31,10 @@ export default function OrderResumeSection() {
     router.push("/shop");
   }
 
+  function goToPayment() {
+    router.push("/checkout/payment");
+  }
+
   return (
     <main className={styles.main}>
       <p className={`${styles.title} ${zillaSlabBold.className}`}>
@@ -68,7 +72,7 @@ export default function OrderResumeSection() {
           width={"100%"}
           height={"45px"}
           fontSize={20}
-          onClick={() => console.log("clicou no botão")}
+          onClick={goToPayment}
         />
         <p className={styles.textButton} onClick={goShop}>
           continuar comprando
