@@ -6,7 +6,7 @@ import HeaderNavigation from "@/components/molecules/headerNavigation/headerNavi
 import Footer from "@/components/molecules/footer/footer";
 import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton";
 import CardIcon from "@/components/icons/cardIcon/cardIcon";
-import Input from "@/components/atoms/input/input";
+import Input, { InputController } from "@/components/atoms/input/input";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -14,7 +14,21 @@ const zillaSlab = Zilla_Slab({
   display: "swap",
 });
 
+interface PayerData {
+  name: InputController;
+  email: InputController;
+  cpf: InputController;
+  cellphone: InputController;
+}
+
 export default function CheckoutPayment() {
+  const payerDataForm: PayerData = {
+    name: { value: "felipe" },
+    email: { value: "" },
+    cpf: { value: "fefe" },
+    cellphone: { value: "419958" },
+  };
+
   return (
     <main className={styles.main}>
       <header className={styles.header}>
@@ -31,10 +45,29 @@ export default function CheckoutPayment() {
               1 - Dados do pagador
             </p>
             <section className={styles.inputSection}>
-              <Input placeholder="Nome completo" />
-              <Input placeholder="E-mail" />
-              <Input placeholder="CPF" />
-              <Input placeholder="Celular com DDD" />
+              <Input
+                placeholder="Nome completo"
+                type="text"
+                autocomplete="name"
+                controller={payerDataForm.name}
+              />
+              <Input
+                placeholder="E-mail"
+                type="email"
+                autocomplete="email"
+                controller={payerDataForm.email}
+              />
+              <Input
+                placeholder="CPF"
+                type="cpf"
+                controller={payerDataForm.cpf}
+              />
+              <Input
+                placeholder="Celular com DDD"
+                type="cellphone"
+                autocomplete="tel"
+                controller={payerDataForm.cellphone}
+              />
             </section>
           </section>
 
