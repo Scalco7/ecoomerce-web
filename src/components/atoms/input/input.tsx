@@ -130,7 +130,7 @@ export default function Input({
       }`}
       style={{
         fontSize: isPoppins ? "15px" : "18px",
-        borderColor: controller.hasError ? "red" : "black",
+        backgroundColor: controller.hasError ? "#FFABAB" : "white",
       }}
       placeholder={placeholder}
       autoComplete={autocomplete}
