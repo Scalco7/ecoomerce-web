@@ -8,9 +8,12 @@ import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton"
 import CardIcon from "@/components/icons/cardIcon/cardIcon";
 import Input, { InputController } from "@/components/atoms/input/input";
 import toast, { Toaster } from "react-hot-toast";
-import { darkToastOptions } from "@/utils/toast.utils";
 import { useState } from "react";
-import validarCpf from "validar-cpf";
+import {
+  validateAddressData,
+  validatePayerData,
+} from "@/utils/checkoutValidators.utils";
+import { darkToastOptions } from "@/utils/toast.utils";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -18,14 +21,14 @@ const zillaSlab = Zilla_Slab({
   display: "swap",
 });
 
-interface PayerData {
+export interface PayerData {
   name: InputController;
   email: InputController;
   cpf: InputController;
   cellphone: InputController;
 }
 
-interface AddressData {
+export interface AddressData {
   cep: InputController;
   state: InputController;
   city: InputController;
@@ -33,109 +36,6 @@ interface AddressData {
   street: InputController;
   number: InputController;
   complement: InputController;
-}
-
-function validateCEP(cep: string): boolean {
-  return /^\d{8}$/.test(cep.replace(/[^\d]+/g, ""));
-}
-
-function validatePayerData(payerData: PayerData): PayerData {
-  const { name, email, cpf, cellphone } = payerData;
-
-  if (name.value == "" || name.value == " ") {
-    name.hasError = true;
-    toast.error("Digite um nome.", darkToastOptions);
-    return { name, email, cpf, cellphone };
-  }
-  name.hasError = false;
-
-  const emailRegex =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  if (!emailRegex.test(email.value)) {
-    email.hasError = true;
-    toast.error("Digite um E-mail válido.", darkToastOptions);
-    return { name, email, cpf, cellphone };
-  }
-  email.hasError = false;
-
-  if (!validarCpf(cpf.value)) {
-    cpf.hasError = true;
-    toast.error("Digite um cpf válido.", darkToastOptions);
-    return { name, email, cpf, cellphone };
-  }
-  cpf.hasError = false;
-
-  if (cellphone.value == "") {
-    cellphone.hasError = true;
-    toast.error("Digite um número de celular.", darkToastOptions);
-    return { name, email, cpf, cellphone };
-  }
-  if (cellphone.value.length != 16) {
-    cellphone.hasError = true;
-    toast.error("Digite um número de celular válido.", darkToastOptions);
-    return { name, email, cpf, cellphone };
-  }
-  cellphone.hasError = false;
-
-  return { name, email, cpf, cellphone };
-}
-
-function validateAddressData(addressData: AddressData): AddressData {
-  const { cep, state, city, neighborhood, street, number, complement } =
-    addressData;
-
-  if (!validateCEP(cep.value)) {
-    cep.hasError = true;
-    toast.error("Digite um cep válido.", darkToastOptions);
-    return { cep, state, city, neighborhood, street, number, complement };
-  }
-  cep.hasError = false;
-
-  if (state.value == "" || state.value == " ") {
-    state.hasError = true;
-    toast.error("Digite um estado.", darkToastOptions);
-    return { cep, state, city, neighborhood, street, number, complement };
-  }
-  state.hasError = false;
-
-  if (city.value == "" || city.value == " ") {
-    city.hasError = true;
-    toast.error("Digite uma cidade.", darkToastOptions);
-    return { cep, state, city, neighborhood, street, number, complement };
-  }
-  city.hasError = false;
-
-  if (neighborhood.value == "" || neighborhood.value == " ") {
-    neighborhood.hasError = true;
-    toast.error("Digite um estado.", darkToastOptions);
-    return { cep, state, city, neighborhood, street, number, complement };
-  }
-  neighborhood.hasError = false;
-
-  if (street.value == "" || street.value == " ") {
-    street.hasError = true;
-    toast.error("Digite um estado.", darkToastOptions);
-    return { cep, state, city, neighborhood, street, number, complement };
-  }
-  street.hasError = false;
-
-  if (number.value == "" || number.value == " ") {
-    number.hasError = true;
-    toast.error("Digite um estado.", darkToastOptions);
-    return { cep, state, city, neighborhood, street, number, complement };
-  }
-  number.hasError = false;
-
-  return { cep, state, city, neighborhood, street, number, complement };
-}
-
-function formIsValid(form: Record<string, InputController>): boolean {
-  const errors = Object.keys(form).map((key) => {
-    if (form[key].hasError) return true;
-    return false;
-  });
-
-  return !errors.some((e) => e == true);
 }
 
 export default function CheckoutPayment() {
@@ -156,15 +56,21 @@ export default function CheckoutPayment() {
   });
 
   function handleOnCorfirmData() {
-    const newPayerForm = validatePayerData(payerDataForm);
-    setPayerDataForm(newPayerForm);
+    const validatePayerObject = validatePayerData(payerDataForm);
+    setPayerDataForm(validatePayerObject.form);
 
-    if (!formIsValid(newPayerForm as any)) return;
+    if (validatePayerObject.error) {
+      toast.error(validatePayerObject.error, darkToastOptions);
+      return;
+    }
 
-    const newAddressForm = validateAddressData(addressDataForm);
-    setAddressDataForm(newAddressForm);
+    const validateAddressObject = validateAddressData(addressDataForm);
+    setAddressDataForm(validateAddressObject.form);
 
-    if (!formIsValid(newAddressForm as any)) return;
+    if (validateAddressObject.error) {
+      toast.error(validateAddressObject.error, darkToastOptions);
+      return;
+    }
   }
 
   return (
