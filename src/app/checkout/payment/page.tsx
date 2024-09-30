@@ -21,12 +21,32 @@ interface PayerData {
   cellphone: InputController;
 }
 
+interface AddressData {
+  cep: InputController;
+  state: InputController;
+  city: InputController;
+  neighborhood: InputController;
+  street: InputController;
+  number: InputController;
+  complement: InputController;
+}
+
 export default function CheckoutPayment() {
   const payerDataForm: PayerData = {
-    name: { value: "felipe" },
+    name: { value: "" },
     email: { value: "" },
-    cpf: { value: "fefe" },
-    cellphone: { value: "419958" },
+    cpf: { value: "" },
+    cellphone: { value: "" },
+  };
+
+  const addressDataForm: AddressData = {
+    cep: { value: "" },
+    state: { value: "" },
+    city: { value: "" },
+    neighborhood: { value: "" },
+    street: { value: "" },
+    number: { value: "" },
+    complement: { value: "" },
   };
 
   return (
@@ -70,14 +90,63 @@ export default function CheckoutPayment() {
               />
             </section>
           </section>
-
+          <section className={styles.subSection}>
+            <p className={`${zillaSlab.className} ${styles.sectionTitle}`}>
+              2 - Endereço de entrega
+            </p>
+            <section className={styles.inputSection}>
+              <Input
+                placeholder="CEP"
+                type="cep"
+                autocomplete="postal-code"
+                controller={addressDataForm.cep}
+              />
+              <Input
+                placeholder="Estado"
+                type="text"
+                autocomplete="address-level1"
+                controller={addressDataForm.state}
+              />
+              <Input
+                placeholder="Cidade"
+                type="text"
+                autocomplete="address-level2"
+                controller={addressDataForm.city}
+              />
+              <Input
+                placeholder="Bairro"
+                type="text"
+                autocomplete="address-level3"
+                controller={addressDataForm.neighborhood}
+              />
+              <Input
+                placeholder="Rua"
+                type="text"
+                autocomplete="address-line1"
+                controller={addressDataForm.street}
+              />
+              <Input
+                placeholder="Número"
+                type="number"
+                autocomplete="address-line2"
+                controller={addressDataForm.number}
+              />
+              <Input
+                placeholder="Complemento"
+                type="text"
+                controller={addressDataForm.complement}
+              />
+            </section>
+          </section>
           <div className={styles.boxButton}>
             <SecondaryButton
               width={"100%"}
               height={"54px"}
               text="Confirmar Dados"
               textTransform="uppercase"
-              onClick={() => {}}
+              onClick={() => {
+                console.log(addressDataForm);
+              }}
             />
           </div>
         </section>
