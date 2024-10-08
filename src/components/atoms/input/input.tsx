@@ -113,11 +113,15 @@ export default function Input({
   onChange,
 }: InputProps) {
   const isInitialMount = useRef(true);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(getInitValue);
   const isPoppins = type != "email" && type != "text";
   const inputType = type == "email" ? type : "text";
 
-  useEffect(() => setInputText(controller.value), []);
+  useEffect(() => {
+    const newText = controller.value;
+    setInputValue(formatAndMaskValue(newText));
+  }, [controller]);
+
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
@@ -131,10 +135,14 @@ export default function Input({
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const actualInputText = event.target.value;
-    setInputText(actualInputText);
+    setInputValue(formatAndMaskValue(actualInputText));
   }
 
-  function setInputText(text: string) {
+  function getInitValue(): string {
+    return formatAndMaskValue(controller.value);
+  }
+
+  function formatAndMaskValue(text: string): string {
     let newValue = text;
 
     switch (type) {
@@ -158,7 +166,7 @@ export default function Input({
         break;
     }
 
-    setInputValue(newValue);
+    return newValue;
   }
 
   return (

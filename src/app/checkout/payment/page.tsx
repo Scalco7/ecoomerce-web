@@ -18,6 +18,7 @@ import { darkToastOptions } from "@/utils/toast.utils";
 import PaymentOptionSwitch, {
   PaymentOption,
 } from "@/components/molecules/paymentOptionSwitch/paymentOptionSwitch";
+import { CepRepository } from "@/repositories/cep.repository";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -50,6 +51,8 @@ export interface CardData {
 }
 
 export default function CheckoutPayment() {
+  const cepRepository = new CepRepository();
+
   const [paymentOption, setPaymentOption] = useState<PaymentOption>("pix");
   const [payerDataForm, setPayerDataForm] = useState<PayerData>({
     name: { value: "", hasError: false },
@@ -75,6 +78,34 @@ export default function CheckoutPayment() {
 
   function handleOnChangePaymentType(newType: PaymentOption) {
     setPaymentOption(newType);
+  }
+
+  function handleOnChangeCep(cep: string) {
+    cep = cep.replace(/\D/g, "");
+    if (cep.length == 8) autocompleteAddressByCep(cep);
+  }
+
+  async function autocompleteAddressByCep(cep: string) {
+    const { logradouro, bairro, localidade, estado } =
+      await cepRepository.getAddressByCep(cep);
+
+    let street = addressDataForm.street.value;
+    let neighborhood = addressDataForm.neighborhood.value;
+    let city = addressDataForm.city.value;
+    let state = addressDataForm.state.value;
+
+    if (logradouro && logradouro != "") street = logradouro;
+    if (bairro && bairro != "") neighborhood = bairro;
+    if (localidade && localidade != "") city = localidade;
+    if (estado && estado != "") state = estado;
+
+    setAddressDataForm({
+      ...addressDataForm,
+      state: { value: state, hasError: false },
+      city: { value: city, hasError: false },
+      neighborhood: { value: neighborhood, hasError: false },
+      street: { value: street, hasError: false },
+    });
   }
 
   function handleOnCorfirmData() {
@@ -159,6 +190,7 @@ export default function CheckoutPayment() {
                 type="cep"
                 autocomplete="postal-code"
                 controller={addressDataForm.cep}
+                onChange={handleOnChangeCep}
               />
               <Input
                 placeholder="Estado"
