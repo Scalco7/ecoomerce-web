@@ -1,9 +1,12 @@
 import { Zilla_Slab } from "next/font/google";
 import styles from "./style.module.css";
+import Input from "@/components/atoms/input/input";
+import { CardData } from "@/app/checkout/payment/page";
 
 export type PaymentOption = "card" | "pix";
 
 interface PaymentOptionSwitch {
+  form: CardData;
   paymentOption: PaymentOption;
   onChange: (type: PaymentOption) => void;
 }
@@ -15,6 +18,7 @@ const zillaSlab = Zilla_Slab({
 });
 
 export default function PaymentOptionSwitch({
+  form,
   paymentOption,
   onChange,
 }: PaymentOptionSwitch) {
@@ -54,7 +58,38 @@ export default function PaymentOptionSwitch({
             </p>
           </section>
         )}
-        {paymentOption == "card" && <section>Cartão</section>}
+        {paymentOption == "card" && (
+          <section className={styles.cardSection}>
+            <Input
+              placeholder="Nome do titular do cartão"
+              type="text"
+              //   autocomplete="address-level2"
+              controller={form.name}
+            />
+            <Input
+              placeholder="Número do cartão"
+              type="text"
+              //   autocomplete="address-level3"
+              controller={form.cardNumber}
+            />
+            <section className={styles.rowSection}>
+              <Input
+                placeholder="Data de validade"
+                type="text"
+                // autocomplete="address-line1"
+                controller={form.validateDate}
+              />
+              <div className={styles.formCodeBox}>
+                <Input
+                  placeholder="Cód."
+                  type="number"
+                  //   autocomplete="address-line2"
+                  controller={form.code}
+                />
+              </div>
+            </section>
+          </section>
+        )}
       </section>
     </main>
   );

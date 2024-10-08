@@ -41,6 +41,13 @@ export interface AddressData {
   complement: InputController;
 }
 
+export interface CardData {
+  name: InputController;
+  cardNumber: InputController;
+  validateDate: InputController;
+  code: InputController;
+}
+
 export default function CheckoutPayment() {
   const [paymentOption, setPaymentOption] = useState<PaymentOption>("pix");
   const [payerDataForm, setPayerDataForm] = useState<PayerData>({
@@ -57,6 +64,12 @@ export default function CheckoutPayment() {
     street: { value: "", hasError: false },
     number: { value: "", hasError: false },
     complement: { value: "", hasError: false },
+  });
+  const [cardDataForm, setCardDataForm] = useState<CardData>({
+    name: { value: "", hasError: false },
+    cardNumber: { value: "", hasError: false },
+    validateDate: { value: "", hasError: false },
+    code: { value: "", hasError: false },
   });
 
   function handleOnChangePaymentType(newType: PaymentOption) {
@@ -177,6 +190,7 @@ export default function CheckoutPayment() {
           </section>
           <section className={styles.subSection}>
             <PaymentOptionSwitch
+              form={cardDataForm}
               paymentOption={paymentOption}
               onChange={handleOnChangePaymentType}
             />
