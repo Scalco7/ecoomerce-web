@@ -1,4 +1,4 @@
-import { AddressData, PayerData } from "@/app/checkout/payment/page";
+import { AddressData, CardData, PayerData } from "@/app/checkout/payment/page";
 import validarCpf from "validar-cpf";
 import { InputController } from "@/components/atoms/input/input";
 
@@ -83,6 +83,78 @@ export function validateAddressData(addressData: AddressData): { form: AddressDa
     number.hasError = false;
 
     return { form: { cep, state, city, neighborhood, street, number, complement } };
+}
+
+export function validateCardData(cardData: CardData): { form: CardData, error?: string } {
+    const { name, cardNumber, validateDate, code } = cardData;
+
+    if (name.value == "" || name.value == " ") {
+        name.hasError = true;
+        return { form: { name, cardNumber, validateDate, code }, error: "Digite o nome do titular do cartão." };
+    }
+    name.hasError = false;
+
+
+    if (cardNumber.value == "" || cardNumber.value == " ") {
+        cardNumber.hasError = true;
+        return { form: { name, cardNumber, validateDate, code }, error: "Digite o número do cartão." };
+    }
+
+    if (!validateCardNumber(cardNumber.value)) {
+        cardNumber.hasError = true;
+        return { form: { name, cardNumber, validateDate, code }, error: "Digite um número do cartão válido." };
+    }
+    cardNumber.hasError = false;
+
+
+    if (validateDate.value == "" || validateDate.value == " ") {
+        validateDate.hasError = true;
+        return { form: { name, cardNumber, validateDate, code }, error: "Digite a data de validade." };
+    }
+
+    if (!validateCardValidadeDate(validateDate.value)) {
+        validateDate.hasError = true;
+        return { form: { name, cardNumber, validateDate, code }, error: "Digite uma data de validade válida." };
+    }
+    validateDate.hasError = false;
+
+
+    if (code.value == "" || code.value == " ") {
+        code.hasError = true;
+        return { form: { name, cardNumber, validateDate, code }, error: "Digite o código do cartão." };
+    }
+
+    if (code.value.length > 4 || code.value.length < 3) {
+        code.hasError = true;
+        return { form: { name, cardNumber, validateDate, code }, error: "Digite um código do cartão válido." };
+    }
+    code.hasError = false;
+
+    return { form: { name, cardNumber, validateDate, code } };
+}
+
+function validateCardNumber(number: string): boolean {
+    return number.replace(/\D/g, "")
+        .split("")
+        .reverse()
+        .map(Number)
+        .reduce((soma, digit, i) => soma + (i % 2 ? (digit * 2 > 9 ? digit * 2 - 9 : digit * 2) : digit), 0) % 10 === 0;
+}
+
+function validateCardValidadeDate(date: string): boolean {
+    date = date.replace(/\D/g, "");
+    if (date.length !== 4) return false;
+
+    const month = parseInt(date.slice(0, 2), 10);
+    const year = parseInt("20" + date.slice(2), 10);
+
+    if (month < 1 || month > 12) return false;
+
+    const today = new Date();
+    const actualMonth = today.getMonth() + 1;
+    const actualYear = today.getFullYear();
+
+    return (year > actualYear) || (year === actualYear && month >= actualMonth);
 }
 
 function formIsValid(form: Record<string, InputController>): boolean {

@@ -11,6 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import {
   validateAddressData,
+  validateCardData,
   validatePayerData,
 } from "@/utils/checkoutValidators.utils";
 import { darkToastOptions } from "@/utils/toast.utils";
@@ -92,6 +93,19 @@ export default function CheckoutPayment() {
       toast.error(validateAddressObject.error, darkToastOptions);
       return;
     }
+
+    if (paymentOption == "card") {
+      const validateCardObject = validateCardData(cardDataForm);
+      console.log(validateCardObject);
+      setCardDataForm(validateCardObject.form);
+
+      if (validateCardObject.error) {
+        toast.error(validateCardObject.error, darkToastOptions);
+        return;
+      }
+    }
+
+    toast.success("Criando pagamento", darkToastOptions);
   }
 
   return (
