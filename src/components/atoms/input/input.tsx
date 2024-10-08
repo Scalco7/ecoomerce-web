@@ -15,7 +15,15 @@ export interface InputController {
 
 interface InputProps {
   placeholder: string;
-  type: "text" | "email" | "number" | "cellphone" | "cpf" | "cep";
+  type:
+    | "text"
+    | "email"
+    | "number"
+    | "cellphone"
+    | "cpf"
+    | "cep"
+    | "card number"
+    | "card validate";
   controller: InputController;
   autocomplete?: HTMLInputAutoCompleteAttribute;
 }
@@ -32,48 +40,70 @@ const poppins = Poppins({
   display: "swap",
 });
 
-function cellphoneMask(numero: string): string {
-  numero = numero.replace(/\D/g, "");
+function cellphoneMask(number: string): string {
+  number = number.replace(/\D/g, "");
 
-  if (numero.length <= 0) {
+  if (number.length <= 0) {
     return "";
-  } else if (numero.length <= 2) {
-    return `(${numero}`;
-  } else if (numero.length <= 7) {
-    return `(${numero.slice(0, 2)}) ${numero.slice(2)}`;
+  } else if (number.length <= 2) {
+    return `(${number}`;
+  } else if (number.length <= 7) {
+    return `(${number.slice(0, 2)}) ${number.slice(2)}`;
   }
 
-  return `(${numero.slice(0, 2)}) ${numero.slice(2, 3)} ${numero.slice(
+  return `(${number.slice(0, 2)}) ${number.slice(2, 3)} ${number.slice(
     3,
     7
-  )}-${numero.slice(7, 11)}`;
+  )}-${number.slice(7, 11)}`;
 }
 
-function cpfMask(numero: string): string {
-  numero = numero.replace(/\D/g, "");
+function cpfMask(number: string): string {
+  number = number.replace(/\D/g, "");
 
-  if (numero.length <= 3) {
-    return numero;
-  } else if (numero.length <= 6) {
-    return `${numero.slice(0, 3)}.${numero.slice(3)}`;
-  } else if (numero.length <= 9) {
-    return `${numero.slice(0, 3)}.${numero.slice(3, 6)}.${numero.slice(6)}`;
+  if (number.length <= 3) {
+    return number;
+  } else if (number.length <= 6) {
+    return `${number.slice(0, 3)}.${number.slice(3)}`;
+  } else if (number.length <= 9) {
+    return `${number.slice(0, 3)}.${number.slice(3, 6)}.${number.slice(6)}`;
   }
 
-  return `${numero.slice(0, 3)}.${numero.slice(3, 6)}.${numero.slice(
+  return `${number.slice(0, 3)}.${number.slice(3, 6)}.${number.slice(
     6,
     9
-  )}-${numero.slice(9, 11)}`;
+  )}-${number.slice(9, 11)}`;
 }
 
-function cepMask(numero: string): string {
-  numero = numero.replace(/\D/g, "");
+function cepMask(number: string): string {
+  number = number.replace(/\D/g, "");
 
-  if (numero.length <= 5) {
-    return numero;
+  if (number.length <= 5) {
+    return number;
   }
 
-  return `${numero.slice(0, 5)}-${numero.slice(5, 8)}`;
+  return `${number.slice(0, 5)}-${number.slice(5, 8)}`;
+}
+
+function cardNumberMask(number: string): string {
+  return number
+    .replace(/\D/g, "")
+    .slice(0, 16)
+    .replace(/(\d{4})(?=\d)/g, "$1 ");
+}
+
+function cardValidateMask(number: string): string {
+  number = number.replace(/\D/g, "").slice(0, 4);
+
+  // Limita o mês para estar entre 01 e 12
+  if (number.length == 2) {
+    let month = parseInt(number.slice(0, 2));
+    if (month > 12) month = 12;
+    else if (month < 1) month = 1;
+    number = month.toString().padStart(2, "0") + number.slice(2);
+  }
+
+  // Aplica a barra após os primeiros 2 dígitos
+  return number.replace(/(\d{2})(?=\d)/g, "$1/");
 }
 
 export default function Input({
@@ -117,6 +147,12 @@ export default function Input({
         break;
       case "cep":
         newValue = cepMask(text);
+        break;
+      case "card number":
+        newValue = cardNumberMask(text);
+        break;
+      case "card validate":
+        newValue = cardValidateMask(text);
         break;
     }
 

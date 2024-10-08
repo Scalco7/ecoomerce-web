@@ -63,27 +63,26 @@ export default function PaymentOptionSwitch({
             <Input
               placeholder="Nome do titular do cartão"
               type="text"
-              //   autocomplete="address-level2"
+              autocomplete="cc-name"
               controller={form.name}
             />
             <Input
               placeholder="Número do cartão"
-              type="text"
-              //   autocomplete="address-level3"
+              type="card number"
+              autocomplete="cc-number"
               controller={form.cardNumber}
             />
             <section className={styles.rowSection}>
               <Input
                 placeholder="Data de validade"
-                type="text"
-                // autocomplete="address-line1"
+                type="card validate"
+                autocomplete="cc-exp"
                 controller={form.validateDate}
               />
               <div className={styles.formCodeBox}>
                 <Input
                   placeholder="Cód."
                   type="number"
-                  //   autocomplete="address-line2"
                   controller={form.code}
                 />
               </div>
