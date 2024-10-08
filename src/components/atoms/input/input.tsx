@@ -94,7 +94,6 @@ function cardNumberMask(number: string): string {
 function cardValidateMask(number: string): string {
   number = number.replace(/\D/g, "").slice(0, 4);
 
-  // Limita o mês para estar entre 01 e 12
   if (number.length == 2) {
     let month = parseInt(number.slice(0, 2));
     if (month > 12) month = 12;
@@ -102,7 +101,6 @@ function cardValidateMask(number: string): string {
     number = month.toString().padStart(2, "0") + number.slice(2);
   }
 
-  // Aplica a barra após os primeiros 2 dígitos
   return number.replace(/(\d{2})(?=\d)/g, "$1/");
 }
 
