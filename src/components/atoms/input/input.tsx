@@ -26,6 +26,7 @@ interface InputProps {
     | "card validate";
   controller: InputController;
   autocomplete?: HTMLInputAutoCompleteAttribute;
+  onChange?: (value: string) => void;
 }
 
 const zillaSlab = Zilla_Slab({
@@ -109,6 +110,7 @@ export default function Input({
   autocomplete,
   type,
   controller,
+  onChange,
 }: InputProps) {
   const isInitialMount = useRef(true);
   const [inputValue, setInputValue] = useState("");
@@ -122,6 +124,8 @@ export default function Input({
     } else {
       controller.value = inputValue;
       controller.hasError = false;
+
+      if (onChange) onChange(inputValue);
     }
   }, [inputValue]);
 
