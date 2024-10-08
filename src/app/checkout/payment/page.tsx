@@ -14,6 +14,9 @@ import {
   validatePayerData,
 } from "@/utils/checkoutValidators.utils";
 import { darkToastOptions } from "@/utils/toast.utils";
+import PaymentOptionSwitch, {
+  PaymentOption,
+} from "@/components/molecules/paymentOptionSwitch/paymentOptionSwitch";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -39,6 +42,7 @@ export interface AddressData {
 }
 
 export default function CheckoutPayment() {
+  const [paymentOption, setPaymentOption] = useState<PaymentOption>("pix");
   const [payerDataForm, setPayerDataForm] = useState<PayerData>({
     name: { value: "", hasError: false },
     email: { value: "", hasError: false },
@@ -54,6 +58,10 @@ export default function CheckoutPayment() {
     number: { value: "", hasError: false },
     complement: { value: "", hasError: false },
   });
+
+  function handleOnChangePaymentType(newType: PaymentOption) {
+    setPaymentOption(newType);
+  }
 
   function handleOnCorfirmData() {
     const validatePayerObject = validatePayerData(payerDataForm);
@@ -166,6 +174,12 @@ export default function CheckoutPayment() {
                 controller={addressDataForm.complement}
               />
             </section>
+          </section>
+          <section className={styles.subSection}>
+            <PaymentOptionSwitch
+              paymentOption={paymentOption}
+              onChange={handleOnChangePaymentType}
+            />
           </section>
           <div className={styles.boxButton}>
             <SecondaryButton
