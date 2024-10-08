@@ -21,7 +21,7 @@ import { useCart } from "@/states/cartState";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
 import { buyProduct } from "@/utils/product.utils";
 import { Toaster } from "react-hot-toast";
-import { ProductRepository } from "@/repositoryes/product.repository";
+import { ProductRepository } from "@/repositories/product.repository";
 
 export default function Home() {
   const { productsSections, setProductsSections } = useProduct();
