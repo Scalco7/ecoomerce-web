@@ -5,7 +5,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 25px;
+  color: black;
 }
 
 .title {
@@ -39,4 +40,25 @@
   color: white;
   background-color: black;
   box-shadow: none;
+}
+
+.paymentDataSection {
+  width: 85%;
+}
+
+.pixSection {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.pixTitle {
+  font-size: 20px;
+}
+
+.pixText {
+  width: 50%;
 }
