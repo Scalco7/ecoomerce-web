@@ -48,7 +48,7 @@
 }
 
 .subSection {
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@
 }
 
 .inputSection {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,6 +103,16 @@
 @media (min-width: 475px) {
   .boxButton {
     font-size: 22px;
+  }
+
+  .inputSection {
+    width: 90%;
+  }
+}
+
+@media (min-width: 556px) {
+  .subSection {
+    width: 90%;
   }
 }
 

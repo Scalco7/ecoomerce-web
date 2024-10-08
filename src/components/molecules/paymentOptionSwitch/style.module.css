@@ -43,7 +43,7 @@
 }
 
 .paymentDataSection {
-  width: 85%;
+  width: 100%;
 }
 
 .pixSection {
@@ -80,4 +80,10 @@
 
 .formCodeBox {
   width: 150px;
+}
+
+@media (min-width: 475px) {
+  .paymentDataSection {
+    width: 90%;
+  }
 }
