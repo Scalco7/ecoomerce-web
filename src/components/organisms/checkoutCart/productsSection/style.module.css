@@ -4,10 +4,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 50px;
   padding: 50px 5px;
 }
 
 .productsSection {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +23,14 @@
   scrollbar-color: black rgb(60, 60, 60);
   scrollbar-width: thin;
   scrollbar-gutter: stable;
+}
+
+.shopOptionsSection {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 @media (min-width: 576px) {

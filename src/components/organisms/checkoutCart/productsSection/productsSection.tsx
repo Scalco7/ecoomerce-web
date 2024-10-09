@@ -1,6 +1,7 @@
 import { useCart } from "@/states/cartState";
 import styles from "./style.module.css";
 import ProductCheckoutBox from "@/components/molecules/productCheckoutBox/productCheckoutBox";
+import CupomInput from "@/components/molecules/cupomInput/cupomInput";
 
 export default function CheckoutProductsSection() {
   const { products } = useCart();
@@ -15,6 +16,9 @@ export default function CheckoutProductsSection() {
               product={product}
             />
           ))}
+      </section>
+      <section className={styles.shopOptionsSection}>
+        <CupomInput />
       </section>
     </main>
   );
