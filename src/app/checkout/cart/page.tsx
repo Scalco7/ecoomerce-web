@@ -14,13 +14,14 @@ import {
   openModalVariant,
 } from "@/utils/modalVariant.utils";
 import { useCart } from "@/states/cartState";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalVariantSection from "@/components/organisms/modalVariantSection/modalVariantSection";
 import CommentAvalliations from "@/components/atoms/commentAvalliations/commentAvalliations";
 import OrderResumeSection from "@/components/organisms/checkoutCart/orderResumeSection/orderResumeSection";
 import CartIcon from "@/components/icons/cartIcon/cartIcon";
 import { Zilla_Slab } from "next/font/google";
 import CheckoutProductsSection from "@/components/organisms/checkoutCart/productsSection/productsSection";
+import { useRouter } from "next/navigation";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -30,7 +31,7 @@ const zillaSlab = Zilla_Slab({
 
 export default function CheckoutCart() {
   const { productsSections, styleSection } = useProduct();
-  const { addProduct } = useCart();
+  const { addProduct, productsQuantity } = useCart();
 
   const [variantSectionIsOpen, setVariantSectionIsOpen] = useState(false);
   const [currentVariant, setCurrentVariant] = useState<
@@ -38,6 +39,12 @@ export default function CheckoutCart() {
   >();
   const [resolveModalVariant, setResolveModalVariant] =
     useState<ModalVariantPromise | null>(null);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (productsQuantity < 1) router.push("/home");
+  }, []);
 
   async function handleBuyProduct(productTypeId: string): Promise<void> {
     await buyProduct(
@@ -69,7 +76,7 @@ export default function CheckoutCart() {
           <CartIcon size={40} color="#000" />{" "}
           <p className={zillaSlab.className}>Meu carrinho</p>
         </section>
-        <CheckoutProductsSection/>
+        <CheckoutProductsSection />
         <section className={styles.buySection}>
           <CategorySection
             colorScheme={"yellow"}

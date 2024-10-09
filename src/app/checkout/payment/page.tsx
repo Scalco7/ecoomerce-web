@@ -8,7 +8,7 @@ import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton"
 import CardIcon from "@/components/icons/cardIcon/cardIcon";
 import Input, { InputController } from "@/components/atoms/input/input";
 import toast, { Toaster } from "react-hot-toast";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   validateAddressData,
   validateCardData,
@@ -19,6 +19,8 @@ import PaymentOptionSwitch, {
   PaymentOption,
 } from "@/components/molecules/paymentOptionSwitch/paymentOptionSwitch";
 import { CepRepository } from "@/repositories/cep.repository";
+import { useCart } from "@/states/cartState";
+import { useRouter } from "next/navigation";
 
 const zillaSlab = Zilla_Slab({
   weight: "700",
@@ -53,6 +55,9 @@ export interface CardData {
 export default function CheckoutPayment() {
   const cepRepository = new CepRepository();
 
+  const { productsQuantity } = useCart();
+  const router = useRouter();
+
   const [paymentOption, setPaymentOption] = useState<PaymentOption>("pix");
   const [payerDataForm, setPayerDataForm] = useState<PayerData>({
     name: { value: "", hasError: false },
@@ -75,6 +80,10 @@ export default function CheckoutPayment() {
     validateDate: { value: "", hasError: false },
     code: { value: "", hasError: false },
   });
+
+  useEffect(() => {
+    if (productsQuantity < 1) router.push("/home");
+  }, []);
 
   function handleOnChangePaymentType(newType: PaymentOption) {
     setPaymentOption(newType);
