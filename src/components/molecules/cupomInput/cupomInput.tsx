@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import styles from "./style.module.css";
 import { Poppins } from "next/font/google";
+import { useCoupon } from "@/states/couponState";
 
 const poppins = Poppins({
   weight: "600",
@@ -9,15 +10,16 @@ const poppins = Poppins({
 });
 
 export default function CupomInput() {
-  const [cupom, setCupom] = useState<string | null>(null);
+  const { coupon, setCoupon } = useCoupon();
   const [inputValue, setInputValue] = useState("");
 
   function applyCupom() {
-    if (inputValue != "" && inputValue != " ") setCupom(inputValue);
+    if (inputValue != "" && inputValue != " ")
+      setCoupon({ name: inputValue, discountPercentage: 10 });
   }
 
   function removeCupom() {
-    setCupom(null);
+    setCoupon();
   }
 
   function handleOnChangeValue(event: ChangeEvent<HTMLInputElement>) {
@@ -28,7 +30,7 @@ export default function CupomInput() {
   }
 
   function handleOnClickButton() {
-    if (cupom) removeCupom();
+    if (coupon) removeCupom();
     else applyCupom();
   }
 
@@ -39,16 +41,16 @@ export default function CupomInput() {
         <input
           className={`${poppins.className} ${styles.input}`}
           style={{
-            background: cupom ? "#C6FFAB" : "transparent",
+            background: coupon ? "#C6FFAB" : "transparent",
           }}
-          value={cupom ?? inputValue}
+          value={coupon ? coupon.name : inputValue}
           placeholder="CUPOM"
           autoComplete="none"
-          disabled={!!cupom}
+          disabled={!!coupon}
           onChange={handleOnChangeValue}
         />
         <div className={styles.buttonBox} onClick={handleOnClickButton}>
-          {cupom ? "Remover" : "Aplicar"}
+          {coupon ? "Remover" : "Aplicar"}
         </div>
       </div>
     </main>

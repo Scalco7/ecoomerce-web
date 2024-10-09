@@ -4,6 +4,8 @@ import SecondaryButton from "@/components/atoms/secondaryButton/secondaryButton"
 import { Poppins, Zilla_Slab } from "next/font/google";
 import { formatNumberToValue } from "@/utils/number.utils";
 import { useRouter } from "next/navigation";
+import { useCoupon } from "@/states/couponState";
+import { getCouponDiscountValue } from "@/utils/coupon.utils";
 
 const poppins = Poppins({
   weight: "600",
@@ -25,7 +27,13 @@ const zillaSlabBold = Zilla_Slab({
 
 export default function OrderResumeSection() {
   const { totalPromotionPrice } = useCart();
+  const { coupon } = useCoupon();
   const router = useRouter();
+
+  const couponDiscount = getCouponDiscountValue(
+    totalPromotionPrice,
+    coupon?.discountPercentage ?? 0
+  );
 
   function goShop() {
     router.push("/shop");
@@ -53,16 +61,18 @@ export default function OrderResumeSection() {
             {formatNumberToValue(totalPromotionPrice)}
           </p>
         </section>
-        <section className={styles.priceBox}>
-          <p>Cupom:</p>
-          <p className={poppins.className}>
-            - {formatNumberToValue(totalPromotionPrice)}
-          </p>
-        </section>
+        {coupon && (
+          <section className={styles.priceBox}>
+            <p>Cupom:</p>
+            <p className={poppins.className}>
+              - {formatNumberToValue(couponDiscount)}
+            </p>
+          </section>
+        )}
         <section className={styles.priceBox}>
           <p>Total:</p>
           <p className={`${poppinsBold.className} ${styles.totalText}`}>
-            {formatNumberToValue(totalPromotionPrice)}
+            {formatNumberToValue(totalPromotionPrice - couponDiscount)}
           </p>
         </section>
       </section>
